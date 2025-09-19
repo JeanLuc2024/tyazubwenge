@@ -1,0 +1,220 @@
+/*------------------------------------------------------------------
+    File Name: custom.css
+-------------------------------------------------------------------*/
+
+/* Homepage Styles */
+.homepage {
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding-top: 80px;
+}
+
+.hero-section h1 {
+    color: white !important;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.hero-buttons .btn {
+    margin: 5px;
+}
+
+.hero-image {
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* Dashboard Enhancements */
+.dashboard-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-card .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.stat-card .stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Sidebar Enhancements */
+#sidebar {
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+}
+
+#sidebar .sidebar_user_info {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/* Table Enhancements */
+.table-modern {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.table-modern thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* Button Enhancements */
+.btn-modern {
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Recent Sales Styles */
+.recent_sales_list {
+    padding: 20px;
+}
+
+.sale_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sale_item:last-child {
+    border-bottom: none;
+}
+
+.sale_info h6 {
+    color: #1ed085;
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.sale_info p {
+    color: rgba(255,255,255,0.7);
+    margin: 0 0 5px 0;
+    font-size: 14px;
+}
+
+.sale_amount {
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.sale_time {
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+}
+
+/* Business Metrics Icons */
+.business_metrics_section .fb .social_icon {
+    background: #28a745;
+}
+
+.business_metrics_section .tw .social_icon {
+    background: #17a2b8;
+}
+
+.business_metrics_section .linked .social_icon {
+    background: #ffc107;
+    color: #000;
+}
+
+.business_metrics_section .google_p .social_icon {
+    background: #dc3545;
+}
+
+/* POS Styles */
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-color: #007bff;
+}
+
+.product-image {
+    margin-bottom: 10px;
+}
+
+.product-info h6 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.product-sku {
+    font-size: 12px;
+    color: #666;
+    margin: 0 0 5px 0;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #28a745;
+    margin: 0 0 10px 0;
+}
+
+.cart-item {
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+}
+
+.item-total {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.cart-summary {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+}

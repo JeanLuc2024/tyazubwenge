@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laboratory Products POS - Tyazubwenge Management</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <style>
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .product-image {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .product-info h6 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .product-sku {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .product-price {
+            font-weight: 600;
+            color: #28a745;
+            margin-bottom: 5px;
+        }
+        .dashboard-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .cart-item {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .item-total {
+            font-weight: 600;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>Cashier User</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>Management</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock Management</span></a></li>
+                        <li class="active">
+                            <a href="#sales" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a>
+                            <ul class="collapse list-unstyled show" id="sales">
+                                <li><a href="sales-pos.html" class="active">> <span>Point of Sale</span></a></li>
+                                <li><a href="sales-invoices.html">> <span>Invoices</span></a></li>
+                                <li><a href="sales-payments.html">> <span>Payments</span></a></li>
+                                <li><a href="sales-returns.html">> <span>Returns</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
+                        <li><a href="suppliers-list.html"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a></li>
+                        <li><a href="reports-sales.html"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Page Content -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>Laboratory Products Point of Sale (POS)</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Product Search & Selection -->
+                            <div class="col-md-8">
+                                <div class="dashboard-card">
+                                    <h4>Laboratory Products Selection</h4>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" placeholder="Search by name, SKU, batch, or barcode...">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <select class="form-control">
+                                                <option>All Categories</option>
+                                                <option>Chemical Reagents</option>
+                                                <option>Laboratory Equipment</option>
+                                                <option>Measuring Instruments</option>
+                                                <option>Safety Equipment</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button class="btn btn-primary btn-block">
+                                                <i class="fa fa-search"></i> Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Product Grid -->
+                                    <div class="row">
+                                        <div class="col-md-3 mb-3">
+                                            <div class="product-card" onclick="addToCart('LAB-001', 'Digital Microscope (1000x)', 45000, 1, 'pieces')">
+                                                <div class="product-image">
+                                                    <i class="fa fa-microscope fa-3x text-primary"></i>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h6>Digital Microscope (1000x)</h6>
+                                                    <p class="product-sku">SKU: LAB-001</p>
+                                                    <p class="product-price">₦45,000/piece</p>
+                                                    <span class="badge badge-success">In Stock: 15 pieces</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <div class="product-card" onclick="addToCart('CHEM-002', 'Sodium Chloride (Pure Grade)', 1200, 1, 'kg')">
+                                                <div class="product-image">
+                                                    <i class="fa fa-flask fa-3x text-success"></i>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h6>Sodium Chloride (Pure Grade)</h6>
+                                                    <p class="product-sku">SKU: CHEM-002</p>
+                                                    <p class="product-price">₦1,200/kg</p>
+                                                    <span class="badge badge-warning">Low Stock: 2.5kg</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <div class="product-card" onclick="addToCart('MEAS-003', 'Analytical Balance (0.1mg)', 125000, 1, 'pieces')">
+                                                <div class="product-image">
+                                                    <i class="fa fa-balance-scale fa-3x text-info"></i>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h6>Analytical Balance (0.1mg)</h6>
+                                                    <p class="product-sku">SKU: MEAS-003</p>
+                                                    <p class="product-price">₦125,000/piece</p>
+                                                    <span class="badge badge-danger">Out of Stock</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <div class="product-card" onclick="addToCart('SAFE-004', 'Safety Goggles (UV Protection)', 2500, 1, 'pieces')">
+                                                <div class="product-image">
+                                                    <i class="fa fa-eye fa-3x text-warning"></i>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h6>Safety Goggles (UV Protection)</h6>
+                                                    <p class="product-sku">SKU: SAFE-004</p>
+                                                    <p class="product-price">₦2,500/piece</p>
+                                                    <span class="badge badge-success">In Stock: 50 pieces</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <div class="product-card" onclick="addToCart('CHEM-005', 'Hydrochloric Acid (37%)', 850, 1, 'ml')">
+                                                <div class="product-image">
+                                                    <i class="fa fa-tint fa-3x text-danger"></i>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h6>Hydrochloric Acid (37%)</h6>
+                                                    <p class="product-sku">SKU: CHEM-005</p>
+                                                    <p class="product-price">₦850/ml</p>
+                                                    <span class="badge badge-danger">Expiring Soon: 500ml</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <div class="product-card" onclick="addToCart('GLASS-006', 'Beaker Set (50ml-1000ml)', 15000, 1, 'sets')">
+                                                <div class="product-image">
+                                                    <i class="fa fa-beaker fa-3x text-info"></i>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h6>Beaker Set (50ml-1000ml)</h6>
+                                                    <p class="product-sku">SKU: GLASS-006</p>
+                                                    <p class="product-price">₦15,000/set</p>
+                                                    <span class="badge badge-success">In Stock: 25 sets</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shopping Cart -->
+                            <div class="col-md-4">
+                                <div class="dashboard-card">
+                                    <h4>Shopping Cart</h4>
+                                    <div id="cart-items">
+                                        <!-- Cart items will be populated here -->
+                                    </div>
+                                    
+                                    <div class="cart-summary">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <strong>Subtotal:</strong>
+                                            <span id="subtotal">₦0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <strong>Tax (5%):</strong>
+                                            <span id="tax">₦0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <strong>Discount:</strong>
+                                            <span id="discount">₦0</span>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <strong>Total:</strong>
+                                            <span id="total">₦0</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <button class="btn btn-success btn-block btn-lg" onclick="processPayment()">
+                                            <i class="fa fa-credit-card"></i> Process Payment
+                                        </button>
+                                        <button class="btn btn-secondary btn-block" onclick="clearCart()">
+                                            <i class="fa fa-trash"></i> Clear Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        let cart = [];
+        let cartTotal = 0;
+
+        function addToCart(sku, name, price, quantity, unit) {
+            const existingItem = cart.find(item => item.sku === sku);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({ sku, name, price, quantity, unit });
+            }
+            
+            updateCartDisplay();
+        }
+
+        function removeFromCart(sku) {
+            cart = cart.filter(item => item.sku !== sku);
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            cartTotal = 0;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-muted">Cart is empty</p>';
+            } else {
+                cartItems.innerHTML = cart.map(item => {
+                    const itemTotal = item.price * item.quantity;
+                    cartTotal += itemTotal;
+                    return `
+                        <div class="cart-item d-flex justify-content-between align-items-center mb-2">
+                            <div>
+                                <h6 class="mb-0">${item.name}</h6>
+                                <small class="text-muted">${item.sku} | ${item.unit}</small>
+                                <div class="input-group input-group-sm mt-1">
+                                    <button class="btn btn-outline-secondary" onclick="updateQuantity('${item.sku}', -1)">-</button>
+                                    <input type="number" class="form-control text-center" value="${item.quantity}" min="0.001" step="0.001" onchange="setQuantity('${item.sku}', this.value)">
+                                    <button class="btn btn-outline-secondary" onclick="updateQuantity('${item.sku}', 1)">+</button>
+                                </div>
+                                <small class="text-muted">₦${item.price.toLocaleString()}/${item.unit}</small>
+                            </div>
+                            <div class="text-right">
+                                <div class="item-total">₦${itemTotal.toLocaleString()}</div>
+                                <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart('${item.sku}')">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            
+            const subtotal = cartTotal;
+            const tax = subtotal * 0.05;
+            const discount = 0;
+            const total = subtotal + tax - discount;
+            
+            document.getElementById('subtotal').textContent = `₦${subtotal.toLocaleString()}`;
+            document.getElementById('tax').textContent = `₦${tax.toLocaleString()}`;
+            document.getElementById('discount').textContent = `₦${discount.toLocaleString()}`;
+            document.getElementById('total').textContent = `₦${total.toLocaleString()}`;
+        }
+
+        function updateQuantity(sku, change) {
+            const item = cart.find(item => item.sku === sku);
+            if (item) {
+                item.quantity = Math.max(0.001, parseFloat((item.quantity + change).toFixed(3)));
+                updateCartDisplay();
+            }
+        }
+
+        function setQuantity(sku, quantity) {
+            const item = cart.find(item => item.sku === sku);
+            if (item) {
+                item.quantity = Math.max(0.001, parseFloat(quantity));
+                updateCartDisplay();
+            }
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartDisplay();
+        }
+
+        function processPayment() {
+            if (cart.length === 0) {
+                alert('Cart is empty!');
+                return;
+            }
+            
+            // Here you would typically open a payment modal or redirect to payment processing
+            alert('Payment processing would be implemented here. Total: ₦' + cartTotal.toLocaleString());
+        }
+    </script>
+</body>
+</html>

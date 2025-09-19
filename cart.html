@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Shopping Cart - Tyazubwenge Laboratory Products</title>
+      <meta name="keywords" content="laboratory products, shopping cart, chemicals, equipment, Tyazubwenge">
+      <meta name="description" content="Shopping cart for laboratory products and equipment">
+      <meta name="author" content="Tyazubwenge Ltd">
+      <!-- site icon -->
+      <link rel="icon" href="images/logo/logo_icon.png" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <!-- site css -->
+      <link rel="stylesheet" href="style.css" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="css/responsive.css" />
+      <!-- color css -->
+      <link rel="stylesheet" href="css/colors.css" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="css/bootstrap-select.css" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="css/perfect-scrollbar.css" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="css/custom.css" />
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <!-- Bootstrap Icons -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body class="cart-page">
+      <!-- Top Bar -->
+      <div class="top-bar py-2 bg-dark text-white">
+         <div class="container">
+            <div class="row align-items-center">
+               <div class="col-lg-4 d-none d-lg-flex">
+                  <div class="top-bar-item">
+                     <i class="bi bi-telephone-fill me-2"></i>
+                     <span>Need help? Call us: </span>
+                     <a href="tel:+1234567890" class="text-white">+1 (234) 567-890</a>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-12 text-center">
+                  <div class="announcement">
+                     <span>🚚 Free shipping on orders over $50</span>
+                  </div>
+               </div>
+               <div class="col-lg-4 d-none d-lg-block text-end">
+                  <div class="d-flex justify-content-end">
+                     <div class="dropdown me-3">
+                        <a href="#" class="text-white dropdown-toggle" data-bs-toggle="dropdown">
+                           <i class="bi bi-translate me-2"></i>EN
+                        </a>
+                        <ul class="dropdown-menu">
+                           <li><a class="dropdown-item" href="#">English</a></li>
+                           <li><a class="dropdown-item" href="#">Español</a></li>
+                        </ul>
+                     </div>
+                     <div class="dropdown">
+                        <a href="#" class="text-white dropdown-toggle" data-bs-toggle="dropdown">
+                           <i class="bi bi-currency-dollar me-2"></i>USD
+                        </a>
+                        <ul class="dropdown-menu">
+                           <li><a class="dropdown-item" href="#">USD</a></li>
+                           <li><a class="dropdown-item" href="#">EUR</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Main Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+         <div class="container">
+            <a class="navbar-brand" href="index.html">
+               <img src="images/logo/logo.png" alt="Tyazubwenge" height="40">
+               <span class="ml-2 fw-bold">Tyazubwenge</span>
+            </a>
+            
+            <!-- Search Bar -->
+            <form class="d-flex mx-3 flex-grow-1" style="max-width: 500px;">
+               <input class="form-control me-2" type="search" placeholder="Search laboratory products..." aria-label="Search">
+               <button class="btn btn-outline-primary" type="submit">
+                  <i class="bi bi-search"></i>
+               </button>
+            </form>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html#products">Products</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html#categories">Categories</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html#contact">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="login.html">
+                        <i class="bi bi-person me-1"></i>Login
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active" href="cart.html">
+                        <i class="bi bi-cart3 me-1"></i>Cart <span class="badge bg-primary">3</span>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link btn btn-primary text-white ms-2" href="dashboard.html">
+                        <i class="bi bi-speedometer2 me-1"></i>Admin
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+
+      <!-- Breadcrumb -->
+      <div class="container py-3">
+         <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+               <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+            </ol>
+         </nav>
+      </div>
+
+      <!-- Cart Section -->
+      <section class="py-5">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8">
+                  <h2 class="mb-4">Shopping Cart</h2>
+                  
+                  <!-- Cart Items -->
+                  <div class="card">
+                     <div class="card-body">
+                        <div class="table-responsive">
+                           <table class="table table-hover">
+                              <thead>
+                                 <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td>
+                                       <div class="d-flex align-items-center">
+                                          <img src="images/layout_img/g1.jpg" alt="Sodium Chloride" class="img-thumbnail me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                          <div>
+                                             <h6 class="mb-1">Sodium Chloride (NaCl)</h6>
+                                             <small class="text-muted">High purity laboratory grade</small>
+                                          </div>
+                                       </div>
+                                    </td>
+                                    <td>$12.50</td>
+                                    <td>
+                                       <div class="input-group" style="width: 120px;">
+                                          <button class="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                          <input type="number" class="form-control text-center" value="2" min="1">
+                                          <button class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                       </div>
+                                    </td>
+                                    <td>$25.00</td>
+                                    <td>
+                                       <button class="btn btn-outline-danger btn-sm">
+                                          <i class="bi bi-trash"></i>
+                                       </button>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <div class="d-flex align-items-center">
+                                          <img src="images/layout_img/g2.jpg" alt="Hydrochloric Acid" class="img-thumbnail me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                          <div>
+                                             <h6 class="mb-1">Hydrochloric Acid (HCl)</h6>
+                                             <small class="text-muted">37% purity, 1L bottle</small>
+                                          </div>
+                                       </div>
+                                    </td>
+                                    <td>$25.00</td>
+                                    <td>
+                                       <div class="input-group" style="width: 120px;">
+                                          <button class="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                          <input type="number" class="form-control text-center" value="1" min="1">
+                                          <button class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                       </div>
+                                    </td>
+                                    <td>$25.00</td>
+                                    <td>
+                                       <button class="btn btn-outline-danger btn-sm">
+                                          <i class="bi bi-trash"></i>
+                                       </button>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <div class="d-flex align-items-center">
+                                          <img src="images/layout_img/g3.jpg" alt="Glass Beaker Set" class="img-thumbnail me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                          <div>
+                                             <h6 class="mb-1">Glass Beaker Set</h6>
+                                             <small class="text-muted">Set of 5 borosilicate beakers</small>
+                                          </div>
+                                       </div>
+                                    </td>
+                                    <td>$45.00</td>
+                                    <td>
+                                       <div class="input-group" style="width: 120px;">
+                                          <button class="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                          <input type="number" class="form-control text-center" value="1" min="1">
+                                          <button class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                       </div>
+                                    </td>
+                                    <td>$45.00</td>
+                                    <td>
+                                       <button class="btn btn-outline-danger btn-sm">
+                                          <i class="bi bi-trash"></i>
+                                       </button>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                           <a href="index.html#products" class="btn btn-outline-primary">
+                              <i class="bi bi-arrow-left me-2"></i>Continue Shopping
+                           </a>
+                           <button class="btn btn-outline-secondary">
+                              <i class="bi bi-arrow-clockwise me-2"></i>Update Cart
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               
+               <!-- Order Summary -->
+               <div class="col-lg-4">
+                  <div class="card">
+                     <div class="card-header">
+                        <h5 class="mb-0">Order Summary</h5>
+                     </div>
+                     <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                           <span>Subtotal:</span>
+                           <span>$95.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                           <span>Shipping:</span>
+                           <span class="text-success">Free</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                           <span>Tax:</span>
+                           <span>$7.60</span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between mb-3">
+                           <strong>Total:</strong>
+                           <strong>$102.60</strong>
+                        </div>
+                        
+                        <button class="btn btn-primary w-100 mb-3">
+                           <i class="bi bi-credit-card me-2"></i>Proceed to Checkout
+                        </button>
+                        
+                        <div class="text-center">
+                           <small class="text-muted">
+                              <i class="bi bi-shield-check me-1"></i>
+                              Secure checkout with SSL encryption
+                           </small>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <!-- Promo Code -->
+                  <div class="card mt-3">
+                     <div class="card-body">
+                        <h6>Promo Code</h6>
+                        <div class="input-group">
+                           <input type="text" class="form-control" placeholder="Enter code">
+                           <button class="btn btn-outline-primary" type="button">Apply</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-dark text-white py-5">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-3 col-md-6 mb-4">
+                  <h5>Tyazubwenge Ltd</h5>
+                  <p class="text-muted">Professional laboratory products store and management system.</p>
+                  <div class="social-links">
+                     <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                     <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                     <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+                     <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                  </div>
+               </div>
+               <div class="col-lg-3 col-md-6 mb-4">
+                  <h6>Quick Links</h6>
+                  <ul class="list-unstyled">
+                     <li><a href="index.html" class="text-muted">Home</a></li>
+                     <li><a href="index.html#products" class="text-muted">Products</a></li>
+                     <li><a href="index.html#categories" class="text-muted">Categories</a></li>
+                     <li><a href="index.html#about" class="text-muted">About Us</a></li>
+                     <li><a href="index.html#contact" class="text-muted">Contact</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-3 col-md-6 mb-4">
+                  <h6>Customer Service</h6>
+                  <ul class="list-unstyled">
+                     <li><a href="login.html" class="text-muted">My Account</a></li>
+                     <li><a href="cart.html" class="text-muted">Shopping Cart</a></li>
+                     <li><a href="#" class="text-muted">Shipping Info</a></li>
+                     <li><a href="#" class="text-muted">Return Policy</a></li>
+                     <li><a href="#" class="text-muted">FAQ</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-3 col-md-6 mb-4">
+                  <h6>Admin Access</h6>
+                  <ul class="list-unstyled">
+                     <li><a href="dashboard.html" class="text-muted">Dashboard</a></li>
+                     <li><a href="stock-inventory.html" class="text-muted">Inventory</a></li>
+                     <li><a href="customers-list.html" class="text-muted">Customers</a></li>
+                     <li><a href="reports-sales.html" class="text-muted">Reports</a></li>
+                     <li><a href="settings.html" class="text-muted">Settings</a></li>
+                  </ul>
+               </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+               <div class="col-lg-6">
+                  <p class="text-muted mb-0">&copy; 2024 Tyazubwenge Ltd. All rights reserved.</p>
+               </div>
+               <div class="col-lg-6 text-end">
+                  <p class="text-muted mb-0">Professional Laboratory Products & Management System</p>
+               </div>
+            </div>
+         </div>
+      </footer>
+
+      <!-- jQuery -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="js/animate.js"></script>
+      <!-- select country -->
+      <script src="js/bootstrap-select.js"></script>
+      <!-- owl carousel -->
+      <script src="js/owl.carousel.js"></script> 
+      <!-- chart js -->
+      <script src="js/Chart.min.js"></script>
+      <script src="js/Chart.bundle.min.js"></script>
+      <script src="js/utils.js"></script>
+      <script src="js/analyser.js"></script>
+      <!-- nice scrollbar -->
+      <script src="js/perfect-scrollbar.min.js"></script>
+      <!-- custom js -->
+      <script src="js/custom.js"></script>
+   </body>
+</html>

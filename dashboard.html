@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Tyazubwenge Dashboard - Laboratory Products Management</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="images/fevicon.png" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <!-- site css -->
+      <link rel="stylesheet" href="style.css" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="css/responsive.css" />
+      <!-- color css -->
+      <link rel="stylesheet" href="css/colors.css" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="css/bootstrap-select.css" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="css/perfect-scrollbar.css" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="css/custom.css" />
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                        <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_setting"></div>
+                     <div class="user_profle_side">
+                        <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                        <div class="user_info">
+                           <h6>John David</h6>
+                           <p><span class="online_animation"></span> Online</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <h4>Laboratory Management</h4>
+                  <ul class="list-unstyled components">
+                     <li class="active">
+                        <a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                     </li>
+                     <li>
+                        <a href="#stock" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a>
+                        <ul class="collapse list-unstyled" id="stock">
+                           <li><a href="stock-inventory.html">> <span>Inventory Management</span></a></li>
+                           <li><a href="stock-categories.html">> <span>Product Categories</span></a></li>
+                           <li><a href="stock-alerts.html">> <span>Low Stock Alerts</span></a></li>
+                           <li><a href="stock-expiry.html">> <span>Expiry Tracking</span></a></li>
+                           <li><a href="stock-conversion.html">> <span>Unit Conversion</span></a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#sales" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a>
+                        <ul class="collapse list-unstyled" id="sales">
+                           <li><a href="sales-pos.html">> <span>Point of Sale</span></a></li>
+                           <li><a href="sales-invoices.html">> <span>Invoices & Receipts</span></a></li>
+                           <li><a href="sales-payments.html">> <span>Payment Tracking</span></a></li>
+                           <li><a href="sales-returns.html">> <span>Returns & Refunds</span></a></li>
+                           <li><a href="sales-credit.html">> <span>Credit Sales</span></a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#customers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a>
+                        <ul class="collapse list-unstyled" id="customers">
+                           <li><a href="customers-list.html">> <span>Customer Database</span></a></li>
+                           <li><a href="customers-loyalty.html">> <span>Loyalty Program</span></a></li>
+                           <li><a href="customers-credit.html">> <span>Credit Management</span></a></li>
+                           <li><a href="customers-history.html">> <span>Purchase History</span></a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#suppliers" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a>
+                        <ul class="collapse list-unstyled" id="suppliers">
+                           <li><a href="suppliers-list.html">> <span>Supplier Database</span></a></li>
+                           <li><a href="purchase-orders.html">> <span>Purchase Orders</span></a></li>
+                           <li><a href="suppliers-performance.html">> <span>Performance Reports</span></a></li>
+                           <li><a href="suppliers-delivery.html">> <span>Delivery Tracking</span></a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#reports" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a>
+                        <ul class="collapse list-unstyled" id="reports">
+                           <li><a href="reports-sales.html">> <span>Sales Reports</span></a></li>
+                           <li><a href="reports-inventory.html">> <span>Inventory Reports</span></a></li>
+                           <li><a href="reports-financial.html">> <span>Financial Reports</span></a></li>
+                           <li><a href="reports-analytics.html">> <span>AI Analytics</span></a></li>
+                           <li><a href="reports-export.html">> <span>Export Reports</span></a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#branches" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-building blue2_color"></i> <span>Multi-Branch</span></a>
+                        <ul class="collapse list-unstyled" id="branches">
+                           <li><a href="branches-list.html">> <span>Branch Management</span></a></li>
+                           <li><a href="branches-transfer.html">> <span>Stock Transfer</span></a></li>
+                           <li><a href="branches-reports.html">> <span>Branch Reports</span></a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-user-cog yellow_color"></i> <span>User Management</span></a>
+                        <ul class="collapse list-unstyled" id="users">
+                           <li><a href="users-list.html">> <span>Users & Roles</span></a></li>
+                           <li><a href="roles-permissions.html">> <span>Permissions</span></a></li>
+                           <li><a href="audit-logs.html">> <span>Audit Logs</span></a></li>
+                        </ul>
+                     </li>
+                     <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
+                  </ul>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                        <div class="logo_section">
+                           <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                        </div>
+                        <div class="right_topbar">
+                           <div class="icon_info">
+                              <ul>
+                                 <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                 <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                              </ul>
+                              <ul class="user_profile_dd">
+                                 <li>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                    <div class="dropdown-menu">
+                                       <a class="dropdown-item" href="profile.html">My Profile</a>
+                                       <a class="dropdown-item" href="settings.html">Settings</a>
+                                       <a class="dropdown-item" href="help.html">Help</a>
+                                       <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <!-- end topbar -->
+               <!-- dashboard inner -->
+               <div class="midde_cont">
+                  <div class="container-fluid">
+                     <div class="row column_title">
+                        <div class="col-md-12">
+                           <div class="page_title">
+                              <h2>Dashboard</h2>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row column1">
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div> 
+                                    <i class="fa fa-flask yellow_color"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">2,847</p>
+                                    <p class="head_couter">Laboratory Products</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div> 
+                                    <i class="fa fa-shopping-cart blue1_color"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">₦3.2M</p>
+                                    <p class="head_couter">Today's Sales</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div> 
+                                    <i class="fa fa-exclamation-triangle green_color"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">47</p>
+                                    <p class="head_couter">Low Stock Alerts</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div> 
+                                    <i class="fa fa-calendar-times red_color"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">12</p>
+                                    <p class="head_couter">Expiring Soon</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row column1 business_metrics_section">
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons fb margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-chart-line"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>₦67.8M</strong></span>
+                                       <span>Monthly Revenue</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>+18.3%</strong></span>
+                                       <span>vs Last Month</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons tw margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-flask"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>156</strong></span>
+                                       <span>Product Categories</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>23</strong></span>
+                                       <span>New This Month</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons linked margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-truck"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>42</strong></span>
+                                       <span>Active Suppliers</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>96.8%</strong></span>
+                                       <span>On-Time Delivery</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons google_p margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-balance-scale"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>₦12.4M</strong></span>
+                                       <span>Inventory Value</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>₦8.2M</strong></span>
+                                       <span>Pending Orders</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- graph -->
+                     <div class="row column2 graph margin_bottom_30">
+                        <div class="col-md-l2 col-lg-12">
+                           <div class="white_shd full">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2>Laboratory Products Sales Analytics - Last 30 Days</h2>
+                                 </div>
+                              </div>
+                              <div class="full graph_revenue">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="content">
+                                          <div class="area_chart">
+                                             <canvas height="120" id="canvas"></canvas>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- end graph -->
+                     <div class="row column3">
+                        <!-- Recent Sales -->
+                        <div class="col-md-6">
+                           <div class="dark_bg full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2>Recent Sales</h2>
+                                 </div>
+                              </div>
+                              <div class="full graph_revenue">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="content">
+                                          <div class="recent_sales_list">
+                                             <div class="sale_item">
+                                                <div class="sale_info">
+                                                   <h6>Analytical Balance (2.5kg)</h6>
+                                                   <p>Customer: Dr. Sarah Johnson - University Lab</p>
+                                                   <span class="sale_amount">₦185,000</span>
+                                                </div>
+                                                <div class="sale_time">1 hour ago</div>
+                                             </div>
+                                             <div class="sale_item">
+                                                <div class="sale_info">
+                                                   <h6>Sodium Chloride (500g)</h6>
+                                                   <p>Customer: Research Institute</p>
+                                                   <span class="sale_amount">₦12,500</span>
+                                                </div>
+                                                <div class="sale_time">3 hours ago</div>
+                                             </div>
+                                             <div class="sale_item">
+                                                <div class="sale_info">
+                                                   <h6>Digital Microscope</h6>
+                                                   <p>Customer: Medical Center</p>
+                                                   <span class="sale_amount">₦245,000</span>
+                                                </div>
+                                                <div class="sale_time">5 hours ago</div>
+                                             </div>
+                                             <div class="sale_item">
+                                                <div class="sale_info">
+                                                   <h6>Safety Equipment Set</h6>
+                                                   <p>Customer: Industrial Lab</p>
+                                                   <span class="sale_amount">₦67,800</span>
+                                                </div>
+                                                <div class="sale_time">7 hours ago</div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- end recent sales -->
+                        <!-- Stock Status -->
+                        <div class="col-md-6">
+                           <div class="white_shd full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2>Stock Status</h2>
+                                 </div>
+                              </div>
+                              <div class="full progress_bar_inner">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="progress_bar">
+                                          <!-- Laboratory Products Stock Levels -->
+                                          <span class="skill" style="width:78%;">In Stock (kg/g/mg) <span class="info_valume">78%</span></span>                  
+                                          <div class="progress skill-bar ">
+                                             <div class="progress-bar progress-bar-animated progress-bar-striped bg-success" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%;">
+                                             </div>
+                                          </div>
+                                          <span class="skill" style="width:15%;">Low Stock Alert <span class="info_valume">15%</span></span>   
+                                          <div class="progress skill-bar">
+                                             <div class="progress-bar progress-bar-animated progress-bar-striped bg-warning" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%;">
+                                             </div>
+                                          </div>
+                                          <span class="skill" style="width:5%;">Expiring Soon <span class="info_valume">5%</span></span>
+                                          <div class="progress skill-bar">
+                                             <div class="progress-bar progress-bar-animated progress-bar-striped bg-danger" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
+                                             </div>
+                                          </div>
+                                          <span class="skill" style="width:2%;">Out of Stock <span class="info_valume">2%</span></span>
+                                          <div class="progress skill-bar">
+                                             <div class="progress-bar progress-bar-animated progress-bar-striped bg-dark" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- end stock status -->
+                     </div>
+                     <div class="row column4 graph">
+                        <div class="col-md-6">
+                           <div class="dash_blog">
+                              <div class="dash_blog_inner">
+                                 <div class="dash_head">
+                                    <h3><span><i class="fa fa-calendar"></i> Today's Tasks</span><span class="plus_green_bt"><a href="#">+</a></span></h3>
+                                 </div>
+                                 <div class="list_cont">
+                                    <p>Laboratory Management Tasks</p>
+                                 </div>
+                                 <div class="task_list_main">
+                                    <ul class="task_list">
+                                       <li><a href="#">Check expiring chemicals inventory</a><br><strong>09:00 AM</strong></li>
+                                       <li><a href="#">Process pending purchase orders</a><br><strong>10:30 AM</strong></li>
+                                       <li><a href="#">Update stock levels for new deliveries</a><br><strong>11:00 AM</strong></li>
+                                       <li><a href="#">Generate monthly sales report</a><br><strong>02:00 PM</strong></li>
+                                       <li><a href="#">Review low stock alerts</a><br><strong>03:30 PM</strong></li>
+                                    </ul>
+                                 </div>
+                                 <div class="read_more">
+                                    <div class="center"><a class="main_bt read_bt" href="#">Read More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="dash_blog">
+                              <div class="dash_blog_inner">
+                                 <div class="dash_head">
+                                    <h3><span><i class="fa fa-bell"></i> System Alerts</span><span class="plus_green_bt"><a href="#">+</a></span></h3>
+                                 </div>
+                                 <div class="list_cont">
+                                    <p>Laboratory Management Notifications</p>
+                                 </div>
+                                 <div class="msg_list_main">
+                                    <ul class="msg_list">
+                                       <li>
+                                          <span><i class="fa fa-exclamation-triangle text-warning fa-2x"></i></span>
+                                          <span>
+                                          <span class="name_user">Low Stock Alert</span>
+                                          <span class="msg_user">Sodium Chloride (500g) - Only 2.5kg remaining</span>
+                                          <span class="time_ago">5 min ago</span>
+                                          </span>
+                                       </li>
+                                       <li>
+                                          <span><i class="fa fa-calendar-times text-danger fa-2x"></i></span>
+                                          <span>
+                                          <span class="name_user">Expiry Warning</span>
+                                          <span class="msg_user">Hydrochloric Acid expires in 3 days</span>
+                                          <span class="time_ago">15 min ago</span>
+                                          </span>
+                                       </li>
+                                       <li>
+                                          <span><i class="fa fa-truck text-info fa-2x"></i></span>
+                                          <span>
+                                          <span class="name_user">Delivery Update</span>
+                                          <span class="msg_user">New shipment from Lab Supplies Ltd arrived</span>
+                                          <span class="time_ago">1 hour ago</span>
+                                          </span>
+                                       </li>
+                                       <li>
+                                          <span><i class="fa fa-chart-line text-success fa-2x"></i></span>
+                                          <span>
+                                          <span class="name_user">Sales Milestone</span>
+                                          <span class="msg_user">Monthly target achieved - ₦67.8M revenue</span>
+                                          <span class="time_ago">2 hours ago</span>
+                                          </span>
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <div class="read_more">
+                                    <div class="center"><a class="main_bt read_bt" href="#">Read More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- footer -->
+                  <div class="container-fluid">
+                     <div class="footer">
+                        <p>Copyright © 2018 Designed by html.design. All rights reserved.<br><br>
+                           Distributed By: <a href="https://themewagon.com/">ThemeWagon</a>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <!-- end dashboard inner -->
+            </div>
+         </div>
+      </div>
+      <!-- jQuery -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="js/animate.js"></script>
+      <!-- select country -->
+      <script src="js/bootstrap-select.js"></script>
+      <!-- owl carousel -->
+      <script src="js/owl.carousel.js"></script> 
+      <!-- chart js -->
+      <script src="js/Chart.min.js"></script>
+      <script src="js/Chart.bundle.min.js"></script>
+      <script src="js/utils.js"></script>
+      <script src="js/analyser.js"></script>
+      <!-- nice scrollbar -->
+      <script src="js/perfect-scrollbar.min.js"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="js/chart_custom_style1.js"></script>
+      <script src="js/custom.js"></script>
+   </body>
+</html>
