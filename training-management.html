@@ -5,124 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Training Programs Management - Tyazubwenge Training Center</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/custom.css" />
-    
-    <style>
-        .training-card {
-            border: 1px solid #e9ecef;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .training-image {
-            width: 100%;
-            height: 200px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: #2c5530;
-            margin-bottom: 15px;
-        }
-        
-        .training-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #2c5530;
-            margin-bottom: 10px;
-        }
-        
-        .training-description {
-            color: #6c757d;
-            margin-bottom: 15px;
-        }
-        
-        .training-price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c5530;
-            margin-bottom: 15px;
-        }
-        
-        .training-features {
-            margin-bottom: 15px;
-        }
-        
-        .training-features .feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .training-features .feature i {
-            color: #2c5530;
-            margin-right: 8px;
-            width: 16px;
-        }
-        
-        .btn-training {
-            background: #2c5530;
-            border: none;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 5px;
-            font-weight: 500;
-            margin-right: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-training:hover {
-            background: #4a7c59;
-            color: white;
-        }
-        
-        .btn-edit {
-            background: #007bff;
-        }
-        
-        .btn-edit:hover {
-            background: #0056b3;
-        }
-        
-        .btn-delete {
-            background: #dc3545;
-        }
-        
-        .btn-delete:hover {
-            background: #c82333;
-        }
-        
-        .add-training-btn {
-            background: #28a745;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        .add-training-btn:hover {
-            background: #218838;
-            color: white;
-        }
-    </style>
 </head>
 <body class="dashboard dashboard_1">
     <div class="full_container">
@@ -136,28 +21,27 @@
                         </div>
                     </div>
                     <div class="sidebar_user_info">
-                        <div class="icon_setting"></div>
                         <div class="user_profle_side">
                             <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
                             <div class="user_info">
-                                <h6>John David</h6>
+                                <h6>Admin User</h6>
                                 <p><span class="online_animation"></span> Online</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="sidebar_blog_2">
-                    <h4 style="color: white;">Training Center Management</h4>
+                    <h4 style="color: white;">Tyazubwenge Training Center Management System</h4>
                     <ul class="list-unstyled components">
                         <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
                         <li class="active">
-                            <a href="#training" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-graduation-cap purple_color"></i> <span>Training Programs</span></a>
-                            <ul class="collapse list-unstyled" id="training">
-                                <li><a href="training-management.html">> <span>Manage Programs</span></a></li>
-                                <li><a href="training-students.html">> <span>Student Management</span></a></li>
-                                <li><a href="training-schedule.html">> <span>Class Schedule</span></a></li>
-                                <li><a href="training-materials.html">> <span>Training Materials</span></a></li>
-                                <li><a href="training-certificates.html">> <span>Certificates</span></a></li>
+                            <a href="#training" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-graduation-cap purple_color"></i> <span>Training Programs</span></a>
+                            <ul class="collapse list-unstyled show" id="training">
+                                <li><a href="training-management.html" class="active">> <span>Manage Programs</span></a></li>
+                                <li><a href="customers-list.html">> <span>Student Management</span></a></li>
+                                <li><a href="calendar.html">> <span>Class Schedule</span></a></li>
+                                <li><a href="help.html">> <span>Training Materials</span></a></li>
+                                <li><a href="reports-sales.html">> <span>Certificates</span></a></li>
                             </ul>
                         </li>
                         <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a></li>
@@ -165,19 +49,13 @@
                         <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
                         <li><a href="suppliers-list.html"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a></li>
                         <li><a href="reports-sales.html"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a></li>
-                        <li><a href="users-management.html"><i class="fa fa-user-cog purple_color"></i> <span>User Management</span></a></li>
-                        <li><a href="branches-management.html"><i class="fa fa-building blue1_color"></i> <span>Branch Management</span></a></li>
-                        <li><a href="financial-accounting.html"><i class="fa fa-calculator green_color"></i> <span>Financial & Accounting</span></a></li>
-                        <li><a href="security-management.html"><i class="fa fa-shield-alt red_color"></i> <span>Security & Backup</span></a></li>
-                        <li><a href="profile.html"><i class="fa fa-user yellow_color"></i> <span>Profile</span></a></li>
-                        <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
                     </ul>
                 </div>
             </nav>
-            <!-- end sidebar -->
-            <!-- right content -->
+
+            <!-- Main Content -->
             <div id="content">
-                <!-- topbar -->
+                <!-- Topbar -->
                 <div class="topbar">
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="full">
@@ -188,28 +66,16 @@
                             <div class="right_topbar">
                                 <div class="icon_info">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">3</span></a></li>
                                         <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
-                                    </ul>
-                                    <ul class="user_profile_dd">
-                                        <li>
-                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="profile.html">My Profile</a>
-                                                <a class="dropdown-item" href="settings.html">Settings</a>
-                                                <a class="dropdown-item" href="help.html">Help & Support</a>
-                                                <a class="dropdown-item" href="index.html" onclick="logout()"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
-                                            </div>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </nav>
                 </div>
-                <!-- end topbar -->
-                <!-- dashboard inner -->
+
+                <!-- Page Content -->
                 <div class="midde_cont">
                     <div class="container-fluid">
                         <div class="row column_title">
@@ -219,188 +85,131 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row column1">
+
+                        <!-- Action Buttons -->
+                        <div class="row mb-4">
                             <div class="col-md-12">
-                                <div class="white_shd full margin_bottom_30">
-                                    <div class="full graph_head">
-                                        <div class="heading1 margin_0">
-                                            <h2>Manage Training Programs</h2>
+                                <div class="dashboard-card">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h4>Manage Training Programs</h4>
+                                        <div>
+                                            <button class="btn btn-primary btn-modern mr-2" data-toggle="modal" data-target="#addTrainingModal">
+                                                <i class="fa fa-plus"></i> Add New Training Program
+                                            </button>
+                                            <button class="btn btn-success btn-modern mr-2">
+                                                <i class="fa fa-download"></i> Export Programs
+                                            </button>
                                         </div>
                                     </div>
-                                    <div class="full graph_revenue">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="content">
-                                                    <button class="add-training-btn" onclick="openAddTrainingModal()">
-                                                        <i class="fa fa-plus"></i> Add New Training Program
-                                                    </button>
-                                                    
-                                                    <div class="row">
-                                                        <div class="col-lg-4 col-md-6">
-                                                            <div class="training-card">
-                                                                <div class="training-image">
-                                                                    <i class="fa fa-tint"></i>
-                                                                </div>
-                                                                <h3 class="training-title">Detergent Making</h3>
-                                                                <p class="training-description">Learn to make liquid and powder detergents for home and commercial use.</p>
-                                                                <div class="training-features">
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Liquid detergents</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Powder detergents</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Commercial grade</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="training-price">₦25,000</div>
-                                                                <button class="btn-training btn-edit" onclick="editTraining(1)">Edit</button>
-                                                                <button class="btn-training btn-delete" onclick="deleteTraining(1)">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="col-lg-4 col-md-6">
-                                                            <div class="training-card">
-                                                                <div class="training-image">
-                                                                    <i class="fa fa-glass"></i>
-                                                                </div>
-                                                                <h3 class="training-title">Gin Making</h3>
-                                                                <p class="training-description">Master the art of making premium gin with traditional and modern techniques.</p>
-                                                                <div class="training-features">
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Traditional methods</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Modern techniques</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Quality control</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="training-price">₦35,000</div>
-                                                                <button class="btn-training btn-edit" onclick="editTraining(2)">Edit</button>
-                                                                <button class="btn-training btn-delete" onclick="deleteTraining(2)">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="col-lg-4 col-md-6">
-                                                            <div class="training-card">
-                                                                <div class="training-image">
-                                                                    <i class="fa fa-flask"></i>
-                                                                </div>
-                                                                <h3 class="training-title">Oil Production</h3>
-                                                                <p class="training-description">Learn to extract and produce various types of oils for different purposes.</p>
-                                                                <div class="training-features">
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Essential oils</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Cooking oils</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Industrial oils</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="training-price">₦30,000</div>
-                                                                <button class="btn-training btn-edit" onclick="editTraining(3)">Edit</button>
-                                                                <button class="btn-training btn-delete" onclick="deleteTraining(3)">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="col-lg-4 col-md-6">
-                                                            <div class="training-card">
-                                                                <div class="training-image">
-                                                                    <i class="fa fa-shoe-prints"></i>
-                                                                </div>
-                                                                <h3 class="training-title">Shoe Polish Making</h3>
-                                                                <p class="training-description">Create high-quality shoe polish in various colors and finishes.</p>
-                                                                <div class="training-features">
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Multiple colors</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Different finishes</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Commercial quality</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="training-price">₦20,000</div>
-                                                                <button class="btn-training btn-edit" onclick="editTraining(4)">Edit</button>
-                                                                <button class="btn-training btn-delete" onclick="deleteTraining(4)">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="col-lg-4 col-md-6">
-                                                            <div class="training-card">
-                                                                <div class="training-image">
-                                                                    <i class="fa fa-spray-can"></i>
-                                                                </div>
-                                                                <h3 class="training-title">Air Freshener Making</h3>
-                                                                <p class="training-description">Learn to make various types of air fresheners and room sprays.</p>
-                                                                <div class="training-features">
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Room sprays</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Car fresheners</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Natural fragrances</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="training-price">₦18,000</div>
-                                                                <button class="btn-training btn-edit" onclick="editTraining(5)">Edit</button>
-                                                                <button class="btn-training btn-delete" onclick="deleteTraining(5)">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="col-lg-4 col-md-6">
-                                                            <div class="training-card">
-                                                                <div class="training-image">
-                                                                    <i class="fa fa-paint-brush"></i>
-                                                                </div>
-                                                                <h3 class="training-title">Paint Making</h3>
-                                                                <p class="training-description">Master the art of making different types of paints and coatings.</p>
-                                                                <div class="training-features">
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Water-based paints</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Oil-based paints</span>
-                                                                    </div>
-                                                                    <div class="feature">
-                                                                        <i class="fa fa-check"></i>
-                                                                        <span>Specialty coatings</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="training-price">₦40,000</div>
-                                                                <button class="btn-training btn-edit" onclick="editTraining(6)">Edit</button>
-                                                                <button class="btn-training btn-delete" onclick="deleteTraining(6)">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Training Programs Table -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="dashboard-card">
+                                    <div class="table-responsive">
+                                        <table class="table table-modern">
+                                            <thead>
+                                                <tr>
+                                                    <th>Program ID</th>
+                                                    <th>Program Name</th>
+                                                    <th>Category</th>
+                                                    <th>Duration</th>
+                                                    <th>Price (₦)</th>
+                                                    <th>Students Enrolled</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>TRG-001</td>
+                                                    <td>Detergent Making (Liquid & Powder)</td>
+                                                    <td>Chemical Manufacturing</td>
+                                                    <td>3 Days</td>
+                                                    <td>25,000</td>
+                                                    <td>45</td>
+                                                    <td><span class="badge badge-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                                        <button class="btn btn-sm btn-outline-info">View</button>
+                                                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>TRG-002</td>
+                                                    <td>Gin Production & Distillation</td>
+                                                    <td>Beverage Manufacturing</td>
+                                                    <td>5 Days</td>
+                                                    <td>35,000</td>
+                                                    <td>32</td>
+                                                    <td><span class="badge badge-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                                        <button class="btn btn-sm btn-outline-info">View</button>
+                                                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>TRG-003</td>
+                                                    <td>Oil Extraction & Production</td>
+                                                    <td>Chemical Manufacturing</td>
+                                                    <td>4 Days</td>
+                                                    <td>30,000</td>
+                                                    <td>28</td>
+                                                    <td><span class="badge badge-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                                        <button class="btn btn-sm btn-outline-info">View</button>
+                                                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>TRG-004</td>
+                                                    <td>Shoe Polish Making</td>
+                                                    <td>Chemical Manufacturing</td>
+                                                    <td>2 Days</td>
+                                                    <td>20,000</td>
+                                                    <td>38</td>
+                                                    <td><span class="badge badge-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                                        <button class="btn btn-sm btn-outline-info">View</button>
+                                                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>TRG-005</td>
+                                                    <td>Air Freshener Manufacturing</td>
+                                                    <td>Chemical Manufacturing</td>
+                                                    <td>2 Days</td>
+                                                    <td>18,000</td>
+                                                    <td>25</td>
+                                                    <td><span class="badge badge-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                                        <button class="btn btn-sm btn-outline-info">View</button>
+                                                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>TRG-006</td>
+                                                    <td>Paint Manufacturing</td>
+                                                    <td>Chemical Manufacturing</td>
+                                                    <td>6 Days</td>
+                                                    <td>40,000</td>
+                                                    <td>18</td>
+                                                    <td><span class="badge badge-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                                        <button class="btn btn-sm btn-outline-info">View</button>
+                                                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -411,9 +220,9 @@
         </div>
     </div>
 
-    <!-- Add Training Modal -->
-    <div class="modal fade" id="addTrainingModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
+    <!-- Add Training Program Modal -->
+    <div class="modal fade" id="addTrainingModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Add New Training Program</h5>
@@ -426,98 +235,138 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Training Title</label>
-                                    <input type="text" class="form-control" id="trainingTitle" required>
+                                    <label>Program Name *</label>
+                                    <input type="text" class="form-control" placeholder="e.g., Detergent Making" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Price (₦)</label>
-                                    <input type="number" class="form-control" id="trainingPrice" required>
+                                    <label>Category *</label>
+                                    <select class="form-control" required>
+                                        <option>Chemical Manufacturing</option>
+                                        <option>Beverage Manufacturing</option>
+                                        <option>Cosmetics Production</option>
+                                        <option>Food Processing</option>
+                                        <option>Industrial Chemicals</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Duration (Days) *</label>
+                                    <input type="number" class="form-control" placeholder="e.g., 3" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Price (₦) *</label>
+                                    <input type="number" class="form-control" placeholder="e.g., 25000" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Max Students</label>
+                                    <input type="number" class="form-control" placeholder="e.g., 20">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Instructor</label>
+                                    <input type="text" class="form-control" placeholder="e.g., Dr. John Smith">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select class="form-control">
+                                        <option>Active</option>
+                                        <option>Inactive</option>
+                                        <option>Coming Soon</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control" id="trainingDescription" rows="3" required></textarea>
+                            <label>Program Description</label>
+                            <textarea class="form-control" rows="4" placeholder="Detailed description of what students will learn..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Training Image</label>
-                            <input type="file" class="form-control" id="trainingImage" accept="image/*">
+                            <label>Learning Objectives</label>
+                            <textarea class="form-control" rows="3" placeholder="What students will achieve after completing this program..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Features (one per line)</label>
-                            <textarea class="form-control" id="trainingFeatures" rows="4" placeholder="Feature 1&#10;Feature 2&#10;Feature 3"></textarea>
+                            <label>Required Materials</label>
+                            <textarea class="form-control" rows="3" placeholder="List of materials and equipment needed..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Duration (hours)</label>
-                            <input type="number" class="form-control" id="trainingDuration" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Maximum Students</label>
-                            <input type="number" class="form-control" id="maxStudents" required>
+                            <label>Program Image</label>
+                            <input type="file" class="form-control" accept="image/*">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="saveTraining()">Save Training Program</button>
+                    <button type="button" class="btn btn-primary" onclick="addTrainingProgram()">Add Program</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/auth.js"></script>
     
     <script>
-        function openAddTrainingModal() {
-            $('#addTrainingModal').modal('show');
+        // Check authentication
+        if (!localStorage.getItem('adminLoggedIn') && !sessionStorage.getItem('adminLoggedIn')) {
+            window.location.href = 'login.html';
         }
         
-        function editTraining(id) {
-            alert('Edit training program with ID: ' + id);
-        }
-        
-        function deleteTraining(id) {
-            if(confirm('Are you sure you want to delete this training program?')) {
-                alert('Training program deleted successfully!');
-            }
-        }
-        
-        function saveTraining() {
-            const title = document.getElementById('trainingTitle').value;
-            const price = document.getElementById('trainingPrice').value;
-            const description = document.getElementById('trainingDescription').value;
-            const features = document.getElementById('trainingFeatures').value;
-            const duration = document.getElementById('trainingDuration').value;
-            const maxStudents = document.getElementById('maxStudents').value;
+        // Add training program function
+        function addTrainingProgram() {
+            // Get form data
+            const form = document.getElementById('addTrainingForm');
+            const formData = new FormData(form);
             
-            if(title && price && description && duration && maxStudents) {
-                alert('Training program saved successfully!');
-                $('#addTrainingModal').modal('hide');
-                // Here you would typically save to database
-            } else {
-                alert('Please fill in all required fields.');
+            // Simple validation
+            const programName = form.querySelector('input[placeholder="e.g., Detergent Making"]').value;
+            const category = form.querySelector('select').value;
+            const duration = form.querySelector('input[placeholder="e.g., 3"]').value;
+            const price = form.querySelector('input[placeholder="e.g., 25000"]').value;
+            
+            if (!programName || !category || !duration || !price) {
+                alert('Please fill in all required fields');
+                return;
             }
-        }
-        
-        function logout() {
-            if(confirm('Are you sure you want to logout?')) {
-                if (window.authManager) {
-                    window.authManager.logout();
-                } else {
-                    localStorage.removeItem('tyazubwenge_admin_user');
-                    localStorage.removeItem('tyazubwenge_admin_logged_in');
-                    sessionStorage.removeItem('tyazubwenge_admin_user');
-                    sessionStorage.removeItem('tyazubwenge_admin_logged_in');
-                }
-                window.location.href = 'index.html';
-            }
+            
+            // Add to table (in a real app, this would be sent to server)
+            const tableBody = document.querySelector('.table tbody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>TRG-${Date.now().toString().slice(-3)}</td>
+                <td>${programName}</td>
+                <td>${category}</td>
+                <td>${duration} Days</td>
+                <td>${parseInt(price).toLocaleString()}</td>
+                <td>0</td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary">Edit</button>
+                    <button class="btn btn-sm btn-outline-info">View</button>
+                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                </td>
+            `;
+            tableBody.appendChild(newRow);
+            
+            // Close modal and reset form
+            $('#addTrainingModal').modal('hide');
+            form.reset();
+            
+            alert('Training program added successfully!');
         }
     </script>
 </body>

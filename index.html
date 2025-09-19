@@ -102,12 +102,13 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            
         }
         
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: green;
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
@@ -508,13 +509,19 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="hero-content">
-                        <h1 class="hero-title" style="color: #2c5530;">Welcome to Tyazubwenge Training Center</h1>
+                        <h1 class="hero-title" style="color: #006400; text-shadow: 8px 8px 6px rgba(0,0,0,0.3);">Welcome to Tyazubwenge Training Center</h1>
                         <p class="hero-subtitle">Learn to make detergents, gin, oils, and more! We sell products and teach skills for chemical manufacturing</p>
                         <p class="hero-description">
                             We are Nigeria's leading training center for chemical manufacturing and detergent production. 
-                            With over 30 years of experience, we teach you how to make detergents, gin, oils, shoe polish, 
-                            and other chemical products while providing all the necessary equipment and raw materials.
+                            With over 30 years of experience, we <strong>TEACH</strong> you how to make detergents, gin, oils, shoe polish, 
+                            paint, air fresheners, and other chemical products while <strong>SELLING</strong> all the necessary equipment and raw materials.
                         </p>
+                        <div class="alert alert-info" style="margin-top: 20px;">
+                            <h5><i class="fa fa-graduation-cap"></i> What We TEACH:</h5>
+                            <p>• Detergent Making (Liquid & Powder) • Gin Production • Oil Extraction • Shoe Polish Making • Paint Manufacturing • Air Freshener Creation</p>
+                            <h5><i class="fa fa-shopping-cart"></i> What We SELL:</h5>
+                            <p>• Laboratory Equipment • Chemical Reagents • Safety Equipment • Glassware • Raw Materials for Production</p>
+                        </div>
                         <div class="hero-stats">
                             <div class="stat-item">
                                 <span class="stat-number">1,247</span>
@@ -550,7 +557,11 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Training Programs</h2>
-                <p>Learn to make various chemical products with our expert instructors</p>
+                <p>Master the art of chemical manufacturing with our hands-on training courses</p>
+                <div class="alert alert-success" style="margin-top: 20px;">
+                    <h5><i class="fa fa-info-circle"></i> Training Includes:</h5>
+                    <p>• Complete step-by-step instructions • All necessary raw materials • Safety protocols • Quality control methods • Business setup guidance • Certificate of completion</p>
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -723,14 +734,21 @@
     <section id="products" class="products-section">
         <div class="container">
             <div class="section-title">
-                <h2>Chemical Products & Equipment</h2>
-                <p>Get all the materials and equipment you need for your chemical manufacturing</p>
+                <h2>Laboratory Products & Equipment We SELL</h2>
+                <p>Purchase all the materials and equipment you need for your chemical manufacturing business</p>
+                <div class="alert alert-warning" style="margin-top: 20px;">
+                    <h5><i class="fa fa-shopping-bag"></i> What You Can Buy:</h5>
+                    <p>• High-quality laboratory equipment • Pure chemical reagents • Safety gear • Glassware sets • Raw materials for production • Professional-grade tools</p>
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <i class="fa fa-balance-scale"></i>
+                            <img src="images/products/analytical-balance.jpg" alt="Analytical Balance" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
+                                <i class="fa fa-balance-scale" style="color: #2c5530; font-size: 3rem;"></i>
+                            </div>
                         </div>
                         <h3 class="product-title">Analytical Balance (0.1mg)</h3>
                         <p class="product-description">High-precision analytical balance for accurate measurements in laboratory applications.</p>
@@ -757,7 +775,10 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <i class="fa fa-microscope"></i>
+                            <img src="images/products/digital-microscope.jpg" alt="Digital Microscope" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
+                                <i class="fa fa-microscope" style="color: #2c5530; font-size: 3rem;"></i>
+                            </div>
                         </div>
                         <h3 class="product-title">Digital Microscope (1000x)</h3>
                         <p class="product-description">Advanced digital microscope with high-resolution imaging capabilities.</p>
@@ -784,7 +805,10 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <i class="fa fa-flask"></i>
+                            <img src="images/products/sodium-chloride.jpg" alt="Sodium Chloride" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
+                                <i class="fa fa-flask" style="color: #2c5530; font-size: 3rem;"></i>
+                            </div>
                         </div>
                         <h3 class="product-title">Sodium Chloride (Pure Grade)</h3>
                         <p class="product-description">High-purity sodium chloride for laboratory and research applications.</p>
@@ -811,7 +835,10 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <i class="fa fa-shield"></i>
+                            <img src="images/products/safety-goggles.jpg" alt="Safety Goggles" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
+                                <i class="fa fa-shield" style="color: #2c5530; font-size: 3rem;"></i>
+                            </div>
                         </div>
                         <h3 class="product-title">Safety Goggles (UV Protection)</h3>
                         <p class="product-description">Professional safety goggles with UV protection for laboratory safety.</p>
@@ -838,7 +865,10 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <i class="fa fa-tint"></i>
+                            <img src="images/products/hydrochloric-acid.jpg" alt="Hydrochloric Acid" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
+                                <i class="fa fa-tint" style="color: #2c5530; font-size: 3rem;"></i>
+                            </div>
                         </div>
                         <h3 class="product-title">Hydrochloric Acid (37%)</h3>
                         <p class="product-description">Concentrated hydrochloric acid for various laboratory applications.</p>
@@ -865,7 +895,10 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <i class="fa fa-cubes"></i>
+                            <img src="images/products/beaker-set.jpg" alt="Beaker Set" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
+                                <i class="fa fa-cubes" style="color: #2c5530; font-size: 3rem;"></i>
+                            </div>
                         </div>
                         <h3 class="product-title">Beaker Set (50ml-1000ml)</h3>
                         <p class="product-description">Complete set of borosilicate glass beakers for laboratory use.</p>

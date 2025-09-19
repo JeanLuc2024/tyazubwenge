@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------
     File Name: custom.js
-    Template Name: Pluto - Responsive HTML5 Template
+    Template Name: Tyazubwenge Training Center Management System
     Created By: html.design
     Envato Profile: https://themeforest.net/user/htmldotdesign
     Website: https://html.design

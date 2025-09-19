@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Login - Tyazubwenge Management System</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>Admin Login - Tyazubwenge Training Center</title>
+    <meta name="keywords" content="Tyazubwenge, Training Center, Laboratory Management, Admin Login">
+    <meta name="description" content="Tyazubwenge Training Center - Admin Login for Laboratory Management System">
+    <meta name="author" content="Tyazubwenge Training Center Ltd">
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -83,11 +83,13 @@
             font-size: 2rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
+            color: white;
         }
         
         .logo-section p {
             font-size: 1.1rem;
             opacity: 0.9;
+            color: white;
         }
         
         .features-list {
@@ -209,6 +211,26 @@
             display: inline-block;
         }
         
+        .demo-credentials {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .demo-credentials h6 {
+            color: #1976d2;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .demo-credentials p {
+            margin: 0;
+            color: #1976d2;
+            font-size: 0.9rem;
+        }
+        
         @media (max-width: 768px) {
             .login-container {
                 flex-direction: column;
@@ -229,8 +251,8 @@
     <div class="login-container">
         <div class="login-left">
             <div class="logo-section">
-                <i class="fa fa-flask"></i>
-                <h1>Tyazubwenge Laboratory</h1>
+                <i class="fa fa-graduation-cap"></i>
+                <h1>Tyazubwenge Training Center</h1>
                 <p>Management System</p>
             </div>
             <ul class="features-list">
@@ -240,19 +262,19 @@
                 </li>
                 <li>
                     <i class="fa fa-check"></i>
-                    <span>Advanced Sales & Billing</span>
+                    <span>Training Program Management</span>
+                </li>
+                <li>
+                    <i class="fa fa-check"></i>
+                    <span>Sales & Billing System</span>
+                </li>
+                <li>
+                    <i class="fa fa-check"></i>
+                    <span>Customer Management</span>
                 </li>
                 <li>
                     <i class="fa fa-check"></i>
                     <span>Real-time Analytics</span>
-                </li>
-                <li>
-                    <i class="fa fa-check"></i>
-                    <span>Multi-branch Support</span>
-                </li>
-                <li>
-                    <i class="fa fa-check"></i>
-                    <span>Secure & Reliable</span>
                 </li>
             </ul>
         </div>
@@ -260,6 +282,11 @@
             <div class="login-form">
                 <h2 class="text-center mb-4">Admin Login</h2>
                 <p class="text-center text-muted mb-4">Sign in to access the management dashboard</p>
+                
+                <div class="demo-credentials">
+                    <h6><i class="fa fa-info-circle"></i> Demo Credentials</h6>
+                    <p><strong>Email:</strong> asdf@gmail.com<br><strong>Password:</strong> asdf</p>
+                </div>
                 
                 <div id="alertContainer"></div>
                 
@@ -316,29 +343,44 @@
     <script src="js/bootstrap.min.js"></script>
     
     <script>
-        // Admin credentials (in a real application, this would be stored securely on the server)
+        // Admin credentials
         const adminCredentials = {
             email: 'asdf@gmail.com',
             password: 'asdf'
         };
         
-        // Check if already logged in
-        if (localStorage.getItem('tyazubwenge_admin_logged_in') === 'true' || sessionStorage.getItem('tyazubwenge_admin_logged_in') === 'true') {
-            window.location.href = 'dashboard.html';
-        }
+        // Check if already logged in - REMOVED AUTO REDIRECT
+        // Users should manually login each time for security
         
-        // Form submission
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-focus on email field
+            document.getElementById('email').focus();
+            
+            // Form submission handler
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
+            
+            // Button click handler
+            document.getElementById('loginBtn').addEventListener('click', handleLogin);
+        });
+        
+        function handleLogin(e) {
             e.preventDefault();
             
-            const email = document.getElementById('email').value;
+            const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
             const rememberMe = document.getElementById('rememberMe').checked;
+            
+            // Basic validation
+            if (!email || !password) {
+                showAlert('warning', 'Please fill in all fields');
+                return;
+            }
             
             // Show loading state
             showLoading(true);
             
-            // Simulate API call delay
+            // Simulate API call
             setTimeout(() => {
                 if (email === adminCredentials.email && password === adminCredentials.password) {
                     // Successful login
@@ -359,7 +401,7 @@
                     showLoading(false);
                 }
             }, 1000);
-        });
+        }
         
         function showLoading(show) {
             const loading = document.querySelector('.loading');
@@ -381,7 +423,7 @@
             const alertContainer = document.getElementById('alertContainer');
             const alertHtml = `
                 <div class="alert alert-${type} alert-dismissible fade show" role="alert">
-                    <i class="fa fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i>
+                    <i class="fa fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' : 'times-circle'}"></i>
                     ${message}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -390,21 +432,6 @@
             `;
             alertContainer.innerHTML = alertHtml;
         }
-        
-        // Auto-focus on email field
-        document.getElementById('email').focus();
-        
-        // Demo credentials info
-        document.addEventListener('DOMContentLoaded', function() {
-            const demoInfo = document.createElement('div');
-            demoInfo.className = 'alert alert-info';
-            demoInfo.innerHTML = `
-                <strong>Demo Credentials:</strong><br>
-                Email: asdf@gmail.com<br>
-                Password: asdf
-            `;
-            document.querySelector('.login-form').insertBefore(demoInfo, document.getElementById('loginForm'));
-        });
     </script>
 </body>
 </html>
