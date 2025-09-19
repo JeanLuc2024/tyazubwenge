@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Financial Reports - Tyazubwenge Management</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>John David</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>Laboratory Management</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a></li>
+                        <li><a href="sales-pos.html"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a></li>
+                        <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
+                        <li><a href="suppliers-list.html"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a></li>
+                        <li class="active">
+                            <a href="#reports" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a>
+                            <ul class="collapse list-unstyled show" id="reports">
+                                <li><a href="reports-sales.html">> <span>Sales Reports</span></a></li>
+                                <li><a href="reports-inventory.html">> <span>Inventory Reports</span></a></li>
+                                <li class="active"><a href="reports-financial.html">> <span>Financial Reports</span></a></li>
+                                <li><a href="reports-analytics.html">> <span>AI Analytics</span></a></li>
+                                <li><a href="reports-export.html">> <span>Export Reports</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>Financial Reports & Analysis</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Profit & Loss Statement</h2>
+                                        </div>
+                                        <div class="heading1 margin_0">
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-outline-primary active" onclick="filterPeriod('monthly')">Monthly</button>
+                                                <button type="button" class="btn btn-outline-info" onclick="filterPeriod('quarterly')">Quarterly</button>
+                                                <button type="button" class="btn btn-outline-success" onclick="filterPeriod('yearly')">Yearly</button>
+                                            </div>
+                                            <button class="btn btn-primary ml-2" onclick="generateFinancialReport()">
+                                                <i class="fa fa-chart-bar"></i> Generate Report
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="table_section padding_infor_info">
+                                        <div class="table-responsive-sm">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Description</th>
+                                                        <th>Current Month</th>
+                                                        <th>Previous Month</th>
+                                                        <th>Variance</th>
+                                                        <th>% Change</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="table-success">
+                                                        <td><strong>REVENUE</strong></td>
+                                                        <td>₦2,847,500</td>
+                                                        <td>₦2,405,000</td>
+                                                        <td>+₦442,500</td>
+                                                        <td><span class="badge badge-success">+18.4%</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sales Revenue</td>
+                                                        <td>₦2,847,500</td>
+                                                        <td>₦2,405,000</td>
+                                                        <td>+₦442,500</td>
+                                                        <td><span class="badge badge-success">+18.4%</span></td>
+                                                    </tr>
+                                                    <tr class="table-danger">
+                                                        <td><strong>COST OF GOODS SOLD</strong></td>
+                                                        <td>₦1,705,000</td>
+                                                        <td>₦1,443,000</td>
+                                                        <td>+₦262,000</td>
+                                                        <td><span class="badge badge-danger">+18.2%</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Inventory Purchases</td>
+                                                        <td>₦1,200,000</td>
+                                                        <td>₦1,000,000</td>
+                                                        <td>+₦200,000</td>
+                                                        <td><span class="badge badge-danger">+20.0%</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Direct Labor</td>
+                                                        <td>₦350,000</td>
+                                                        <td>₦300,000</td>
+                                                        <td>+₦50,000</td>
+                                                        <td><span class="badge badge-danger">+16.7%</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Other COGS</td>
+                                                        <td>₦155,000</td>
+                                                        <td>₦143,000</td>
+                                                        <td>+₦12,000</td>
+                                                        <td><span class="badge badge-danger">+8.4%</span></td>
+                                                    </tr>
+                                                    <tr class="table-info">
+                                                        <td><strong>GROSS PROFIT</strong></td>
+                                                        <td>₦1,142,500</td>
+                                                        <td>₦962,000</td>
+                                                        <td>+₦180,500</td>
+                                                        <td><span class="badge badge-success">+18.8%</span></td>
+                                                    </tr>
+                                                    <tr class="table-warning">
+                                                        <td><strong>OPERATING EXPENSES</strong></td>
+                                                        <td>₦685,000</td>
+                                                        <td>₦620,000</td>
+                                                        <td>+₦65,000</td>
+                                                        <td><span class="badge badge-warning">+10.5%</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Rent & Utilities</td>
+                                                        <td>₦150,000</td>
+                                                        <td>₦150,000</td>
+                                                        <td>₦0</td>
+                                                        <td><span class="badge badge-info">0.0%</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Salaries & Wages</td>
+                                                        <td>₦400,000</td>
+                                                        <td>₦380,000</td>
+                                                        <td>+₦20,000</td>
+                                                        <td><span class="badge badge-warning">+5.3%</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Marketing & Advertising</td>
+                                                        <td>₦85,000</td>
+                                                        <td>₦70,000</td>
+                                                        <td>+₦15,000</td>
+                                                        <td><span class="badge badge-warning">+21.4%</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Other Expenses</td>
+                                                        <td>₦50,000</td>
+                                                        <td>₦20,000</td>
+                                                        <td>+₦30,000</td>
+                                                        <td><span class="badge badge-danger">+150.0%</span></td>
+                                                    </tr>
+                                                    <tr class="table-success">
+                                                        <td><strong>NET PROFIT</strong></td>
+                                                        <td>₦457,500</td>
+                                                        <td>₦342,000</td>
+                                                        <td>+₦115,500</td>
+                                                        <td><span class="badge badge-success">+33.8%</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Financial Summary</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="financial_summary">
+                                                        <div class="summary_item">
+                                                            <h4>₦2,847,500</h4>
+                                                            <p>Total Revenue</p>
+                                                            <span class="badge badge-success">+18.4%</span>
+                                                        </div>
+                                                        <div class="summary_item">
+                                                            <h4>₦1,142,500</h4>
+                                                            <p>Gross Profit</p>
+                                                            <span class="badge badge-success">40.1%</span>
+                                                        </div>
+                                                        <div class="summary_item">
+                                                            <h4>₦457,500</h4>
+                                                            <p>Net Profit</p>
+                                                            <span class="badge badge-success">16.1%</span>
+                                                        </div>
+                                                        <div class="summary_item">
+                                                            <h4>₦685,000</h4>
+                                                            <p>Operating Expenses</p>
+                                                            <span class="badge badge-warning">24.0%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Cash Flow Analysis</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="cash_flow">
+                                                        <div class="flow_item">
+                                                            <h6>Operating Cash Flow</h6>
+                                                            <p>₦520,000</p>
+                                                            <span class="badge badge-success">Positive</span>
+                                                        </div>
+                                                        <div class="flow_item">
+                                                            <h6>Investing Cash Flow</h6>
+                                                            <p>-₦150,000</p>
+                                                            <span class="badge badge-warning">Negative</span>
+                                                        </div>
+                                                        <div class="flow_item">
+                                                            <h6>Financing Cash Flow</h6>
+                                                            <p>₦50,000</p>
+                                                            <span class="badge badge-info">Positive</span>
+                                                        </div>
+                                                        <div class="flow_item">
+                                                            <h6>Net Cash Flow</h6>
+                                                            <p>₦420,000</p>
+                                                            <span class="badge badge-success">Positive</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Financial Performance Chart</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="no-chart-message">
+                                                        <h5>Financial Performance Data</h5>
+                                                        <p>Chart visualization has been disabled. Use the data tables for detailed analysis.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        // Chart functionality removed
+
+        function filterPeriod(period) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.btn-group button').forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            alert('Filtering financial data by: ' + period);
+        }
+
+        function generateFinancialReport() {
+            alert('Generating comprehensive financial report...');
+        }
+    </script>
+    <style>
+        .financial_summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .summary_item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .summary_item h4 {
+            color: #28a745;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+        
+        .summary_item p {
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .cash_flow {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .flow_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .flow_item h6 {
+            color: #333;
+            margin: 0;
+        }
+        
+        .flow_item p {
+            color: #666;
+            margin: 0;
+            font-weight: bold;
+        }
+        .no-chart-message {
+            text-align: center;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 2px dashed #dee2e6;
+        }
+        
+        .no-chart-message h5 {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        
+        .no-chart-message p {
+            color: #6c757d;
+            margin: 0;
+        }
+    </style>
+</body>
+</html>

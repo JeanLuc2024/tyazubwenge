@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Financial & Accounting - Tyazubwenge Management</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>John David</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>Laboratory Management</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a></li>
+                        <li><a href="sales-pos.html"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a></li>
+                        <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
+                        <li><a href="suppliers-list.html"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a></li>
+                        <li><a href="reports-sales.html"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a></li>
+                        <li><a href="users-management.html"><i class="fa fa-user-cog purple_color"></i> <span>User Management</span></a></li>
+                        <li><a href="branches-management.html"><i class="fa fa-building blue1_color"></i> <span>Branch Management</span></a></li>
+                        <li class="active">
+                            <a href="#financial" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-calculator green_color"></i> <span>Financial & Accounting</span></a>
+                            <ul class="collapse list-unstyled show" id="financial">
+                                <li class="active"><a href="financial-accounting.html">> <span>Financial Overview</span></a></li>
+                                <li><a href="financial-income.html">> <span>Income & Expenses</span></a></li>
+                                <li><a href="financial-debt.html">> <span>Debt & Credit</span></a></li>
+                                <li><a href="financial-integration.html">> <span>Accounting Integration</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>Financial & Accounting Overview</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Financial Dashboard</h2>
+                                        </div>
+                                        <div class="heading1 margin_0">
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-outline-primary active" onclick="filterPeriod('monthly')">Monthly</button>
+                                                <button type="button" class="btn btn-outline-info" onclick="filterPeriod('quarterly')">Quarterly</button>
+                                                <button type="button" class="btn btn-outline-success" onclick="filterPeriod('yearly')">Yearly</button>
+                                            </div>
+                                            <button class="btn btn-primary ml-2" onclick="generateFinancialReport()">
+                                                <i class="fa fa-chart-bar"></i> Generate Report
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="financial_overview">
+                                                        <div class="financial_metrics">
+                                                            <div class="metric_item revenue">
+                                                                <h4>₦2,847,500</h4>
+                                                                <p>Total Revenue</p>
+                                                                <span class="badge badge-success">+18.4% vs Last Month</span>
+                                                            </div>
+                                                            <div class="metric_item expenses">
+                                                                <h4>₦1,705,000</h4>
+                                                                <p>Total Expenses</p>
+                                                                <span class="badge badge-danger">+12.3% vs Last Month</span>
+                                                            </div>
+                                                            <div class="metric_item profit">
+                                                                <h4>₦1,142,500</h4>
+                                                                <p>Net Profit</p>
+                                                                <span class="badge badge-success">+33.8% vs Last Month</span>
+                                                            </div>
+                                                            <div class="metric_item margin">
+                                                                <h4>40.1%</h4>
+                                                                <p>Profit Margin</p>
+                                                                <span class="badge badge-info">+5.2% vs Last Month</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Income Sources</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="income_sources">
+                                                        <div class="income_item">
+                                                            <h6>Laboratory Equipment Sales</h6>
+                                                            <div class="income_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar bg-success" style="width: 65%"></div>
+                                                                </div>
+                                                                <span class="income_amount">₦1,850,000 (65%)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="income_item">
+                                                            <h6>Chemical Reagents</h6>
+                                                            <div class="income_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar bg-info" style="width: 25%"></div>
+                                                                </div>
+                                                                <span class="income_amount">₦712,000 (25%)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="income_item">
+                                                            <h6>Safety Equipment</h6>
+                                                            <div class="income_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar bg-warning" style="width: 8%"></div>
+                                                                </div>
+                                                                <span class="income_amount">₦228,000 (8%)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="income_item">
+                                                            <h6>Service & Maintenance</h6>
+                                                            <div class="income_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar bg-primary" style="width: 2%"></div>
+                                                                </div>
+                                                                <span class="income_amount">₦57,500 (2%)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Expense Categories</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="expense_categories">
+                                                        <div class="expense_item">
+                                                            <h6>Inventory Purchases</h6>
+                                                            <div class="expense_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar bg-danger" style="width: 70%"></div>
+                                                                </div>
+                                                                <span class="expense_amount">₦1,200,000 (70%)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="expense_item">
+                                                            <h6>Salaries & Wages</h6>
+                                                            <div class="expense_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar bg-warning" style="width: 23%"></div>
+                                                                </div>
+                                                                <span class="expense_amount">₦400,000 (23%)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="expense_item">
+                                                            <h6>Rent & Utilities</h6>
+                                                            <div class="expense_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar bg-info" style="width: 9%"></div>
+                                                                </div>
+                                                                <span class="expense_amount">₦150,000 (9%)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="expense_item">
+                                                            <h6>Marketing & Other</h6>
+                                                            <div class="expense_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar bg-secondary" style="width: 4%"></div>
+                                                                </div>
+                                                                <span class="expense_amount">₦65,000 (4%)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Financial Performance Chart</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="no-chart-message">
+                                                        <h5>Financial Performance Data</h5>
+                                                        <p>Chart visualization has been disabled. Use the financial reports section for detailed analysis.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Quick Financial Actions</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="quick_actions">
+                                                        <button class="btn btn-block btn-primary mb-2" onclick="recordIncome()">
+                                                            <i class="fa fa-plus"></i> Record Income
+                                                        </button>
+                                                        <button class="btn btn-block btn-danger mb-2" onclick="recordExpense()">
+                                                            <i class="fa fa-minus"></i> Record Expense
+                                                        </button>
+                                                        <button class="btn btn-block btn-info mb-2" onclick="generatePandL()">
+                                                            <i class="fa fa-file-pdf"></i> Generate P&L Statement
+                                                        </button>
+                                                        <button class="btn btn-block btn-success mb-2" onclick="syncAccounting()">
+                                                            <i class="fa fa-sync"></i> Sync with Accounting Software
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Financial Alerts</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="financial_alerts">
+                                                        <div class="alert_item alert-success">
+                                                            <i class="fa fa-check-circle"></i>
+                                                            <div class="alert_content">
+                                                                <h6>Positive Cash Flow</h6>
+                                                                <p>Cash flow is positive for the last 3 months</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="alert_item alert-warning">
+                                                            <i class="fa fa-exclamation-triangle"></i>
+                                                            <div class="alert_content">
+                                                                <h6>High Inventory Costs</h6>
+                                                                <p>Inventory costs increased by 20% this month</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="alert_item alert-info">
+                                                            <i class="fa fa-info-circle"></i>
+                                                            <div class="alert_content">
+                                                                <h6>Tax Filing Due</h6>
+                                                                <p>Monthly tax filing is due in 5 days</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="alert_item alert-danger">
+                                                            <i class="fa fa-exclamation-circle"></i>
+                                                            <div class="alert_content">
+                                                                <h6>Outstanding Invoices</h6>
+                                                                <p>₦125,000 in outstanding invoices need attention</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        // Chart functionality removed
+
+        function filterPeriod(period) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.btn-group button').forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            alert('Filtering financial data by: ' + period);
+        }
+
+        function generateFinancialReport() {
+            alert('Generating comprehensive financial report...');
+        }
+
+        function recordIncome() {
+            alert('Opening income recording form...');
+        }
+
+        function recordExpense() {
+            alert('Opening expense recording form...');
+        }
+
+        function generatePandL() {
+            alert('Generating Profit & Loss statement...');
+        }
+
+        function syncAccounting() {
+            alert('Syncing with accounting software...');
+        }
+    </script>
+    <style>
+        .financial_overview {
+            padding: 20px;
+        }
+        
+        .financial_metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .metric_item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        
+        .metric_item.revenue {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+        
+        .metric_item.expenses {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+        
+        .metric_item.profit {
+            background: #d1ecf1;
+            border-left-color: #17a2b8;
+        }
+        
+        .metric_item.margin {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        
+        .metric_item h4 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .metric_item p {
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .income_sources, .expense_categories {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .income_item, .expense_item {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .income_item h6, .expense_item h6 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .income_progress, .expense_progress {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .income_progress .progress, .expense_progress .progress {
+            flex: 1;
+            height: 20px;
+        }
+        
+        .income_amount, .expense_amount {
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .financial_alerts {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .alert_item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        
+        .alert_item.alert-success {
+            background-color: #d4edda;
+            border-left-color: #28a745;
+        }
+        
+        .alert_item.alert-warning {
+            background-color: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        
+        .alert_item.alert-info {
+            background-color: #d1ecf1;
+            border-left-color: #17a2b8;
+        }
+        
+        .alert_item.alert-danger {
+            background-color: #f8d7da;
+            border-left-color: #dc3545;
+        }
+        
+        .alert_item i {
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+        
+        .alert_content h6 {
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+        
+        .alert_content p {
+            margin: 0;
+            color: #666;
+        }
+        
+        .quick_actions button {
+            margin-bottom: 10px;
+        }
+        
+        .no-chart-message {
+            text-align: center;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 2px dashed #dee2e6;
+        }
+        
+        .no-chart-message h5 {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        
+        .no-chart-message p {
+            color: #6c757d;
+            margin: 0;
+        }
+    </style>
+</body>
+</html>

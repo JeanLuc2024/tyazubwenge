@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Income & Expenses - Tyazubwenge Management</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>John David</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>Laboratory Management</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a></li>
+                        <li><a href="sales-pos.html"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a></li>
+                        <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
+                        <li><a href="suppliers-list.html"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a></li>
+                        <li><a href="reports-sales.html"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a></li>
+                        <li><a href="users-management.html"><i class="fa fa-user-cog purple_color"></i> <span>User Management</span></a></li>
+                        <li><a href="branches-management.html"><i class="fa fa-building blue1_color"></i> <span>Branch Management</span></a></li>
+                        <li class="active">
+                            <a href="#financial" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-calculator green_color"></i> <span>Financial & Accounting</span></a>
+                            <ul class="collapse list-unstyled show" id="financial">
+                                <li><a href="financial-accounting.html">> <span>Financial Overview</span></a></li>
+                                <li class="active"><a href="financial-income.html">> <span>Income & Expenses</span></a></li>
+                                <li><a href="financial-debt.html">> <span>Debt & Credit</span></a></li>
+                                <li><a href="financial-integration.html">> <span>Accounting Integration</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>Income & Expense Management</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Financial Transactions</h2>
+                                        </div>
+                                        <div class="heading1 margin_0">
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-outline-primary active" onclick="filterTransactions('all')">All</button>
+                                                <button type="button" class="btn btn-outline-success" onclick="filterTransactions('income')">Income</button>
+                                                <button type="button" class="btn btn-outline-danger" onclick="filterTransactions('expense')">Expenses</button>
+                                            </div>
+                                            <button class="btn btn-primary ml-2" data-toggle="modal" data-target="#addTransactionModal">
+                                                <i class="fa fa-plus"></i> Add Transaction
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="table_section padding_infor_info">
+                                        <div class="table-responsive-sm">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Type</th>
+                                                        <th>Description</th>
+                                                        <th>Category</th>
+                                                        <th>Amount</th>
+                                                        <th>Payment Method</th>
+                                                        <th>Status</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="table-success">
+                                                        <td>2024-01-15</td>
+                                                        <td><span class="badge badge-success">Income</span></td>
+                                                        <td>Sale of Analytical Balance</td>
+                                                        <td>Equipment Sales</td>
+                                                        <td>+₦185,000</td>
+                                                        <td>Bank Transfer</td>
+                                                        <td><span class="badge badge-success">Completed</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info" onclick="viewTransaction('TXN-001')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-warning" onclick="editTransaction('TXN-001')">
+                                                                <i class="fa fa-edit"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-danger">
+                                                        <td>2024-01-15</td>
+                                                        <td><span class="badge badge-danger">Expense</span></td>
+                                                        <td>Purchase of Chemical Reagents</td>
+                                                        <td>Inventory Purchase</td>
+                                                        <td>-₦125,000</td>
+                                                        <td>Purchase Order</td>
+                                                        <td><span class="badge badge-success">Completed</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info" onclick="viewTransaction('TXN-002')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-warning" onclick="editTransaction('TXN-002')">
+                                                                <i class="fa fa-edit"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-success">
+                                                        <td>2024-01-14</td>
+                                                        <td><span class="badge badge-success">Income</span></td>
+                                                        <td>Sale of Digital Microscope</td>
+                                                        <td>Equipment Sales</td>
+                                                        <td>+₦245,000</td>
+                                                        <td>Mobile Money</td>
+                                                        <td><span class="badge badge-success">Completed</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info" onclick="viewTransaction('TXN-003')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-warning" onclick="editTransaction('TXN-003')">
+                                                                <i class="fa fa-edit"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-danger">
+                                                        <td>2024-01-14</td>
+                                                        <td><span class="badge badge-danger">Expense</span></td>
+                                                        <td>Monthly Rent Payment</td>
+                                                        <td>Rent & Utilities</td>
+                                                        <td>-₦150,000</td>
+                                                        <td>Bank Transfer</td>
+                                                        <td><span class="badge badge-success">Completed</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info" onclick="viewTransaction('TXN-004')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-warning" onclick="editTransaction('TXN-004')">
+                                                                <i class="fa fa-edit"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-danger">
+                                                        <td>2024-01-13</td>
+                                                        <td><span class="badge badge-danger">Expense</span></td>
+                                                        <td>Staff Salaries</td>
+                                                        <td>Salaries & Wages</td>
+                                                        <td>-₦400,000</td>
+                                                        <td>Bank Transfer</td>
+                                                        <td><span class="badge badge-success">Completed</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info" onclick="viewTransaction('TXN-005')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-warning" onclick="editTransaction('TXN-005')">
+                                                                <i class="fa fa-edit"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Income Summary</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="income_summary">
+                                                        <div class="summary_item">
+                                                            <h4>₦2,847,500</h4>
+                                                            <p>Total Income</p>
+                                                            <span class="badge badge-success">This Month</span>
+                                                        </div>
+                                                        <div class="summary_item">
+                                                            <h4>₦1,850,000</h4>
+                                                            <p>Equipment Sales</p>
+                                                            <span class="badge badge-info">65%</span>
+                                                        </div>
+                                                        <div class="summary_item">
+                                                            <h4>₦712,000</h4>
+                                                            <p>Chemical Sales</p>
+                                                            <span class="badge badge-info">25%</span>
+                                                        </div>
+                                                        <div class="summary_item">
+                                                            <h4>₦285,500</h4>
+                                                            <p>Other Income</p>
+                                                            <span class="badge badge-info">10%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Expense Summary</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="expense_summary">
+                                                        <div class="summary_item">
+                                                            <h4>₦1,705,000</h4>
+                                                            <p>Total Expenses</p>
+                                                            <span class="badge badge-danger">This Month</span>
+                                                        </div>
+                                                        <div class="summary_item">
+                                                            <h4>₦1,200,000</h4>
+                                                            <p>Inventory Purchases</p>
+                                                            <span class="badge badge-warning">70%</span>
+                                                        </div>
+                                                        <div class="summary_item">
+                                                            <h4>₦400,000</h4>
+                                                            <p>Salaries & Wages</p>
+                                                            <span class="badge badge-warning">23%</span>
+                                                        </div>
+                                                        <div class="summary_item">
+                                                            <h4>₦105,000</h4>
+                                                            <p>Other Expenses</p>
+                                                            <span class="badge badge-warning">7%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Transaction Modal -->
+    <div class="modal fade" id="addTransactionModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Financial Transaction</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Transaction Type</label>
+                                    <select class="form-control" id="transactionType">
+                                        <option value="income">Income</option>
+                                        <option value="expense">Expense</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Amount</label>
+                                    <input type="number" class="form-control" placeholder="0.00" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select class="form-control">
+                                        <option value="">Select Category</option>
+                                        <option value="equipment_sales">Equipment Sales</option>
+                                        <option value="chemical_sales">Chemical Sales</option>
+                                        <option value="service_income">Service Income</option>
+                                        <option value="inventory_purchase">Inventory Purchase</option>
+                                        <option value="salaries">Salaries & Wages</option>
+                                        <option value="rent_utilities">Rent & Utilities</option>
+                                        <option value="marketing">Marketing</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Payment Method</label>
+                                    <select class="form-control">
+                                        <option value="cash">Cash</option>
+                                        <option value="bank_transfer">Bank Transfer</option>
+                                        <option value="mobile_money">Mobile Money</option>
+                                        <option value="credit_card">Credit Card</option>
+                                        <option value="purchase_order">Purchase Order</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea class="form-control" rows="3" placeholder="Enter transaction description"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <input type="date" class="form-control" value="2024-01-15">
+                                </div>
+                                <div class="form-group">
+                                    <label>Reference Number</label>
+                                    <input type="text" class="form-control" placeholder="Optional reference number">
+                                </div>
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select class="form-control">
+                                        <option value="completed">Completed</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Add Transaction</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        function filterTransactions(type) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.btn-group button').forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Filter table rows based on type
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const transactionType = row.cells[1].textContent.trim();
+                let show = true;
+                
+                switch(type) {
+                    case 'income':
+                        show = transactionType.includes('Income');
+                        break;
+                    case 'expense':
+                        show = transactionType.includes('Expense');
+                        break;
+                    case 'all':
+                    default:
+                        show = true;
+                }
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+
+        function viewTransaction(transactionId) {
+            alert('Viewing transaction details: ' + transactionId);
+        }
+
+        function editTransaction(transactionId) {
+            alert('Editing transaction: ' + transactionId);
+        }
+    </script>
+    <style>
+        .income_summary, .expense_summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .summary_item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .expense_summary .summary_item {
+            border-left-color: #dc3545;
+        }
+        
+        .summary_item h4 {
+            color: #28a745;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+        
+        .expense_summary .summary_item h4 {
+            color: #dc3545;
+        }
+        
+        .summary_item p {
+            color: #666;
+            margin: 5px 0;
+        }
+    </style>
+</body>
+</html>

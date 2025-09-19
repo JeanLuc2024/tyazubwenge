@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Supplier Performance - Tyazubwenge Management</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>John David</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>Laboratory Management</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a></li>
+                        <li><a href="sales-pos.html"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a></li>
+                        <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
+                        <li class="active">
+                            <a href="#suppliers" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a>
+                            <ul class="collapse list-unstyled show" id="suppliers">
+                                <li><a href="suppliers-list.html">> <span>Supplier Database</span></a></li>
+                                <li><a href="purchase-orders.html">> <span>Purchase Orders</span></a></li>
+                                <li class="active"><a href="suppliers-performance.html">> <span>Performance Reports</span></a></li>
+                                <li><a href="suppliers-delivery.html">> <span>Delivery Tracking</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="reports-sales.html"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a></li>
+                        <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>Supplier Performance Reports</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Performance Metrics</h2>
+                                        </div>
+                                        <div class="heading1 margin_0">
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-outline-primary active" onclick="filterPeriod('all')">All Time</button>
+                                                <button type="button" class="btn btn-outline-info" onclick="filterPeriod('year')">This Year</button>
+                                                <button type="button" class="btn btn-outline-success" onclick="filterPeriod('month')">This Month</button>
+                                                <button type="button" class="btn btn-outline-warning" onclick="filterPeriod('quarter')">This Quarter</button>
+                                            </div>
+                                            <button class="btn btn-primary ml-2" onclick="exportPerformanceReport()">
+                                                <i class="fa fa-download"></i> Export Report
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="table_section padding_infor_info">
+                                        <div class="table-responsive-sm">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Supplier</th>
+                                                        <th>Total Orders</th>
+                                                        <th>On-Time Delivery</th>
+                                                        <th>Quality Rating</th>
+                                                        <th>Price Competitiveness</th>
+                                                        <th>Communication</th>
+                                                        <th>Overall Score</th>
+                                                        <th>Status</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="table-success">
+                                                        <td>Precision Lab Equipment</td>
+                                                        <td>24</td>
+                                                        <td>98.5%</td>
+                                                        <td><span class="badge badge-success">4.9/5</span></td>
+                                                        <td><span class="badge badge-success">Excellent</span></td>
+                                                        <td><span class="badge badge-success">4.8/5</span></td>
+                                                        <td><span class="badge badge-success">4.9/5</span></td>
+                                                        <td><span class="badge badge-success">Preferred</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info" onclick="viewDetails('SUP-004')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-success" onclick="increaseOrders('SUP-004')">
+                                                                <i class="fa fa-plus"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-success">
+                                                        <td>Lab Supplies Ltd</td>
+                                                        <td>18</td>
+                                                        <td>96.8%</td>
+                                                        <td><span class="badge badge-success">4.8/5</span></td>
+                                                        <td><span class="badge badge-success">Excellent</span></td>
+                                                        <td><span class="badge badge-success">4.7/5</span></td>
+                                                        <td><span class="badge badge-success">4.8/5</span></td>
+                                                        <td><span class="badge badge-success">Preferred</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info" onclick="viewDetails('SUP-001')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-success" onclick="increaseOrders('SUP-001')">
+                                                                <i class="fa fa-plus"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-info">
+                                                        <td>Scientific Instruments Co.</td>
+                                                        <td>15</td>
+                                                        <td>94.2%</td>
+                                                        <td><span class="badge badge-info">4.6/5</span></td>
+                                                        <td><span class="badge badge-info">Good</span></td>
+                                                        <td><span class="badge badge-info">4.5/5</span></td>
+                                                        <td><span class="badge badge-info">4.6/5</span></td>
+                                                        <td><span class="badge badge-info">Good</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info" onclick="viewDetails('SUP-002')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-warning" onclick="provideFeedback('SUP-002')">
+                                                                <i class="fa fa-comment"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-warning">
+                                                        <td>Chemical Solutions Inc.</td>
+                                                        <td>12</td>
+                                                        <td>89.3%</td>
+                                                        <td><span class="badge badge-warning">4.2/5</span></td>
+                                                        <td><span class="badge badge-warning">Fair</span></td>
+                                                        <td><span class="badge badge-warning">4.1/5</span></td>
+                                                        <td><span class="badge badge-warning">4.2/5</span></td>
+                                                        <td><span class="badge badge-warning">Needs Improvement</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info" onclick="viewDetails('SUP-003')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-warning" onclick="provideFeedback('SUP-003')">
+                                                                <i class="fa fa-comment"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-danger" onclick="considerReplacement('SUP-003')">
+                                                                <i class="fa fa-exclamation-triangle"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Performance Summary</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="performance_summary">
+                                                        <div class="stat_item">
+                                                            <h4>96.8%</h4>
+                                                            <p>Average On-Time Delivery</p>
+                                                            <span class="badge badge-success">Excellent</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>4.6/5</h4>
+                                                            <p>Average Quality Rating</p>
+                                                            <span class="badge badge-success">Good</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>69</h4>
+                                                            <p>Total Orders</p>
+                                                            <span class="badge badge-info">This Year</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>2</h4>
+                                                            <p>Preferred Suppliers</p>
+                                                            <span class="badge badge-success">Top Performers</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Performance Actions</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="performance_actions">
+                                                        <button class="btn btn-block btn-primary mb-2" onclick="generatePerformanceReport()">
+                                                            <i class="fa fa-file-pdf"></i> Generate Performance Report
+                                                        </button>
+                                                        <button class="btn btn-block btn-success mb-2" onclick="rewardTopSuppliers()">
+                                                            <i class="fa fa-trophy"></i> Reward Top Suppliers
+                                                        </button>
+                                                        <button class="btn btn-block btn-warning mb-2" onclick="provideFeedbackToAll()">
+                                                            <i class="fa fa-comment"></i> Provide Feedback to All
+                                                        </button>
+                                                        <button class="btn btn-block btn-info mb-2" onclick="updateSupplierRatings()">
+                                                            <i class="fa fa-star"></i> Update Supplier Ratings
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        function filterPeriod(period) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.btn-group button').forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Filter logic would go here
+            alert('Filtering by period: ' + period);
+        }
+
+        function exportPerformanceReport() {
+            alert('Exporting performance report...');
+        }
+
+        function viewDetails(supplierId) {
+            alert('Viewing performance details for: ' + supplierId);
+        }
+
+        function increaseOrders(supplierId) {
+            alert('Increasing orders for: ' + supplierId);
+        }
+
+        function provideFeedback(supplierId) {
+            alert('Providing feedback to: ' + supplierId);
+        }
+
+        function considerReplacement(supplierId) {
+            if(confirm('Consider replacement for: ' + supplierId + '?')) {
+                alert('Added to replacement consideration list');
+            }
+        }
+
+        function generatePerformanceReport() {
+            alert('Generating comprehensive performance report...');
+        }
+
+        function rewardTopSuppliers() {
+            alert('Rewarding top performing suppliers...');
+        }
+
+        function provideFeedbackToAll() {
+            alert('Providing feedback to all suppliers...');
+        }
+
+        function updateSupplierRatings() {
+            alert('Updating supplier ratings...');
+        }
+    </script>
+    <style>
+        .performance_summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .stat_item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .stat_item h4 {
+            color: #28a745;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+        
+        .stat_item p {
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .performance_actions button {
+            margin-bottom: 10px;
+        }
+    </style>
+</body>
+</html>

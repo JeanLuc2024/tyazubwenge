@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inventory Reports - Tyazubwenge Management</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>John David</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>Laboratory Management</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a></li>
+                        <li><a href="sales-pos.html"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a></li>
+                        <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
+                        <li><a href="suppliers-list.html"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a></li>
+                        <li class="active">
+                            <a href="#reports" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a>
+                            <ul class="collapse list-unstyled show" id="reports">
+                                <li><a href="reports-sales.html">> <span>Sales Reports</span></a></li>
+                                <li class="active"><a href="reports-inventory.html">> <span>Inventory Reports</span></a></li>
+                                <li><a href="reports-financial.html">> <span>Financial Reports</span></a></li>
+                                <li><a href="reports-analytics.html">> <span>AI Analytics</span></a></li>
+                                <li><a href="reports-export.html">> <span>Export Reports</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>Inventory Reports & Analysis</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Inventory Valuation Report</h2>
+                                        </div>
+                                        <div class="heading1 margin_0">
+                                            <button class="btn btn-primary" onclick="generateInventoryReport()">
+                                                <i class="fa fa-chart-bar"></i> Generate Report
+                                            </button>
+                                            <button class="btn btn-success" onclick="exportInventoryReport()">
+                                                <i class="fa fa-download"></i> Export
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="table_section padding_infor_info">
+                                        <div class="table-responsive-sm">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Product Category</th>
+                                                        <th>Total Items</th>
+                                                        <th>Total Quantity</th>
+                                                        <th>Average Unit Cost</th>
+                                                        <th>Total Value</th>
+                                                        <th>% of Total</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Chemical Reagents</td>
+                                                        <td>156</td>
+                                                        <td>2,450 kg</td>
+                                                        <td>₦1,250</td>
+                                                        <td>₦3,062,500</td>
+                                                        <td>45.2%</td>
+                                                        <td><span class="badge badge-success">Good</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Measuring Instruments</td>
+                                                        <td>89</td>
+                                                        <td>89 pieces</td>
+                                                        <td>₦45,000</td>
+                                                        <td>₦4,005,000</td>
+                                                        <td>59.1%</td>
+                                                        <td><span class="badge badge-success">Good</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Glassware</td>
+                                                        <td>234</td>
+                                                        <td>1,200 pieces</td>
+                                                        <td>₦2,800</td>
+                                                        <td>₦3,360,000</td>
+                                                        <td>49.6%</td>
+                                                        <td><span class="badge badge-success">Good</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Safety Equipment</td>
+                                                        <td>67</td>
+                                                        <td>450 pieces</td>
+                                                        <td>₦8,500</td>
+                                                        <td>₦3,825,000</td>
+                                                        <td>56.4%</td>
+                                                        <td><span class="badge badge-warning">Review</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Consumables</td>
+                                                        <td>345</td>
+                                                        <td>5,600 pieces</td>
+                                                        <td>₦450</td>
+                                                        <td>₦2,520,000</td>
+                                                        <td>37.2%</span></td>
+                                                        <td><span class="badge badge-info">Low Value</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Stock Movement Analysis</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="stock_movement">
+                                                        <div class="movement_item">
+                                                            <h5>Fast Moving Products</h5>
+                                                            <div class="product_list">
+                                                                <div class="product_item">
+                                                                    <span>Sodium Chloride (500g)</span>
+                                                                    <span class="badge badge-success">High</span>
+                                                                </div>
+                                                                <div class="product_item">
+                                                                    <span>Safety Goggles</span>
+                                                                    <span class="badge badge-success">High</span>
+                                                                </div>
+                                                                <div class="product_item">
+                                                                    <span>Beaker Set (50ml-1000ml)</span>
+                                                                    <span class="badge badge-info">Medium</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="movement_item">
+                                                            <h5>Slow Moving Products</h5>
+                                                            <div class="product_list">
+                                                                <div class="product_item">
+                                                                    <span>Digital Microscope (1000x)</span>
+                                                                    <span class="badge badge-warning">Low</span>
+                                                                </div>
+                                                                <div class="product_item">
+                                                                    <span>Analytical Balance (2.5kg)</span>
+                                                                    <span class="badge badge-warning">Low</span>
+                                                                </div>
+                                                                <div class="product_item">
+                                                                    <span>Precision Weighing Scale</span>
+                                                                    <span class="badge badge-danger">Very Low</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Inventory Alerts</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="inventory_alerts">
+                                                        <div class="alert_item alert-danger">
+                                                            <i class="fa fa-exclamation-triangle"></i>
+                                                            <div class="alert_content">
+                                                                <h6>Low Stock Alert</h6>
+                                                                <p>47 products below minimum stock level</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="alert_item alert-warning">
+                                                            <i class="fa fa-calendar-times"></i>
+                                                            <div class="alert_content">
+                                                                <h6>Expiry Warning</h6>
+                                                                <p>12 products expiring within 30 days</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="alert_item alert-info">
+                                                            <i class="fa fa-chart-line"></i>
+                                                            <div class="alert_content">
+                                                                <h6>Reorder Recommendation</h6>
+                                                                <p>23 products need reordering</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="alert_item alert-success">
+                                                            <i class="fa fa-check-circle"></i>
+                                                            <div class="alert_content">
+                                                                <h6>Stock Optimization</h6>
+                                                                <p>156 products at optimal levels</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Inventory Turnover Analysis</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="no-chart-message">
+                                                        <h5>Inventory Turnover Data</h5>
+                                                        <p>Chart visualization has been disabled. Use the data tables for detailed analysis.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        // Chart functionality removed
+
+        function generateInventoryReport() {
+            alert('Generating inventory valuation report...');
+        }
+
+        function exportInventoryReport() {
+            alert('Exporting inventory report to Excel...');
+        }
+    </script>
+    <style>
+        .stock_movement {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .movement_item h5 {
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #007bff;
+        }
+        
+        .product_list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .product_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .inventory_alerts {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .alert_item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        
+        .alert_item.alert-danger {
+            background-color: #f8d7da;
+            border-left-color: #dc3545;
+        }
+        
+        .alert_item.alert-warning {
+            background-color: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        
+        .alert_item.alert-info {
+            background-color: #d1ecf1;
+            border-left-color: #17a2b8;
+        }
+        
+        .alert_item.alert-success {
+            background-color: #d4edda;
+            border-left-color: #28a745;
+        }
+        
+        .alert_item i {
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+        
+        .alert_content h6 {
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+        
+        .alert_content p {
+            margin: 0;
+            color: #666;
+        }
+        .no-chart-message {
+            text-align: center;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 2px dashed #dee2e6;
+        }
+        
+        .no-chart-message h5 {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        
+        .no-chart-message p {
+            color: #6c757d;
+            margin: 0;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Purchase Orders - Tyazubwenge Management</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>John David</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>Laboratory Management</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a></li>
+                        <li><a href="sales-pos.html"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a></li>
+                        <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
+                        <li class="active">
+                            <a href="#suppliers" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a>
+                            <ul class="collapse list-unstyled show" id="suppliers">
+                                <li><a href="suppliers-list.html">> <span>Supplier Database</span></a></li>
+                                <li class="active"><a href="purchase-orders.html">> <span>Purchase Orders</span></a></li>
+                                <li><a href="suppliers-performance.html">> <span>Performance Reports</span></a></li>
+                                <li><a href="suppliers-delivery.html">> <span>Delivery Tracking</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="reports-sales.html"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a></li>
+                        <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">3</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>Purchase Orders Management</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Purchase Orders</h2>
+                                        </div>
+                                        <div class="heading1 margin_0">
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-outline-primary active" onclick="filterOrders('all')">All</button>
+                                                <button type="button" class="btn btn-outline-warning" onclick="filterOrders('pending')">Pending</button>
+                                                <button type="button" class="btn btn-outline-info" onclick="filterOrders('approved')">Approved</button>
+                                                <button type="button" class="btn btn-outline-success" onclick="filterOrders('delivered')">Delivered</button>
+                                            </div>
+                                            <button class="btn btn-primary ml-2" onclick="createNewOrder()">
+                                                <i class="fa fa-plus"></i> New Order
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="table_section padding_infor_info">
+                                        <div class="table-responsive-sm">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>PO Number</th>
+                                                        <th>Supplier</th>
+                                                        <th>Date</th>
+                                                        <th>Expected Delivery</th>
+                                                        <th>Total Amount</th>
+                                                        <th>Status</th>
+                                                        <th>Priority</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="table-warning">
+                                                        <td>PO-2024-001</td>
+                                                        <td>Lab Supplies Ltd</td>
+                                                        <td>2024-01-15</td>
+                                                        <td>2024-01-22</td>
+                                                        <td>₦245,000</td>
+                                                        <td><span class="badge badge-warning">Pending</span></td>
+                                                        <td><span class="badge badge-danger">High</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-success" onclick="approveOrder('PO-2024-001')">
+                                                                <i class="fa fa-check"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-info" onclick="viewOrder('PO-2024-001')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-primary" onclick="printOrder('PO-2024-001')">
+                                                                <i class="fa fa-print"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-info">
+                                                        <td>PO-2024-002</td>
+                                                        <td>Scientific Instruments Co.</td>
+                                                        <td>2024-01-14</td>
+                                                        <td>2024-01-21</td>
+                                                        <td>₦180,000</td>
+                                                        <td><span class="badge badge-info">Approved</span></td>
+                                                        <td><span class="badge badge-warning">Medium</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-success" onclick="confirmDelivery('PO-2024-002')">
+                                                                <i class="fa fa-truck"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-info" onclick="viewOrder('PO-2024-002')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-primary" onclick="printOrder('PO-2024-002')">
+                                                                <i class="fa fa-print"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-success">
+                                                        <td>PO-2024-003</td>
+                                                        <td>Chemical Solutions Inc.</td>
+                                                        <td>2024-01-12</td>
+                                                        <td>2024-01-19</td>
+                                                        <td>₦95,000</td>
+                                                        <td><span class="badge badge-success">Delivered</span></td>
+                                                        <td><span class="badge badge-info">Low</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info" onclick="viewOrder('PO-2024-003')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-primary" onclick="printOrder('PO-2024-003')">
+                                                                <i class="fa fa-print"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-warning" onclick="receiveGoods('PO-2024-003')">
+                                                                <i class="fa fa-box"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-danger">
+                                                        <td>PO-2024-004</td>
+                                                        <td>Precision Lab Equipment</td>
+                                                        <td>2024-01-10</td>
+                                                        <td>2024-01-17</td>
+                                                        <td>₦320,000</td>
+                                                        <td><span class="badge badge-danger">Overdue</span></td>
+                                                        <td><span class="badge badge-danger">High</span></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-warning" onclick="sendReminder('PO-2024-004')">
+                                                                <i class="fa fa-envelope"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-info" onclick="viewOrder('PO-2024-004')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-primary" onclick="printOrder('PO-2024-004')">
+                                                                <i class="fa fa-print"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Order Statistics</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="order_stats">
+                                                        <div class="stat_item">
+                                                            <h4>₦840,000</h4>
+                                                            <p>Total Orders Value</p>
+                                                            <span class="badge badge-info">This Month</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>12</h4>
+                                                            <p>Total Orders</p>
+                                                            <span class="badge badge-primary">Active</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>₦245,000</h4>
+                                                            <p>Pending Orders</p>
+                                                            <span class="badge badge-warning">1 Order</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>₦95,000</h4>
+                                                            <p>Delivered This Week</p>
+                                                            <span class="badge badge-success">1 Order</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Quick Actions</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="quick_actions">
+                                                        <button class="btn btn-block btn-primary mb-2" onclick="createNewOrder()">
+                                                            <i class="fa fa-plus"></i> Create New Purchase Order
+                                                        </button>
+                                                        <button class="btn btn-block btn-success mb-2" onclick="approveAllPending()">
+                                                            <i class="fa fa-check"></i> Approve All Pending
+                                                        </button>
+                                                        <button class="btn btn-block btn-info mb-2" onclick="generateOrderReport()">
+                                                            <i class="fa fa-file-pdf"></i> Generate Order Report
+                                                        </button>
+                                                        <button class="btn btn-block btn-warning mb-2" onclick="trackDeliveries()">
+                                                            <i class="fa fa-truck"></i> Track Deliveries
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        function filterOrders(type) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.btn-group button').forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Filter table rows based on type
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const status = row.cells[5].textContent.trim();
+                let show = true;
+                
+                switch(type) {
+                    case 'pending':
+                        show = status.includes('Pending');
+                        break;
+                    case 'approved':
+                        show = status.includes('Approved');
+                        break;
+                    case 'delivered':
+                        show = status.includes('Delivered');
+                        break;
+                    case 'all':
+                    default:
+                        show = true;
+                }
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+
+        function createNewOrder() {
+            alert('Opening new purchase order form...');
+        }
+
+        function approveOrder(orderId) {
+            if(confirm('Approve purchase order: ' + orderId + '?')) {
+                alert('Purchase order approved: ' + orderId);
+            }
+        }
+
+        function viewOrder(orderId) {
+            alert('Viewing purchase order: ' + orderId);
+        }
+
+        function printOrder(orderId) {
+            alert('Printing purchase order: ' + orderId);
+        }
+
+        function confirmDelivery(orderId) {
+            alert('Confirming delivery for: ' + orderId);
+        }
+
+        function receiveGoods(orderId) {
+            alert('Receiving goods for: ' + orderId);
+        }
+
+        function sendReminder(orderId) {
+            alert('Sending reminder for: ' + orderId);
+        }
+
+        function approveAllPending() {
+            alert('Approving all pending orders...');
+        }
+
+        function generateOrderReport() {
+            alert('Generating purchase order report...');
+        }
+
+        function trackDeliveries() {
+            alert('Opening delivery tracking...');
+        }
+    </script>
+    <style>
+        .order_stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .stat_item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .stat_item h4 {
+            color: #ffc107;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+        
+        .stat_item p {
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .quick_actions button {
+            margin-bottom: 10px;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Authentication Settings - Tyazubwenge Management</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>John David</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>Laboratory Management</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a></li>
+                        <li><a href="sales-pos.html"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a></li>
+                        <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
+                        <li><a href="suppliers-list.html"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a></li>
+                        <li><a href="reports-sales.html"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a></li>
+                        <li><a href="users-management.html"><i class="fa fa-user-cog purple_color"></i> <span>User Management</span></a></li>
+                        <li><a href="branches-management.html"><i class="fa fa-building blue1_color"></i> <span>Branch Management</span></a></li>
+                        <li><a href="financial-accounting.html"><i class="fa fa-calculator green_color"></i> <span>Financial & Accounting</span></a></li>
+                        <li class="active">
+                            <a href="#security" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-shield-alt red_color"></i> <span>Security & Backup</span></a>
+                            <ul class="collapse list-unstyled show" id="security">
+                                <li><a href="security-management.html">> <span>Security Overview</span></a></li>
+                                <li class="active"><a href="security-authentication.html">> <span>Authentication</span></a></li>
+                                <li><a href="security-encryption.html">> <span>Data Encryption</span></a></li>
+                                <li><a href="security-backup.html">> <span>Backup & Restore</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>Authentication & Access Control</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Authentication Settings</h2>
+                                        </div>
+                                        <div class="heading1 margin_0">
+                                            <button class="btn btn-primary" onclick="saveAuthSettings()">
+                                                <i class="fa fa-save"></i> Save Settings
+                                            </button>
+                                            <button class="btn btn-success" onclick="testAuthSettings()">
+                                                <i class="fa fa-check"></i> Test Settings
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <form class="auth_settings">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <h5>Password Policy</h5>
+                                                                <div class="form-group">
+                                                                    <label>Minimum Password Length</label>
+                                                                    <input type="number" class="form-control" value="8" min="6" max="20">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Password Requirements</label>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Must contain uppercase letters</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Must contain lowercase letters</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Must contain numbers</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Must contain special characters</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Password Expiry (Days)</label>
+                                                                    <input type="number" class="form-control" value="90" min="30" max="365">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Password History</label>
+                                                                    <input type="number" class="form-control" value="5" min="1" max="10">
+                                                                    <small class="form-text text-muted">Number of previous passwords to remember</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <h5>Session Management</h5>
+                                                                <div class="form-group">
+                                                                    <label>Session Timeout (Minutes)</label>
+                                                                    <input type="number" class="form-control" value="30" min="5" max="480">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Maximum Login Attempts</label>
+                                                                    <input type="number" class="form-control" value="5" min="3" max="10">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Account Lockout Duration (Minutes)</label>
+                                                                    <input type="number" class="form-control" value="15" min="5" max="60">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Concurrent Sessions</label>
+                                                                    <select class="form-control">
+                                                                        <option value="unlimited">Unlimited</option>
+                                                                        <option value="1">1 per user</option>
+                                                                        <option value="2">2 per user</option>
+                                                                        <option value="3">3 per user</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <h5>Two-Factor Authentication (2FA)</h5>
+                                                                <div class="form-group">
+                                                                    <label>2FA Method</label>
+                                                                    <select class="form-control">
+                                                                        <option value="sms">SMS</option>
+                                                                        <option value="email">Email</option>
+                                                                        <option value="app">Authenticator App</option>
+                                                                        <option value="both">SMS + App</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>2FA Required For</label>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Admin users</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"> Manager users</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"> All users</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Backup Codes</label>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Generate backup codes</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Require backup code confirmation</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <h5>IP Security</h5>
+                                                                <div class="form-group">
+                                                                    <label>IP Whitelisting</label>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"> Enable IP whitelisting</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Allowed IP Addresses</label>
+                                                                    <textarea class="form-control" rows="4" placeholder="192.168.1.0/24&#10;10.0.0.0/8&#10;172.16.0.0/12"></textarea>
+                                                                    <small class="form-text text-muted">One IP address or range per line</small>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Blocked IP Addresses</label>
+                                                                    <textarea class="form-control" rows="3" placeholder="192.168.1.100&#10;10.0.0.50"></textarea>
+                                                                    <small class="form-text text-muted">One IP address per line</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Active Sessions</h2>
+                                        </div>
+                                    </div>
+                                    <div class="table_section padding_infor_info">
+                                        <div class="table-responsive-sm">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>User</th>
+                                                        <th>IP Address</th>
+                                                        <th>Login Time</th>
+                                                        <th>Last Activity</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>John David</td>
+                                                        <td>192.168.1.100</td>
+                                                        <td>2024-01-15 14:30</td>
+                                                        <td>2 minutes ago</td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-danger" onclick="terminateSession('session1')">
+                                                                <i class="fa fa-times"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sarah Johnson</td>
+                                                        <td>192.168.1.101</td>
+                                                        <td>2024-01-15 13:45</td>
+                                                        <td>15 minutes ago</td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-danger" onclick="terminateSession('session2')">
+                                                                <i class="fa fa-times"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Michael Chen</td>
+                                                        <td>192.168.1.102</td>
+                                                        <td>2024-01-15 12:20</td>
+                                                        <td>1 hour ago</td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-danger" onclick="terminateSession('session3')">
+                                                                <i class="fa fa-times"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Security Statistics</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="security_stats">
+                                                        <div class="stat_item">
+                                                            <h4>12</h4>
+                                                            <p>Active Users</p>
+                                                            <span class="badge badge-success">Online</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>3</h4>
+                                                            <p>Failed Attempts</p>
+                                                            <span class="badge badge-warning">Today</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>0</h4>
+                                                            <p>Locked Accounts</p>
+                                                            <span class="badge badge-success">None</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>95%</h4>
+                                                            <p>2FA Adoption</p>
+                                                            <span class="badge badge-info">High</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        function saveAuthSettings() {
+            alert('Authentication settings saved successfully!');
+        }
+
+        function testAuthSettings() {
+            alert('Testing authentication settings...');
+        }
+
+        function terminateSession(sessionId) {
+            if(confirm('Terminate session: ' + sessionId + '?')) {
+                alert('Session terminated: ' + sessionId);
+            }
+        }
+    </script>
+    <style>
+        .auth_settings {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .auth_settings h5 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+        }
+        
+        .security_stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .stat_item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .stat_item h4 {
+            color: #007bff;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+        
+        .stat_item p {
+            color: #666;
+            margin: 5px 0;
+        }
+    </style>
+</body>
+</html>

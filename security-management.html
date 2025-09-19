@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Security Management - Tyazubwenge Management</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>John David</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>Laboratory Management</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a></li>
+                        <li><a href="sales-pos.html"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a></li>
+                        <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
+                        <li><a href="suppliers-list.html"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a></li>
+                        <li><a href="reports-sales.html"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a></li>
+                        <li><a href="users-management.html"><i class="fa fa-user-cog purple_color"></i> <span>User Management</span></a></li>
+                        <li><a href="branches-management.html"><i class="fa fa-building blue1_color"></i> <span>Branch Management</span></a></li>
+                        <li><a href="financial-accounting.html"><i class="fa fa-calculator green_color"></i> <span>Financial & Accounting</span></a></li>
+                        <li class="active">
+                            <a href="#security" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-shield-alt red_color"></i> <span>Security & Backup</span></a>
+                            <ul class="collapse list-unstyled show" id="security">
+                                <li class="active"><a href="security-management.html">> <span>Security Overview</span></a></li>
+                                <li><a href="security-authentication.html">> <span>Authentication</span></a></li>
+                                <li><a href="security-encryption.html">> <span>Data Encryption</span></a></li>
+                                <li><a href="security-backup.html">> <span>Backup & Restore</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>Security & Backup Management</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Security Status Overview</h2>
+                                        </div>
+                                        <div class="heading1 margin_0">
+                                            <button class="btn btn-primary" onclick="runSecurityScan()">
+                                                <i class="fa fa-search"></i> Run Security Scan
+                                            </button>
+                                            <button class="btn btn-success" onclick="updateSecuritySettings()">
+                                                <i class="fa fa-save"></i> Update Settings
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="security_overview">
+                                                        <div class="security_metrics">
+                                                            <div class="metric_item secure">
+                                                                <h4>95%</h4>
+                                                                <p>Security Score</p>
+                                                                <span class="badge badge-success">Excellent</span>
+                                                            </div>
+                                                            <div class="metric_item users">
+                                                                <h4>12</h4>
+                                                                <p>Active Users</p>
+                                                                <span class="badge badge-info">Online</span>
+                                                            </div>
+                                                            <div class="metric_item threats">
+                                                                <h4>0</h4>
+                                                                <p>Active Threats</p>
+                                                                <span class="badge badge-success">None Detected</span>
+                                                            </div>
+                                                            <div class="metric_item backup">
+                                                                <h4>24h</h4>
+                                                                <p>Last Backup</p>
+                                                                <span class="badge badge-warning">Recent</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Security Features</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="security_features">
+                                                        <div class="feature_item enabled">
+                                                            <i class="fa fa-check-circle text-success"></i>
+                                                            <div class="feature_content">
+                                                                <h6>Two-Factor Authentication (2FA)</h6>
+                                                                <p>Enabled for all admin users</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="feature_item enabled">
+                                                            <i class="fa fa-check-circle text-success"></i>
+                                                            <div class="feature_content">
+                                                                <h6>Password Policy</h6>
+                                                                <p>Strong password requirements enforced</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="feature_item enabled">
+                                                            <i class="fa fa-check-circle text-success"></i>
+                                                            <div class="feature_content">
+                                                                <h6>Data Encryption</h6>
+                                                                <p>AES-256 encryption for sensitive data</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="feature_item enabled">
+                                                            <i class="fa fa-check-circle text-success"></i>
+                                                            <div class="feature_content">
+                                                                <h6>Session Management</h6>
+                                                                <p>Auto-logout after 30 minutes of inactivity</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="feature_item disabled">
+                                                            <i class="fa fa-times-circle text-danger"></i>
+                                                            <div class="feature_content">
+                                                                <h6>IP Whitelisting</h6>
+                                                                <p>Not configured - consider enabling</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="feature_item enabled">
+                                                            <i class="fa fa-check-circle text-success"></i>
+                                                            <div class="feature_content">
+                                                                <h6>Audit Logging</h6>
+                                                                <p>All user actions are logged</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Recent Security Events</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="security_events">
+                                                        <div class="event_item success">
+                                                            <i class="fa fa-check-circle"></i>
+                                                            <div class="event_content">
+                                                                <h6>Successful Login</h6>
+                                                                <p>John David logged in from 192.168.1.100</p>
+                                                                <small>2024-01-15 14:30</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="event_item info">
+                                                            <i class="fa fa-info-circle"></i>
+                                                            <div class="event_content">
+                                                                <h6>Password Changed</h6>
+                                                                <p>Sarah Johnson updated her password</p>
+                                                                <small>2024-01-15 13:45</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="event_item warning">
+                                                            <i class="fa fa-exclamation-triangle"></i>
+                                                            <div class="event_content">
+                                                                <h6>Failed Login Attempt</h6>
+                                                                <p>Multiple failed attempts from 192.168.1.50</p>
+                                                                <small>2024-01-15 12:20</small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="event_item success">
+                                                            <i class="fa fa-check-circle"></i>
+                                                            <div class="event_content">
+                                                                <h6>Backup Completed</h6>
+                                                                <p>Daily backup completed successfully</p>
+                                                                <small>2024-01-15 02:00</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Backup Status</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="backup_status">
+                                                        <div class="backup_item">
+                                                            <h6>Local Backup</h6>
+                                                            <div class="backup_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar bg-success" style="width: 100%"></div>
+                                                                </div>
+                                                                <span class="backup_info">Last backup: 2 hours ago (245 MB)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="backup_item">
+                                                            <h6>Cloud Backup</h6>
+                                                            <div class="backup_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar bg-info" style="width: 85%"></div>
+                                                                </div>
+                                                                <span class="backup_info">Last backup: 4 hours ago (208 MB)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="backup_item">
+                                                            <h6>Database Backup</h6>
+                                                            <div class="backup_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar bg-warning" style="width: 60%"></div>
+                                                                </div>
+                                                                <span class="backup_info">Last backup: 6 hours ago (147 MB)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Quick Security Actions</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="quick_actions">
+                                                        <button class="btn btn-block btn-primary mb-2" onclick="runSecurityScan()">
+                                                            <i class="fa fa-search"></i> Run Security Scan
+                                                        </button>
+                                                        <button class="btn btn-block btn-success mb-2" onclick="createBackup()">
+                                                            <i class="fa fa-database"></i> Create Backup
+                                                        </button>
+                                                        <button class="btn btn-block btn-info mb-2" onclick="viewAuditLogs()">
+                                                            <i class="fa fa-list"></i> View Audit Logs
+                                                        </button>
+                                                        <button class="btn btn-block btn-warning mb-2" onclick="updateSecuritySettings()">
+                                                            <i class="fa fa-cog"></i> Update Security Settings
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Security Recommendations</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="security_recommendations">
+                                                        <div class="recommendation_item">
+                                                            <i class="fa fa-exclamation-triangle text-warning"></i>
+                                                            <div class="recommendation_content">
+                                                                <h6>Enable IP Whitelisting</h6>
+                                                                <p>Consider restricting access to specific IP addresses</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="recommendation_item">
+                                                            <i class="fa fa-info-circle text-info"></i>
+                                                            <div class="recommendation_content">
+                                                                <h6>Update Backup Schedule</h6>
+                                                                <p>Increase backup frequency for critical data</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="recommendation_item">
+                                                            <i class="fa fa-check-circle text-success"></i>
+                                                            <div class="recommendation_content">
+                                                                <h6>Security Score: Excellent</h6>
+                                                                <p>Current security measures are adequate</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        function runSecurityScan() {
+            alert('Running comprehensive security scan...');
+        }
+
+        function updateSecuritySettings() {
+            alert('Opening security settings configuration...');
+        }
+
+        function createBackup() {
+            alert('Creating system backup...');
+        }
+
+        function viewAuditLogs() {
+            alert('Opening audit logs...');
+        }
+    </script>
+    <style>
+        .security_overview {
+            padding: 20px;
+        }
+        
+        .security_metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .metric_item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        
+        .metric_item.secure {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+        
+        .metric_item.users {
+            background: #d1ecf1;
+            border-left-color: #17a2b8;
+        }
+        
+        .metric_item.threats {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+        
+        .metric_item.backup {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        
+        .metric_item h4 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .metric_item p {
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .security_features, .security_events {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .feature_item, .event_item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .feature_item.disabled {
+            border-left-color: #dc3545;
+        }
+        
+        .event_item.success {
+            border-left-color: #28a745;
+        }
+        
+        .event_item.info {
+            border-left-color: #17a2b8;
+        }
+        
+        .event_item.warning {
+            border-left-color: #ffc107;
+        }
+        
+        .feature_item i, .event_item i {
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+        
+        .feature_content, .event_content {
+            flex: 1;
+        }
+        
+        .feature_content h6, .event_content h6 {
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+        
+        .feature_content p, .event_content p {
+            margin: 0;
+            color: #666;
+        }
+        
+        .event_content small {
+            color: #999;
+        }
+        
+        .backup_status {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .backup_item {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .backup_item h6 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .backup_progress {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .backup_progress .progress {
+            flex: 1;
+            height: 20px;
+        }
+        
+        .backup_info {
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .security_recommendations {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .recommendation_item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .recommendation_item i {
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+        
+        .recommendation_content h6 {
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+        
+        .recommendation_content p {
+            margin: 0;
+            color: #666;
+        }
+        
+        .quick_actions button {
+            margin-bottom: 10px;
+        }
+    </style>
+</body>
+</html>

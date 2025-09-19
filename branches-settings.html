@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Branch Settings - Tyazubwenge Management</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>John David</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>Laboratory Management</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a></li>
+                        <li><a href="sales-pos.html"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a></li>
+                        <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
+                        <li><a href="suppliers-list.html"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a></li>
+                        <li><a href="reports-sales.html"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a></li>
+                        <li><a href="users-management.html"><i class="fa fa-user-cog purple_color"></i> <span>User Management</span></a></li>
+                        <li class="active">
+                            <a href="#branches" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-building blue1_color"></i> <span>Branch Management</span></a>
+                            <ul class="collapse list-unstyled show" id="branches">
+                                <li><a href="branches-management.html">> <span>Branch Database</span></a></li>
+                                <li><a href="branches-transfers.html">> <span>Stock Transfers</span></a></li>
+                                <li><a href="branches-reports.html">> <span>Branch Reports</span></a></li>
+                                <li class="active"><a href="branches-settings.html">> <span>Branch Settings</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>Branch Configuration Settings</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Branch Settings</h2>
+                                        </div>
+                                        <div class="heading1 margin_0">
+                                            <button class="btn btn-primary" onclick="saveBranchSettings()">
+                                                <i class="fa fa-save"></i> Save Settings
+                                            </button>
+                                            <button class="btn btn-success" onclick="syncAllBranches()">
+                                                <i class="fa fa-sync"></i> Sync All Branches
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <form class="branch_settings">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <h5>Transfer Settings</h5>
+                                                                <div class="form-group">
+                                                                    <label>Auto-approve Transfers</label>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"> Under ₦50,000</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"> Between same branch types</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"> Emergency transfers</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Transfer Approval Required</label>
+                                                                    <select class="form-control">
+                                                                        <option value="all">All Transfers</option>
+                                                                        <option value="high_value">High Value Only</option>
+                                                                        <option value="cross_branch">Cross Branch Only</option>
+                                                                        <option value="none">No Approval Required</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Transfer Notification</label>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Email notifications</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"> SMS notifications</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> In-app notifications</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <h5>Inventory Settings</h5>
+                                                                <div class="form-group">
+                                                                    <label>Stock Level Alerts</label>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Low stock alerts</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Expiry warnings</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"> Overstock alerts</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Inventory Sync Frequency</label>
+                                                                    <select class="form-control">
+                                                                        <option value="realtime">Real-time</option>
+                                                                        <option value="hourly">Hourly</option>
+                                                                        <option value="daily">Daily</option>
+                                                                        <option value="manual">Manual Only</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Branch Stock Visibility</label>
+                                                                    <select class="form-control">
+                                                                        <option value="all">All Branches Can See Each Other</option>
+                                                                        <option value="same_type">Same Type Only</option>
+                                                                        <option value="restricted">Restricted by Role</option>
+                                                                        <option value="none">No Cross-Branch Visibility</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <h5>Sales Settings</h5>
+                                                                <div class="form-group">
+                                                                    <label>Cross-Branch Sales</label>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Allow cross-branch sales</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"> Require manager approval</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Auto-transfer for cross-branch sales</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Pricing Policy</label>
+                                                                    <select class="form-control">
+                                                                        <option value="centralized">Centralized Pricing</option>
+                                                                        <option value="branch_specific">Branch-Specific Pricing</option>
+                                                                        <option value="mixed">Mixed (Some centralized, some branch-specific)</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <h5>Reporting Settings</h5>
+                                                                <div class="form-group">
+                                                                    <label>Branch Report Access</label>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Branch managers can view own reports</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" checked> Head office can view all reports</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"> Branch managers can view other branches</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Report Generation</label>
+                                                                    <select class="form-control">
+                                                                        <option value="automatic">Automatic Daily</option>
+                                                                        <option value="weekly">Weekly</option>
+                                                                        <option value="monthly">Monthly</option>
+                                                                        <option value="manual">Manual Only</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Branch Permissions</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="permissions_list">
+                                                        <div class="permission_item">
+                                                            <h6>Main Laboratory (Lagos)</h6>
+                                                            <div class="permission_details">
+                                                                <span class="badge badge-success">Full Access</span>
+                                                                <span class="badge badge-info">Can Transfer To All</span>
+                                                                <span class="badge badge-warning">Can Approve Transfers</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="permission_item">
+                                                            <h6>Abuja Warehouse</h6>
+                                                            <div class="permission_details">
+                                                                <span class="badge badge-success">Full Access</span>
+                                                                <span class="badge badge-info">Can Transfer To All</span>
+                                                                <span class="badge badge-secondary">Limited Approval</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="permission_item">
+                                                            <h6>Port Harcourt Lab</h6>
+                                                            <div class="permission_details">
+                                                                <span class="badge badge-info">Standard Access</span>
+                                                                <span class="badge badge-info">Can Transfer To All</span>
+                                                                <span class="badge badge-secondary">No Approval Rights</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="permission_item">
+                                                            <h6>Kano Distribution Center</h6>
+                                                            <div class="permission_details">
+                                                                <span class="badge badge-secondary">Inactive</span>
+                                                                <span class="badge badge-secondary">No Transfers</span>
+                                                                <span class="badge badge-secondary">No Permissions</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Quick Actions</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="quick_actions">
+                                                        <button class="btn btn-block btn-primary mb-2" onclick="saveBranchSettings()">
+                                                            <i class="fa fa-save"></i> Save All Settings
+                                                        </button>
+                                                        <button class="btn btn-block btn-success mb-2" onclick="syncAllBranches()">
+                                                            <i class="fa fa-sync"></i> Sync All Branches
+                                                        </button>
+                                                        <button class="btn btn-block btn-info mb-2" onclick="resetBranchSettings()">
+                                                            <i class="fa fa-undo"></i> Reset to Default
+                                                        </button>
+                                                        <button class="btn btn-block btn-warning mb-2" onclick="testBranchConnections()">
+                                                            <i class="fa fa-plug"></i> Test Connections
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        function saveBranchSettings() {
+            alert('Branch settings saved successfully!');
+        }
+
+        function syncAllBranches() {
+            alert('Syncing all branches...');
+        }
+
+        function resetBranchSettings() {
+            if(confirm('Reset all branch settings to default?')) {
+                alert('Branch settings reset to default!');
+            }
+        }
+
+        function testBranchConnections() {
+            alert('Testing branch connections...');
+        }
+    </script>
+    <style>
+        .branch_settings {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .branch_settings h5 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+        }
+        
+        .permissions_list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .permission_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .permission_item h6 {
+            color: #333;
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        .permission_details {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .quick_actions button {
+            margin-bottom: 10px;
+        }
+    </style>
+</body>
+</html>

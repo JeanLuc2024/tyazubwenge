@@ -327,8 +327,9 @@
                                  <div class="row">
                                     <div class="col-md-12">
                                        <div class="content">
-                                          <div class="area_chart">
-                                             <canvas height="120" id="canvas"></canvas>
+                                          <div class="no-chart-message">
+                                             <h5>Sales Analytics Data</h5>
+                                             <p>Chart visualization has been disabled. Use the reports section for detailed analysis.</p>
                                           </div>
                                        </div>
                                     </div>
@@ -534,9 +535,7 @@
       <script src="js/bootstrap-select.js"></script>
       <!-- owl carousel -->
       <script src="js/owl.carousel.js"></script> 
-      <!-- chart js -->
-      <script src="js/Chart.min.js"></script>
-      <script src="js/Chart.bundle.min.js"></script>
+      <!-- chart js removed -->
       <script src="js/utils.js"></script>
       <script src="js/analyser.js"></script>
       <!-- nice scrollbar -->
@@ -545,7 +544,28 @@
          var ps = new PerfectScrollbar('#sidebar');
       </script>
       <!-- custom js -->
-      <script src="js/chart_custom_style1.js"></script>
+      <!-- chart custom style removed -->
       <script src="js/custom.js"></script>
+      <!-- authentication -->
+      <script src="js/auth.js"></script>
+      <style>
+        .no-chart-message {
+            text-align: center;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 2px dashed #dee2e6;
+        }
+        
+        .no-chart-message h5 {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        
+        .no-chart-message p {
+            color: #6c757d;
+            margin: 0;
+        }
+      </style>
    </body>
 </html>
