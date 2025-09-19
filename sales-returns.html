@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Returns & Refunds - Tyazubwenge Management</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>John David</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>Laboratory Management</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a></li>
+                        <li><a href="stock-inventory.html"><i class="fa fa-warehouse blue1_color"></i> <span>Stock & Inventory</span></a></li>
+                        <li class="active">
+                            <a href="#sales" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"><i class="fa fa-shopping-cart green_color"></i> <span>Sales & Billing</span></a>
+                            <ul class="collapse list-unstyled show" id="sales">
+                                <li><a href="sales-pos.html">> <span>Point of Sale</span></a></li>
+                                <li><a href="sales-invoices.html">> <span>Invoices & Receipts</span></a></li>
+                                <li><a href="sales-payments.html">> <span>Payment Tracking</span></a></li>
+                                <li class="active"><a href="sales-returns.html">> <span>Returns & Refunds</span></a></li>
+                                <li><a href="sales-credit.html">> <span>Credit Sales</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="customers-list.html"><i class="fa fa-users purple_color"></i> <span>Customer Management</span></a></li>
+                        <li><a href="suppliers-list.html"><i class="fa fa-truck orange_color"></i> <span>Supplier Management</span></a></li>
+                        <li><a href="reports-sales.html"><i class="fa fa-chart-line red_color"></i> <span>Reports & Analytics</span></a></li>
+                        <li><a href="settings.html"><i class="fa fa-cog purple_color"></i> <span>System Settings</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>Returns & Refunds</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Return Requests</h2>
+                                        </div>
+                                        <div class="heading1 margin_0">
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-outline-primary active" onclick="filterReturns('all')">All</button>
+                                                <button type="button" class="btn btn-outline-warning" onclick="filterReturns('pending')">Pending</button>
+                                                <button type="button" class="btn btn-outline-success" onclick="filterReturns('approved')">Approved</button>
+                                                <button type="button" class="btn btn-outline-danger" onclick="filterReturns('rejected')">Rejected</button>
+                                            </div>
+                                            <button class="btn btn-primary ml-2" onclick="createNewReturn()">
+                                                <i class="fa fa-plus"></i> New Return
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="table_section padding_infor_info">
+                                        <div class="table-responsive-sm">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Return ID</th>
+                                                        <th>Invoice No.</th>
+                                                        <th>Customer</th>
+                                                        <th>Product</th>
+                                                        <th>Quantity</th>
+                                                        <th>Amount</th>
+                                                        <th>Reason</th>
+                                                        <th>Status</th>
+                                                        <th>Date</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="table-warning">
+                                                        <td>RET-2024-001</td>
+                                                        <td>INV-2024-001</td>
+                                                        <td>Dr. Sarah Johnson - University Lab</td>
+                                                        <td>Analytical Balance (2.5kg)</td>
+                                                        <td>1 piece</td>
+                                                        <td>₦185,000</td>
+                                                        <td>Defective Product</td>
+                                                        <td><span class="badge badge-warning">Pending</span></td>
+                                                        <td>2024-01-16</td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-success" onclick="approveReturn('RET-2024-001')">
+                                                                <i class="fa fa-check"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-danger" onclick="rejectReturn('RET-2024-001')">
+                                                                <i class="fa fa-times"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-info" onclick="viewReturn('RET-2024-001')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-success">
+                                                        <td>RET-2024-002</td>
+                                                        <td>INV-2024-002</td>
+                                                        <td>Research Institute</td>
+                                                        <td>Sodium Chloride (500g)</td>
+                                                        <td>2 kg</td>
+                                                        <td>₦12,500</td>
+                                                        <td>Wrong Specification</td>
+                                                        <td><span class="badge badge-success">Approved</span></td>
+                                                        <td>2024-01-15</td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-primary" onclick="processRefund('RET-2024-002')">
+                                                                <i class="fa fa-money"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-info" onclick="viewReturn('RET-2024-002')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="table-danger">
+                                                        <td>RET-2024-003</td>
+                                                        <td>INV-2024-003</td>
+                                                        <td>Medical Center</td>
+                                                        <td>Digital Microscope</td>
+                                                        <td>1 piece</td>
+                                                        <td>₦245,000</td>
+                                                        <td>Customer Changed Mind</td>
+                                                        <td><span class="badge badge-danger">Rejected</span></td>
+                                                        <td>2024-01-14</td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-info" onclick="viewReturn('RET-2024-003')">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-warning" onclick="reopenReturn('RET-2024-003')">
+                                                                <i class="fa fa-undo"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Return Statistics</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="return_stats">
+                                                        <div class="stat_item">
+                                                            <h4>₦442,500</h4>
+                                                            <p>Total Return Value</p>
+                                                            <span class="badge badge-info">1.2% of Sales</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>15</h4>
+                                                            <p>Total Returns</p>
+                                                            <span class="badge badge-warning">This Month</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>₦185,000</h4>
+                                                            <p>Pending Refunds</p>
+                                                            <span class="badge badge-warning">1 Item</span>
+                                                        </div>
+                                                        <div class="stat_item">
+                                                            <h4>₦257,500</h4>
+                                                            <p>Processed Refunds</p>
+                                                            <span class="badge badge-success">2 Items</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2>Quick Actions</h2>
+                                        </div>
+                                    </div>
+                                    <div class="full graph_revenue">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="content">
+                                                    <div class="quick_actions">
+                                                        <button class="btn btn-block btn-primary mb-2" onclick="createNewReturn()">
+                                                            <i class="fa fa-plus"></i> Create New Return Request
+                                                        </button>
+                                                        <button class="btn btn-block btn-success mb-2" onclick="processAllApproved()">
+                                                            <i class="fa fa-check"></i> Process All Approved Returns
+                                                        </button>
+                                                        <button class="btn btn-block btn-warning mb-2" onclick="generateReturnReport()">
+                                                            <i class="fa fa-file-pdf"></i> Generate Return Report
+                                                        </button>
+                                                        <button class="btn btn-block btn-info mb-2" onclick="updateReturnPolicy()">
+                                                            <i class="fa fa-cog"></i> Update Return Policy
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        function filterReturns(type) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.btn-group button').forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Filter table rows based on type
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const status = row.cells[7].textContent.trim();
+                let show = true;
+                
+                switch(type) {
+                    case 'pending':
+                        show = status.includes('Pending');
+                        break;
+                    case 'approved':
+                        show = status.includes('Approved');
+                        break;
+                    case 'rejected':
+                        show = status.includes('Rejected');
+                        break;
+                    case 'all':
+                    default:
+                        show = true;
+                }
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+
+        function createNewReturn() {
+            alert('Opening new return request form...');
+        }
+
+        function approveReturn(returnId) {
+            if(confirm('Approve return request: ' + returnId + '?')) {
+                alert('Return request approved successfully!');
+            }
+        }
+
+        function rejectReturn(returnId) {
+            if(confirm('Reject return request: ' + returnId + '?')) {
+                alert('Return request rejected!');
+            }
+        }
+
+        function viewReturn(returnId) {
+            alert('Viewing return request: ' + returnId);
+        }
+
+        function processRefund(returnId) {
+            alert('Processing refund for: ' + returnId);
+        }
+
+        function reopenReturn(returnId) {
+            if(confirm('Reopen return request: ' + returnId + '?')) {
+                alert('Return request reopened!');
+            }
+        }
+
+        function processAllApproved() {
+            alert('Processing all approved returns...');
+        }
+
+        function generateReturnReport() {
+            alert('Generating return report...');
+        }
+
+        function updateReturnPolicy() {
+            alert('Opening return policy settings...');
+        }
+    </script>
+    <style>
+        .return_stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .stat_item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .stat_item h4 {
+            color: #007bff;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+        
+        .stat_item p {
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .quick_actions button {
+            margin-bottom: 10px;
+        }
+    </style>
+</body>
+</html>
