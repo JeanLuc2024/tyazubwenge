@@ -76,10 +76,12 @@ class AuthManager {
 
                     if (rememberMe) {
                         localStorage.setItem('tyazubwenge_admin_user', JSON.stringify(this.currentUser));
-                        localStorage.setItem('tyazubwenge_admin_logged_in', 'true');
+                        localStorage.setItem('adminLoggedIn', 'true');
+                        localStorage.setItem('adminUser', JSON.stringify(this.currentUser));
                     } else {
                         sessionStorage.setItem('tyazubwenge_admin_user', JSON.stringify(this.currentUser));
-                        sessionStorage.setItem('tyazubwenge_admin_logged_in', 'true');
+                        sessionStorage.setItem('adminLoggedIn', 'true');
+                        sessionStorage.setItem('adminUser', JSON.stringify(this.currentUser));
                     }
 
                     resolve({
@@ -109,9 +111,11 @@ class AuthManager {
 
         // Clear stored data
         localStorage.removeItem('tyazubwenge_admin_user');
-        localStorage.removeItem('tyazubwenge_admin_logged_in');
+        localStorage.removeItem('adminLoggedIn');
+        localStorage.removeItem('adminUser');
         sessionStorage.removeItem('tyazubwenge_admin_user');
-        sessionStorage.removeItem('tyazubwenge_admin_logged_in');
+        sessionStorage.removeItem('adminLoggedIn');
+        sessionStorage.removeItem('adminUser');
         
         this.currentUser = null;
         
@@ -134,7 +138,7 @@ class AuthManager {
     // Check authentication and redirect if needed
     requireAuth() {
         if (!this.isLoggedIn()) {
-            window.location.href = 'login.html';
+            window.location.href = 'login.php';
             return false;
         }
         return true;
@@ -256,12 +260,12 @@ window.requireAuth = () => {
 // Auto-check authentication on page load
 document.addEventListener('DOMContentLoaded', function() {
     // Skip auth check for login page
-    if (window.location.pathname.includes('login.html')) {
+    if (window.location.pathname.includes('login.php')) {
         return;
     }
     
     // Skip auth check for index page
-    if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
+    if (window.location.pathname.includes('index.php') || window.location.pathname === '/' || window.location.pathname.endsWith('/ubwenge/')) {
         return;
     }
     
