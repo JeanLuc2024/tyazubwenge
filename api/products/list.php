@@ -50,11 +50,14 @@ $products = fetchAll($sql, $params);
 
 // Calculate additional fields
 foreach ($products as &$product) {
-    $product['profit_margin'] = $product['selling_price'] - $product['cost_price'];
-    $product['profit_percentage'] = $product['cost_price'] > 0 ? 
-        round(($product['profit_margin'] / $product['cost_price']) * 100, 2) : 0;
+    $product['selling_price'] = $product['unit_price'];
+    $product['cost_price'] = $product['unit_price'];
+    $product['profit_margin'] = 0;
+    $product['profit_percentage'] = 0;
     
     // Check if low stock
+    $product['current_stock'] = $product['quantity'];
+    $product['min_stock_level'] = 5;
     $product['is_low_stock'] = $product['current_stock'] <= $product['min_stock_level'];
     
     // Check if expiring soon (within 30 days)

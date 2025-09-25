@@ -4,6 +4,9 @@
  * Laboratory Management System
  */
 
+// Start output buffering to prevent any unwanted output
+ob_start();
+
 // Enable CORS for frontend integration
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
@@ -11,7 +14,8 @@ header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
 header('Content-Type: application/json; charset=utf-8');
 
 // Handle preflight OPTIONS request
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    ob_clean();
     http_response_code(200);
     exit();
 }
@@ -34,6 +38,7 @@ $options = [
 // API Response helper class
 class APIResponse {
     public static function success($data = null, $message = 'Success', $code = 200) {
+        ob_clean();
         http_response_code($code);
         echo json_encode([
             'success' => true,
@@ -45,6 +50,7 @@ class APIResponse {
     }
     
     public static function error($message = 'Error', $code = 400, $data = null) {
+        ob_clean();
         http_response_code($code);
         echo json_encode([
             'success' => false,
@@ -137,7 +143,7 @@ class Validator {
     public static function validateRequired($data, $fields) {
         $errors = [];
         foreach ($fields as $field) {
-            if (!isset($data[$field]) || empty(trim($data[$field]))) {
+            if (!isset($data[$field]) || (is_string($data[$field]) && empty(trim($data[$field]))) || (is_array($data[$field]) && empty($data[$field]))) {
                 $errors[$field] = ucfirst($field) . ' is required';
             }
         }

@@ -340,31 +340,7 @@
                             <!-- end stock status -->
                         </div>
                         <div class="row column4 graph">
-                            <div class="col-md-6">
-                                <div class="dash_blog">
-                                    <div class="dash_blog_inner">
-                                        <div class="dash_head">
-                                            <h3><span><i class="fa fa-calendar"></i> Today's Tasks</span><span class="plus_green_bt"><a href="#" onclick="addTask()">+</a></span></h3>
-                                        </div>
-                                        <div class="list_cont">
-                                            <p>Training Center Management Tasks</p>
-                                        </div>
-                                        <div class="task_list_main">
-                                            <ul class="task_list">
-                                                <li><a href="stock-expiry.php">Check expiring chemicals inventory</a><br><strong>09:00 AM</strong></li>
-                                                <li><a href="purchase-orders.php">Process pending purchase orders</a><br><strong>10:30 AM</strong></li>
-                                                <li><a href="stock-inventory.php">Update stock levels for new deliveries</a><br><strong>11:00 AM</strong></li>
-                                                <li><a href="reports-sales.php">Generate monthly sales report</a><br><strong>02:00 PM</strong></li>
-                                                <li><a href="stock-alerts.php">Review low stock alerts</a><br><strong>03:30 PM</strong></li>
-                                            </ul>
-                                        </div>
-                                        <div class="read_more">
-                                            <div class="center"><a class="main_bt read_bt" href="calendar.php">View All Tasks</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="dash_blog">
                                     <div class="dash_blog_inner">
                                         <div class="dash_head">
@@ -507,12 +483,6 @@
             alert('Help & Support:\n\n• Contact: +234-801-234-5678\n• Email: info@tyazubwenge.com\n• Training Programs: Check Training Programs section\n• Inventory Management: Use Stock Inventory page\n• Reports: Access Sales Reports for analytics');
         }
         
-        function addTask() {
-            const task = prompt('Enter new task:');
-            if (task) {
-                alert('Task added: ' + task);
-            }
-        }
         
         function markAllRead() {
             document.getElementById('notificationCount').textContent = '0';

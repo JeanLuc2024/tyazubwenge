@@ -18,7 +18,6 @@
         </div>
     </div>
     <div class="sidebar_blog_2">
-        <h4 style="color: white;">Tyazubwenge Training Center Management System</h4>
         <ul class="list-unstyled components">
             <!-- Training Programs -->
             <li>

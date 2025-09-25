@@ -1,4 +1,5 @@
 <?php
+    require_once __DIR__ . '/../config/database.php';
     $unread_alerts = fetchOne("SELECT COUNT(*) as count FROM alerts WHERE is_read = 0");
     $notification_count = $unread_alerts ? $unread_alerts['count'] : 0;
 ?>

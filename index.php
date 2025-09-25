@@ -563,169 +563,47 @@
                     <p>• Complete step-by-step instructions • All necessary raw materials • Safety protocols • Quality control methods • Business setup guidance • Certificate of completion</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <i class="fa fa-tint" style="color: #2c5530;"></i>
-                        </div>
-                        <h3 class="product-title">Detergent Making</h3>
-                        <p class="product-description">Learn to make liquid and powder detergents for home and commercial use.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Liquid detergents</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Powder detergents</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Commercial grade</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦25,000</div>
-                        <button class="btn-add-to-cart" onclick="enrollTraining('Detergent Making', 25000)">
-                            <i class="fa fa-graduation-cap"></i> Enroll Now
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <i class="fa fa-glass" style="color: #2c5530;"></i>
-                        </div>
-                        <h3 class="product-title">Gin Making</h3>
-                        <p class="product-description">Master the art of making premium gin with traditional and modern techniques.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Traditional methods</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Modern techniques</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Quality control</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦35,000</div>
-                        <button class="btn-add-to-cart" onclick="enrollTraining('Gin Making', 35000)">
-                            <i class="fa fa-graduation-cap"></i> Enroll Now
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <i class="fa fa-flask" style="color: #2c5530;"></i>
-                        </div>
-                        <h3 class="product-title">Oil Production</h3>
-                        <p class="product-description">Learn to extract and produce various types of oils for different purposes.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Essential oils</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Cooking oils</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Industrial oils</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦30,000</div>
-                        <button class="btn-add-to-cart" onclick="enrollTraining('Oil Production', 30000)">
-                            <i class="fa fa-graduation-cap"></i> Enroll Now
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <i class="fa fa-shoe-prints" style="color: #2c5530;"></i>
-                        </div>
-                        <h3 class="product-title">Shoe Polish Making</h3>
-                        <p class="product-description">Create high-quality shoe polish in various colors and finishes.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Multiple colors</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Different finishes</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Commercial quality</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦20,000</div>
-                        <button class="btn-add-to-cart" onclick="enrollTraining('Shoe Polish Making', 20000)">
-                            <i class="fa fa-graduation-cap"></i> Enroll Now
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <i class="fa fa-spray-can" style="color: #2c5530;"></i>
-                        </div>
-                        <h3 class="product-title">Air Freshener Making</h3>
-                        <p class="product-description">Learn to make various types of air fresheners and room sprays.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Room sprays</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Car fresheners</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Natural fragrances</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦18,000</div>
-                        <button class="btn-add-to-cart" onclick="enrollTraining('Air Freshener Making', 18000)">
-                            <i class="fa fa-graduation-cap"></i> Enroll Now
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <i class="fa fa-paint-brush" style="color: #2c5530;"></i>
-                        </div>
-                        <h3 class="product-title">Paint Making</h3>
-                        <p class="product-description">Master the art of making different types of paints and coatings.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Water-based paints</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Oil-based paints</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Specialty coatings</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦40,000</div>
-                        <button class="btn-add-to-cart" onclick="enrollTraining('Paint Making', 40000)">
-                            <i class="fa fa-graduation-cap"></i> Enroll Now
-                        </button>
-                    </div>
-                </div>
+            <div class="row" id="trainingProgramsContainer">
+                <?php
+                require_once 'config/database.php';
+                
+                try {
+                    $training_programs = fetchAll("SELECT * FROM training_programs WHERE is_active = 1 ORDER BY name");
+                    
+                    if (empty($training_programs)) {
+                        echo '<div class="col-12"><p class="text-muted">No training programs available at the moment. Please check back later.</p></div>';
+                    } else {
+                        $icons = ['fa-tint', 'fa-glass', 'fa-flask', 'fa-shoe-prints', 'fa-spray-can', 'fa-paint-brush', 'fa-cogs', 'fa-microscope'];
+                        $icon_index = 0;
+                        
+                        foreach ($training_programs as $program) {
+                            $icon = $icons[$icon_index % count($icons)];
+                            $icon_index++;
+                            
+                            echo '<div class="col-lg-4 col-md-6 mb-4">';
+                            echo '<div class="product-card">';
+                            echo '<div class="product-image">';
+                            echo '<i class="fa ' . $icon . '" style="color: #2c5530;"></i>';
+                            echo '</div>';
+                            echo '<h3 class="product-title">' . htmlspecialchars($program['name']) . '</h3>';
+                            echo '<p class="product-description">' . htmlspecialchars($program['description']) . '</p>';
+                            echo '<div class="product-features">';
+                            echo '<div class="feature"><i class="fa fa-clock-o"></i><span>' . $program['duration_hours'] . ' hours duration</span></div>';
+                            echo '<div class="feature"><i class="fa fa-users"></i><span>Max ' . $program['max_students'] . ' students</span></div>';
+                            echo '<div class="feature"><i class="fa fa-certificate"></i><span>Certificate included</span></div>';
+                            echo '</div>';
+                            echo '<div class="product-price">₦' . number_format($program['price'], 0) . '</div>';
+                            echo '<button class="btn-add-to-cart" onclick="enrollTraining(\'' . htmlspecialchars($program['name']) . '\', ' . $program['price'] . ')">';
+                            echo '<i class="fa fa-graduation-cap"></i> Enroll Now';
+                            echo '</button>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    }
+                } catch (Exception $e) {
+                    echo '<div class="col-12"><p class="text-danger">Error loading training programs: ' . $e->getMessage() . '</p></div>';
+                }
+                ?>
             </div>
         </div>
     </section>
@@ -741,187 +619,64 @@
                     <p>• High-quality laboratory equipment • Pure chemical reagents • Safety gear • Glassware sets • Raw materials for production • Professional-grade tools</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/products/analytical-balance.jpg" alt="Analytical Balance" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
-                                <i class="fa fa-balance-scale" style="color: #2c5530; font-size: 3rem;"></i>
-                            </div>
-                        </div>
-                        <h3 class="product-title">Analytical Balance (0.1mg)</h3>
-                        <p class="product-description">High-precision analytical balance for accurate measurements in laboratory applications.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>0.1mg precision</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Digital display</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Calibration included</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦185,000</div>
-                        <button class="btn-add-to-cart" onclick="addToCart('Analytical Balance', 185000)">
-                            <i class="fa fa-shopping-cart"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/products/digital-microscope.jpg" alt="Digital Microscope" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
-                                <i class="fa fa-microscope" style="color: #2c5530; font-size: 3rem;"></i>
-                            </div>
-                        </div>
-                        <h3 class="product-title">Digital Microscope (1000x)</h3>
-                        <p class="product-description">Advanced digital microscope with high-resolution imaging capabilities.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>1000x magnification</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Digital camera</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>LED illumination</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦245,000</div>
-                        <button class="btn-add-to-cart" onclick="addToCart('Digital Microscope', 245000)">
-                            <i class="fa fa-shopping-cart"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/products/sodium-chloride.jpg" alt="Sodium Chloride" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
-                                <i class="fa fa-flask" style="color: #2c5530; font-size: 3rem;"></i>
-                            </div>
-                        </div>
-                        <h3 class="product-title">Sodium Chloride (Pure Grade)</h3>
-                        <p class="product-description">High-purity sodium chloride for laboratory and research applications.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>99.9% purity</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>500g packaging</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Analytical grade</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦12,500/kg</div>
-                        <button class="btn-add-to-cart" onclick="addToCart('Sodium Chloride', 12500)">
-                            <i class="fa fa-shopping-cart"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/products/safety-goggles.jpg" alt="Safety Goggles" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
-                                <i class="fa fa-shield" style="color: #2c5530; font-size: 3rem;"></i>
-                            </div>
-                        </div>
-                        <h3 class="product-title">Safety Goggles (UV Protection)</h3>
-                        <p class="product-description">Professional safety goggles with UV protection for laboratory safety.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>UV protection</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Anti-fog coating</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Comfortable fit</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦8,500</div>
-                        <button class="btn-add-to-cart" onclick="addToCart('Safety Goggles', 8500)">
-                            <i class="fa fa-shopping-cart"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/products/hydrochloric-acid.jpg" alt="Hydrochloric Acid" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
-                                <i class="fa fa-tint" style="color: #2c5530; font-size: 3rem;"></i>
-                            </div>
-                        </div>
-                        <h3 class="product-title">Hydrochloric Acid (37%)</h3>
-                        <p class="product-description">Concentrated hydrochloric acid for various laboratory applications.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>37% concentration</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>1L bottle</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Analytical grade</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦15,000/L</div>
-                        <button class="btn-add-to-cart" onclick="addToCart('Hydrochloric Acid', 15000)">
-                            <i class="fa fa-shopping-cart"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/products/beaker-set.jpg" alt="Beaker Set" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 10px;">
-                                <i class="fa fa-cubes" style="color: #2c5530; font-size: 3rem;"></i>
-                            </div>
-                        </div>
-                        <h3 class="product-title">Beaker Set (50ml-1000ml)</h3>
-                        <p class="product-description">Complete set of borosilicate glass beakers for laboratory use.</p>
-                        <div class="product-features">
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>6-piece set</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Borosilicate glass</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fa fa-check"></i>
-                                <span>Heat resistant</span>
-                            </div>
-                        </div>
-                        <div class="product-price">₦25,000</div>
-                        <button class="btn-add-to-cart" onclick="addToCart('Beaker Set', 25000)">
-                            <i class="fa fa-shopping-cart"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
+            <div class="row" id="productsContainer">
+                <?php
+                try {
+                    $products = fetchAll("SELECT p.*, c.name as category_name 
+                                        FROM products p 
+                                        LEFT JOIN categories c ON p.category_id = c.id 
+                                        WHERE p.is_active = 1 
+                                        ORDER BY p.name 
+                                        LIMIT 12");
+                    
+                    if (empty($products)) {
+                        echo '<div class="col-12"><p class="text-muted">No products available at the moment. Please check back later.</p></div>';
+                    } else {
+                        $category_icons = [
+                            'Laboratory Equipment' => 'fa-cogs',
+                            'Chemical Reagents' => 'fa-flask',
+                            'Safety Equipment' => 'fa-shield',
+                            'Glassware' => 'fa-cube'
+                        ];
+                        
+                        foreach ($products as $product) {
+                            $category_icon = $category_icons[$product['category_name']] ?? 'fa-cube';
+                            $stock_status = $product['quantity'] > 0 ? 'In Stock' : 'Out of Stock';
+                            $stock_class = $product['quantity'] > 0 ? 'text-success' : 'text-danger';
+                            
+                            echo '<div class="col-lg-4 col-md-6 mb-4">';
+                            echo '<div class="product-card">';
+                            echo '<div class="product-image">';
+                            echo '<i class="fa ' . $category_icon . '" style="color: #2c5530; font-size: 3rem;"></i>';
+                            echo '</div>';
+                            echo '<h3 class="product-title">' . htmlspecialchars($product['name']) . '</h3>';
+                            echo '<p class="product-description">' . htmlspecialchars($product['description']) . '</p>';
+                            echo '<div class="product-features">';
+                            echo '<div class="feature"><i class="fa fa-tag"></i><span>' . htmlspecialchars($product['category_name']) . '</span></div>';
+                            echo '<div class="feature"><i class="fa fa-barcode"></i><span>SKU: ' . htmlspecialchars($product['sku']) . '</span></div>';
+                            echo '<div class="feature"><i class="fa fa-cube"></i><span>Stock: ' . $product['quantity'] . ' ' . htmlspecialchars($product['unit_type']) . '</span></div>';
+                            echo '<div class="feature"><i class="fa fa-circle ' . $stock_class . '"></i><span>' . $stock_status . '</span></div>';
+                            echo '</div>';
+                            echo '<div class="product-price">₦' . number_format($product['unit_price'], 0) . '/' . htmlspecialchars($product['unit_type']) . '</div>';
+                            
+                            if ($product['quantity'] > 0) {
+                                echo '<button class="btn-add-to-cart" onclick="addToCart(\'' . htmlspecialchars($product['name']) . '\', ' . $product['unit_price'] . ')">';
+                                echo '<i class="fa fa-shopping-cart"></i> Add to Cart';
+                                echo '</button>';
+                            } else {
+                                echo '<button class="btn-add-to-cart" disabled style="background: #6c757d;">';
+                                echo '<i class="fa fa-times"></i> Out of Stock';
+                                echo '</button>';
+                            }
+                            
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    }
+                } catch (Exception $e) {
+                    echo '<div class="col-12"><p class="text-danger">Error loading products: ' . $e->getMessage() . '</p></div>';
+                }
+                ?>
             </div>
         </div>
     </section>
@@ -934,42 +689,48 @@
                 <p>Browse our comprehensive range of laboratory products</p>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fa fa-cogs"></i>
-                        </div>
-                        <h3 class="category-title">Laboratory Equipment</h3>
-                        <p class="category-count">247 Products</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fa fa-flask"></i>
-                        </div>
-                        <h3 class="category-title">Chemical Reagents</h3>
-                        <p class="category-count">456 Products</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fa fa-shield"></i>
-                        </div>
-                        <h3 class="category-title">Safety Equipment</h3>
-                        <p class="category-count">189 Products</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="category-card">
-                        <div class="category-icon">
-                            <i class="fa fa-cube"></i>
-                        </div>
-                        <h3 class="category-title">Glassware</h3>
-                        <p class="category-count">355 Products</p>
-                    </div>
-                </div>
+                <?php
+                try {
+                    $categories = fetchAll("SELECT c.*, COUNT(p.id) as product_count 
+                                           FROM categories c 
+                                           LEFT JOIN products p ON c.id = p.category_id AND p.is_active = 1 
+                                           WHERE c.is_active = 1 
+                                           GROUP BY c.id 
+                                           ORDER BY c.name");
+                    
+                    if (empty($categories)) {
+                        echo '<div class="col-12"><p class="text-muted">No categories available at the moment.</p></div>';
+                    } else {
+                        $category_icons = [
+                            'Laboratory Equipment' => 'fa-cogs',
+                            'Chemical Reagents' => 'fa-flask',
+                            'Safety Equipment' => 'fa-shield',
+                            'Glassware' => 'fa-cube',
+                            'Raw Materials' => 'fa-leaf',
+                            'Tools' => 'fa-wrench'
+                        ];
+                        
+                        foreach ($categories as $category) {
+                            $icon = $category_icons[$category['name']] ?? 'fa-cube';
+                            
+                            echo '<div class="col-lg-3 col-md-6 mb-4">';
+                            echo '<div class="category-card">';
+                            echo '<div class="category-icon">';
+                            echo '<i class="fa ' . $icon . '"></i>';
+                            echo '</div>';
+                            echo '<h3 class="category-title">' . htmlspecialchars($category['name']) . '</h3>';
+                            echo '<p class="category-count">' . $category['product_count'] . ' Products</p>';
+                            if (!empty($category['description'])) {
+                                echo '<p class="text-muted" style="font-size: 0.9rem; margin-top: 10px;">' . htmlspecialchars($category['description']) . '</p>';
+                            }
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    }
+                } catch (Exception $e) {
+                    echo '<div class="col-12"><p class="text-danger">Error loading categories: ' . $e->getMessage() . '</p></div>';
+                }
+                ?>
             </div>
         </div>
     </section>

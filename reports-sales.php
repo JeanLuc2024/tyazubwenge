@@ -104,6 +104,56 @@
                                 <div class="white_shd full margin_bottom_30">
                                     <div class="full graph_head">
                                         <div class="heading1 margin_0">
+                                            <h2>Sales Summary</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <?php
+                                        // Calculate summary statistics
+                                        $summary_query = "
+                                            SELECT 
+                                                COUNT(DISTINCT s.id) as total_orders,
+                                                SUM(s.total_amount) as total_sales,
+                                                SUM(si.profit) as total_profit,
+                                                AVG(s.total_amount) as avg_order_value
+                                            FROM sales s
+                                            JOIN sale_items si ON s.id = si.sale_id
+                                        ";
+                                        $summary = fetchOne($summary_query);
+                                        ?>
+                                        <div class="col-md-3">
+                                            <div class="summary_item">
+                                                <h4>₦<?php echo number_format($summary['total_sales'] ?? 0, 2); ?></h4>
+                                                <p>Total Sales</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="summary_item">
+                                                <h4><?php echo $summary['total_orders'] ?? 0; ?></h4>
+                                                <p>Total Orders</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="summary_item">
+                                                <h4 class="text-success">₦<?php echo number_format($summary['total_profit'] ?? 0, 2); ?></h4>
+                                                <p>Total Profit</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="summary_item">
+                                                <h4>₦<?php echo number_format($summary['avg_order_value'] ?? 0, 2); ?></h4>
+                                                <p>Average Order Value</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row column1">
+                            <div class="col-md-12">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
                                             <h2>Detailed Sales Data</h2>
                                         </div>
                                     </div>
@@ -118,56 +168,63 @@
                                                         <th>Product</th>
                                                         <th>Quantity</th>
                                                         <th>Unit Price</th>
+                                                        <th>Cost Price</th>
                                                         <th>Total</th>
+                                                        <th>Profit</th>
                                                         <th>Payment Method</th>
                                                         <th>Status</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>2024-01-15</td>
-                                                        <td>INV-2024-001</td>
-                                                        <td>Dr. Sarah Johnson - University Lab</td>
-                                                        <td>Analytical Balance (2.5kg)</td>
-                                                        <td>1 piece</td>
-                                                        <td>₦185,000</td>
-                                                        <td>₦185,000</td>
-                                                        <td>Bank Transfer</td>
-                                                        <td><span class="badge badge-success">Paid</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2024-01-15</td>
-                                                        <td>INV-2024-002</td>
-                                                        <td>Research Institute</td>
-                                                        <td>Sodium Chloride (500g)</td>
-                                                        <td>5 kg</td>
-                                                        <td>₦2,500</td>
-                                                        <td>₦12,500</td>
-                                                        <td>Cash</td>
-                                                        <td><span class="badge badge-success">Paid</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2024-01-14</td>
-                                                        <td>INV-2024-003</td>
-                                                        <td>Medical Center</td>
-                                                        <td>Digital Microscope (1000x)</td>
-                                                        <td>1 piece</td>
-                                                        <td>₦245,000</td>
-                                                        <td>₦245,000</td>
-                                                        <td>Mobile Money</td>
-                                                        <td><span class="badge badge-success">Paid</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2024-01-14</td>
-                                                        <td>INV-2024-004</td>
-                                                        <td>Industrial Lab</td>
-                                                        <td>Safety Equipment Set</td>
-                                                        <td>2 sets</td>
-                                                        <td>₦33,900</td>
-                                                        <td>₦67,800</td>
-                                                        <td>Credit</td>
-                                                        <td><span class="badge badge-warning">Pending</span></td>
-                                                    </tr>
+                                                <tbody id="salesTableBody">
+                                                    <?php
+                                                    require_once 'config/database.php';
+                                                    
+                                                    // Fetch sales data with profit information
+                                                    $sales_query = "
+                                                        SELECT 
+                                                            s.sale_date,
+                                                            s.sale_number,
+                                                            s.customer_name,
+                                                            p.name as product_name,
+                                                            si.quantity,
+                                                            si.unit_price,
+                                                            p.unit_price as cost_price,
+                                                            si.total_price,
+                                                            si.profit,
+                                                            s.payment_method,
+                                                            s.payment_status
+                                                        FROM sales s
+                                                        JOIN sale_items si ON s.id = si.sale_id
+                                                        JOIN products p ON si.product_id = p.id
+                                                        ORDER BY s.sale_date DESC
+                                                        LIMIT 50
+                                                    ";
+                                                    
+                                                    $sales_data = fetchAll($sales_query);
+                                                    
+                                                    if (empty($sales_data)) {
+                                                        echo '<tr><td colspan="11" class="text-center text-muted">No sales data available</td></tr>';
+                                                    } else {
+                                                        foreach ($sales_data as $sale) {
+                                                            $status_class = $sale['payment_status'] == 'paid' ? 'badge-success' : 'badge-warning';
+                                                            $profit_class = $sale['profit'] >= 0 ? 'text-success' : 'text-danger';
+                                                            
+                                                            echo '<tr>';
+                                                            echo '<td>' . date('Y-m-d', strtotime($sale['sale_date'])) . '</td>';
+                                                            echo '<td>' . htmlspecialchars($sale['sale_number']) . '</td>';
+                                                            echo '<td>' . htmlspecialchars($sale['customer_name']) . '</td>';
+                                                            echo '<td>' . htmlspecialchars($sale['product_name']) . '</td>';
+                                                            echo '<td>' . $sale['quantity'] . '</td>';
+                                                            echo '<td>₦' . number_format($sale['unit_price'], 2) . '</td>';
+                                                            echo '<td>₦' . number_format($sale['cost_price'], 2) . '</td>';
+                                                            echo '<td>₦' . number_format($sale['total_price'], 2) . '</td>';
+                                                            echo '<td class="' . $profit_class . '">₦' . number_format($sale['profit'], 2) . '</td>';
+                                                            echo '<td>' . ucfirst($sale['payment_method']) . '</td>';
+                                                            echo '<td><span class="badge ' . $status_class . '">' . ucfirst($sale['payment_status']) . '</span></td>';
+                                                            echo '</tr>';
+                                                        }
+                                                    }
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -205,6 +262,31 @@
         }
 
         function printReport() {
+            // Calculate summary from the displayed data
+            const tableRows = document.querySelectorAll('#salesTableBody tr');
+            let totalSales = 0;
+            let totalProfit = 0;
+            let totalOrders = 0;
+            
+            tableRows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                if (cells.length >= 9) {
+                    const totalCell = cells[7]; // Total column
+                    const profitCell = cells[8]; // Profit column
+                    
+                    if (totalCell && profitCell) {
+                        const total = parseFloat(totalCell.textContent.replace('₦', '').replace(/,/g, ''));
+                        const profit = parseFloat(profitCell.textContent.replace('₦', '').replace(/,/g, ''));
+                        
+                        if (!isNaN(total)) totalSales += total;
+                        if (!isNaN(profit)) totalProfit += profit;
+                        totalOrders++;
+                    }
+                }
+            });
+            
+            const avgOrderValue = totalOrders > 0 ? totalSales / totalOrders : 0;
+            
             const printContent = `
                 <html>
                 <head>
@@ -220,6 +302,8 @@
                         .report-date { text-align: right; margin-bottom: 20px; }
                         .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
                         .summary-item { text-align: center; padding: 15px; background: #f8f9fa; border-radius: 8px; }
+                        .profit-positive { color: #28a745; }
+                        .profit-negative { color: #dc3545; }
                     </style>
                 </head>
                 <body>
@@ -235,20 +319,20 @@
                     <h3>Sales Summary</h3>
                     <div class="summary-grid">
                         <div class="summary-item">
-                            <h4>₦2,847,500</h4>
+                            <h4>₦${totalSales.toLocaleString()}</h4>
                             <p>Total Sales</p>
                         </div>
                         <div class="summary-item">
-                            <h4>156</h4>
+                            <h4>${totalOrders}</h4>
                             <p>Total Orders</p>
                         </div>
                         <div class="summary-item">
-                            <h4>₦18,253</h4>
-                            <p>Average Order Value</p>
+                            <h4 class="${totalProfit >= 0 ? 'profit-positive' : 'profit-negative'}">₦${totalProfit.toLocaleString()}</h4>
+                            <p>Total Profit</p>
                         </div>
                         <div class="summary-item">
-                            <h4>₦1,200,000</h4>
-                            <p>Top Product Sales</p>
+                            <h4>₦${avgOrderValue.toLocaleString()}</h4>
+                            <p>Average Order Value</p>
                         </div>
                     </div>
                     
@@ -262,7 +346,9 @@
                                 <th>Product</th>
                                 <th>Quantity</th>
                                 <th>Unit Price</th>
+                                <th>Cost Price</th>
                                 <th>Total</th>
+                                <th>Profit</th>
                                 <th>Payment Method</th>
                                 <th>Status</th>
                             </tr>
