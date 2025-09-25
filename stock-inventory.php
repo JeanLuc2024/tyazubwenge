@@ -149,8 +149,8 @@
                                                     <td><?php echo htmlspecialchars($product['unit_type']); ?></td>
                                                     <td><?php echo 'N/A'; ?></td>
                                                     <td><?php echo htmlspecialchars($product['expiry_date'] ? date('Y-m-d', strtotime($product['expiry_date'])) : 'N/A'); ?></td>
-                                                    <td>₦<?php echo number_format($product['unit_price'], 2); ?></td>
-                                                    <td>₦<?php echo number_format($product['quantity'] * $product['unit_price'], 2); ?></td>
+                                                    <td>RWF <?php echo number_format($product['unit_price'], 2); ?></td>
+                                                    <td>RWF <?php echo number_format($product['quantity'] * $product['unit_price'], 2); ?></td>
                                                     <td>
                                                         <?php 
                                                             $status = 'In Stock';
@@ -166,8 +166,8 @@
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <button class="btn btn-sm btn-outline-primary" onclick="editProduct(<?php echo $product['id']; ?>)">Edit</button>
-                                                        <button class="btn btn-sm btn-outline-info" onclick="viewProduct(<?php echo $product['id']; ?>)">View</button>
+                                                        <button class="btn btn-sm btn-outline-primary" onclick="editProductById(<?php echo $product['id']; ?>)">Edit</button>
+                                                        <button class="btn btn-sm btn-outline-info" onclick="viewProductById(<?php echo $product['id']; ?>)">View</button>
                                                     </td>
                                                 </tr>
                                                 <?php endforeach; ?>
@@ -194,12 +194,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="addProductForm">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Product Name *</label>
-                                    <input type="text" class="form-control" placeholder="e.g., Sodium Chloride (Pure Grade)" required>
+                                    <input type="text" id="productName" class="form-control" placeholder="e.g., Sodium Chloride (Pure Grade)" required>
                                 </div>
                             </div>
                         </div>
@@ -207,7 +207,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Category *</label>
-                                    <select class="form-control" required>
+                                    <select id="productCategory" class="form-control" required>
                                         <option>Chemical Reagents</option>
                                         <option>Laboratory Equipment</option>
                                         <option>Measuring Instruments</option>
@@ -220,7 +220,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Unit Type *</label>
-                                    <select class="form-control" required>
+                                    <select id="productUnitType" class="form-control" required>
                                         <option>kg (Kilograms)</option>
                                         <option>g (Grams)</option>
                                         <option>mg (Milligrams)</option>
@@ -236,13 +236,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Current Stock *</label>
-                                    <input type="number" step="0.001" class="form-control" placeholder="e.g., 2.5" required>
+                                    <input type="number" id="productQuantity" step="0.001" class="form-control" placeholder="e.g., 2.5" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Unit Price (RWF) *</label>
-                                    <input type="number" step="0.01" class="form-control" placeholder="e.g., 1200.00" required>
+                                    <input type="number" id="productUnitPrice" step="0.01" class="form-control" placeholder="e.g., 1200.00" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -282,7 +282,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Add Product</button>
+                    <button type="button" id="addProductBtn" class="btn btn-primary">Add Product</button>
                 </div>
             </div>
         </div>
@@ -499,55 +499,66 @@
         }
         
         // Calculate conversion
-        function viewProduct(productId) {
-            $.ajax({
-                url: `api/products/get.php?id=${productId}`,
-                method: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status === 'success') {
-                        const product = response.data;
-                        const content = `
-                            <p><strong>SKU:</strong> ${product.sku}</p>
-                            <p><strong>Name:</strong> ${product.name}</p>
-                            <p><strong>Category:</strong> ${product.category_name}</p>
-                            <p><strong>Quantity:</strong> ${product.quantity} ${product.unit_type}</p>
-                            <p><strong>Unit Price:</strong> ₦${parseFloat(product.unit_price).toFixed(2)}</p>
-                            <p><strong>Expiry Date:</strong> ${product.expiry_date || 'N/A'}</p>
-                            <p><strong>Description:</strong> ${product.description || 'N/A'}</p>
-                        `;
-                        $('#viewProductContent').html(content);
-                        $('#viewProductModal').modal('show');
-                    } else {
-                        alert(response.message);
-                    }
+        function viewProductById(productId) {
+            fetch(`api/products/get.php?id=${productId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const product = data.data;
+                    const content = `
+                        <p><strong>SKU:</strong> ${product.sku}</p>
+                        <p><strong>Name:</strong> ${product.name}</p>
+                        <p><strong>Category:</strong> ${product.category_name || 'N/A'}</p>
+                        <p><strong>Quantity:</strong> ${product.quantity} ${product.unit_type}</p>
+                        <p><strong>Unit Price:</strong> RWF ${parseFloat(product.unit_price).toFixed(2)}</p>
+                        <p><strong>Expiry Date:</strong> ${product.expiry_date || 'N/A'}</p>
+                        <p><strong>Description:</strong> ${product.description || 'N/A'}</p>
+                    `;
+                    $('#viewProductContent').html(content);
+                    $('#viewProductModal').modal('show');
+                } else {
+                    alert('Error loading product: ' + data.message);
                 }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error loading product: ' + error.message);
             });
         }
+        
+        // Keep the old function for compatibility
+        function viewProduct(productId) {
+            viewProductById(productId);
+        }
 
-        function editProduct(productId) {
-            $.ajax({
-                url: `api/products/get.php?id=${productId}`,
-                method: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status === 'success') {
-                        const product = response.data;
-                        $('#editProductModal #editProductId').val(product.id);
-                        $('#editProductModal #editProductName').val(product.name);
-                        $('#editProductModal #editProductSku').val(product.sku);
-                        $('#editProductModal #editProductCategory').val(product.category_id);
-                        $('#editProductModal #editProductUnit').val(product.unit_type);
-                        $('#editProductModal #editProductQuantity').val(product.quantity);
-                        $('#editProductModal #editProductPrice').val(product.unit_price);
-                        $('#editProductModal #editProductExpiry').val(product.expiry_date);
-                        $('#editProductModal #editProductDescription').val(product.description);
-                        $('#editProductModal').modal('show');
-                    } else {
-                        alert(response.message);
-                    }
+        function editProductById(productId) {
+            fetch(`api/products/get.php?id=${productId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const product = data.data;
+                    $('#editProductModal #editProductId').val(product.id);
+                    $('#editProductModal #editProductName').val(product.name);
+                    $('#editProductModal #editProductSku').val(product.sku);
+                    $('#editProductModal #editProductCategory').val(product.category_id);
+                    $('#editProductModal #editProductUnit').val(product.unit_type);
+                    $('#editProductModal #editProductQuantity').val(product.quantity);
+                    $('#editProductModal #editProductPrice').val(product.unit_price);
+                    $('#editProductModal #editProductExpiry').val(product.expiry_date);
+                    $('#editProductModal #editProductDescription').val(product.description);
+                    $('#editProductModal').modal('show');
+                } else {
+                    alert('Error loading product: ' + data.message);
                 }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error loading product: ' + error.message);
             });
+        }
+        
+        function editProduct(productId) {
+            editProductById(productId);
         }
 
         function saveEditProduct() {
@@ -676,27 +687,110 @@
         
         // Edit Product function
         function editProduct(sku) {
-            // For demo, show modal with placeholder data
-            $('#editProductModal').modal('show');
+            // Find product by SKU and load data
+            fetch('api/products/list.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const product = data.data.products.find(p => p.sku === sku);
+                    if (product) {
+                        // Fill the edit form
+                        document.getElementById('editProductName').value = product.name;
+                        document.getElementById('editProductDescription').value = product.description || '';
+                        document.getElementById('editProductCategory').value = product.category_id || 1;
+                        document.getElementById('editProductSku').value = product.sku;
+                        document.getElementById('editProductUnitType').value = product.unit_type;
+                        document.getElementById('editProductQuantity').value = product.quantity;
+                        document.getElementById('editProductUnitPrice').value = product.unit_price;
+                        
+                        // Set edit mode
+                        document.getElementById('editProductForm').setAttribute('data-edit-id', product.id);
+                        
+                        // Show modal
+                        $('#editProductModal').modal('show');
+                    } else {
+                        alert('Product not found');
+                    }
+                } else {
+                    alert('Error loading products');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error loading product: ' + error.message);
+            });
         }
         
         // View Product function
         function viewProduct(sku) {
-            const content = `
-                <h6>Product Information</h6>
-                <p><strong>SKU:</strong> ${sku}</p>
-                <p><strong>Name:</strong> Sample Product</p>
-                <p><strong>Category:</strong> Laboratory Equipment</p>
-                <p><strong>Stock:</strong> 10 units</p>
-                <p><strong>Price:</strong> ₦10,000</p>
-            `;
-            document.getElementById('viewProductContent').innerHTML = content;
-            $('#viewProductModal').modal('show');
+            // Find product by SKU and fetch real data
+            fetch('api/products/list.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const product = data.data.products.find(p => p.sku === sku);
+                    if (product) {
+                        const content = `
+                            <h6>Product Information</h6>
+                            <p><strong>SKU:</strong> ${product.sku}</p>
+                            <p><strong>Name:</strong> ${product.name}</p>
+                            <p><strong>Category:</strong> ${product.category_name || 'N/A'}</p>
+                            <p><strong>Stock:</strong> ${product.quantity} ${product.unit_type}</p>
+                            <p><strong>Price:</strong> RWF ${parseFloat(product.unit_price).toFixed(2)}</p>
+                            <p><strong>Description:</strong> ${product.description || 'N/A'}</p>
+                        `;
+                        document.getElementById('viewProductContent').innerHTML = content;
+                        $('#viewProductModal').modal('show');
+                    } else {
+                        alert('Product not found');
+                    }
+                } else {
+                    alert('Error loading products');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error loading product: ' + error.message);
+            });
         }
         
         function saveEditProduct() {
-            alert('Product updated successfully!');
-            $('#editProductModal').modal('hide');
+            // Get form data
+            const productData = {
+                name: document.getElementById('editProductName').value,
+                description: document.getElementById('editProductDescription').value,
+                category_id: document.getElementById('editProductCategory').value,
+                sku: document.getElementById('editProductSku').value,
+                unit_type: document.getElementById('editProductUnitType').value,
+                quantity: parseFloat(document.getElementById('editProductQuantity').value),
+                unit_price: parseFloat(document.getElementById('editProductUnitPrice').value),
+                supplier_id: 1 // Default supplier
+            };
+            
+            const productId = document.getElementById('editProductForm').getAttribute('data-edit-id');
+            
+            // Send to API
+            fetch(`api/products/update.php?id=${productId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(productData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Product updated successfully!');
+                    $('#editProductModal').modal('hide');
+                    location.reload(); // Reload to show updated data
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error updating product: ' + error.message);
+            });
         }
 
         function editProductFromView() {
@@ -710,9 +804,52 @@
         });
         
         // Handle Add Product button in modal
-        document.querySelector('.modal-footer .btn-primary').addEventListener('click', function() {
-            alert('Product added successfully!');
-            $('#addProductModal').modal('hide');
+        document.getElementById('addProductBtn').addEventListener('click', function() {
+            // Get form data
+            const form = document.getElementById('addProductForm');
+            const formData = new FormData(form);
+            
+            // Get values from form
+            const productData = {
+                name: document.getElementById('productName').value,
+                description: document.getElementById('productDescription') ? document.getElementById('productDescription').value : '',
+                category_id: 1, // Default category
+                sku: 'PROD-' + Date.now().toString().slice(-6), // Generate SKU
+                unit_type: document.getElementById('productUnitType').value,
+                quantity: parseFloat(document.getElementById('productQuantity').value),
+                unit_price: parseFloat(document.getElementById('productUnitPrice').value),
+                supplier_id: 1 // Default supplier
+            };
+            
+            // Validate required fields
+            if (!productData.name || !productData.category_id || !productData.sku || !productData.quantity || !productData.unit_price) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Send to API
+            fetch('api/products/create.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(productData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Product added successfully!');
+                    $('#addProductModal').modal('hide');
+                    form.reset();
+                    location.reload(); // Reload to show updated data
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error adding product: ' + error.message);
+            });
         });
     </script>
 </body>

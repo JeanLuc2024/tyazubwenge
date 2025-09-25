@@ -204,15 +204,15 @@
                                                                   <div class="col-md-6">
                                                                      <div class="form-group">
                                                                         <label>Full Name</label>
-                                                                        <input type="text" class="form-control" id="fullName" value="John David">
+                                                                        <input type="text" class="form-control" id="fullName" value="">
                                                                      </div>
                                                                      <div class="form-group">
                                                                         <label>Email Address</label>
-                                                                        <input type="email" class="form-control" id="email" value="asdf@gmail.com">
+                                                                        <input type="email" class="form-control" id="email" value="">
                                                                      </div>
                                                                      <div class="form-group">
                                                                         <label>Phone Number</label>
-                                                                        <input type="tel" class="form-control" id="phone" value="+234-801-234-5678">
+                                                                        <input type="tel" class="form-control" id="phone" value="">
                                                                      </div>
                                                                   </div>
                                                                   <div class="col-md-6">
@@ -347,18 +347,43 @@
             const now = new Date();
             document.getElementById('lastLogin').value = now.toLocaleString();
             
-            // Store updated profile in localStorage
-            const updatedProfile = {
-               name: fullName,
-               email: email,
-               phone: phone,
-               lastLogin: now.toISOString()
+            // Send to API
+            const profileData = {
+                name: fullName,
+                email: email,
+                phone: phone
             };
             
-            localStorage.setItem('adminUser', JSON.stringify(updatedProfile));
-            sessionStorage.setItem('adminUser', JSON.stringify(updatedProfile));
-            
-            alert('Profile updated successfully!');
+            fetch('api/profile/update.php', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(profileData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Store updated profile in localStorage
+                    const updatedProfile = {
+                       name: fullName,
+                       email: email,
+                       phone: phone,
+                       lastLogin: now.toISOString()
+                    };
+                    
+                    localStorage.setItem('adminUser', JSON.stringify(updatedProfile));
+                    sessionStorage.setItem('adminUser', JSON.stringify(updatedProfile));
+                    
+                    alert('Profile updated successfully!');
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error updating profile: ' + error.message);
+            });
          }
          
          function changePassword() {
@@ -395,7 +420,44 @@
                window.location.href = 'login.php';
             }
          }
-      </script>
-   </body>
+         
+         // Load profile data on page load
+         window.addEventListener('load', function() {
+            // Load profile data from localStorage
+            const adminUser = JSON.parse(localStorage.getItem('adminUser') || '{}');
+            
+            if (adminUser.name) {
+               document.getElementById('fullName').value = adminUser.name;
+               document.querySelector('.contact_inner h3').textContent = adminUser.name;
+            } else {
+               // Set default values if no data
+               document.getElementById('fullName').value = 'Admin User';
+               document.querySelector('.contact_inner h3').textContent = 'Admin User';
+            }
+            
+            if (adminUser.email) {
+               document.getElementById('email').value = adminUser.email;
+               document.querySelector('.contact_inner ul li:nth-child(1)').innerHTML = `<i class="fa fa-envelope-o"></i> : ${adminUser.email}`;
+            } else {
+               document.getElementById('email').value = 'admin@example.com';
+               document.querySelector('.contact_inner ul li:nth-child(1)').innerHTML = `<i class="fa fa-envelope-o"></i> : admin@example.com`;
+            }
+            
+            if (adminUser.phone) {
+               document.getElementById('phone').value = adminUser.phone;
+               document.querySelector('.contact_inner ul li:nth-child(2)').innerHTML = `<i class="fa fa-phone"></i> : ${adminUser.phone}`;
+            } else {
+               document.getElementById('phone').value = '+250-123-456-789';
+               document.querySelector('.contact_inner ul li:nth-child(2)').innerHTML = `<i class="fa fa-phone"></i> : +250-123-456-789`;
+            }
+            
+            // Update header and sidebar names
+            const nameElements = document.querySelectorAll('.name_user');
+            nameElements.forEach(element => {
+               element.textContent = adminUser.name || 'Admin User';
+            });
+         });
+    </script>
+</body>
 </html>
 

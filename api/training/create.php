@@ -3,9 +3,18 @@
  * Training Programs - Create Endpoint
  */
 
+require_once '../../config/api_config.php';
+
 Auth::checkAuth();
 
-$input = json_decode(file_get_contents('php://input'), true);
+// Get input data
+if (isset($GLOBALS['mock_input'])) {
+    $input_data = $GLOBALS['mock_input'];
+} else {
+    $input_data = file_get_contents('php://input');
+}
+
+$input = json_decode($input_data, true);
 
 if (!$input) {
     APIResponse::error('Invalid JSON input');

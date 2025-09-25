@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../../config/api_config.php';
 
+Auth::checkAuth();
+
 if (!isset($_GET['id'])) {
     APIResponse::error('Product ID is required.');
     exit;

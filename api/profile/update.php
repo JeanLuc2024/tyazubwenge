@@ -9,12 +9,12 @@ require_once '../../config/api_config.php';
 try {
     // Check if user is logged in
     session_start();
-    if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['admin_id'])) {
         APIResponse::error('Unauthorized', 401);
     }
     
     $input = json_decode(file_get_contents('php://input'), true);
-    $userId = $_SESSION['user_id'];
+    $userId = $_SESSION['admin_id'];
     
     if ($_SERVER['REQUEST_METHOD'] !== 'PUT') {
         APIResponse::error('Method not allowed', 405);

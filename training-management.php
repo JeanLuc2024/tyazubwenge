@@ -68,7 +68,7 @@
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="trainingProgramsTableBody">
                                                 <tr>
                                                     <td>TRG-001</td>
                                                     <td>Detergent Making (Liquid & Powder)</td>
@@ -181,7 +181,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Program Name *</label>
-                                    <input type="text" class="form-control" placeholder="e.g., Detergent Making" required>
+                                    <input type="text" id="programName" class="form-control" placeholder="e.g., Detergent Making" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -201,19 +201,19 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Duration (Days) *</label>
-                                    <input type="number" class="form-control" placeholder="e.g., 3" required>
+                                    <input type="number" id="durationHours" class="form-control" placeholder="e.g., 3" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Price (₦) *</label>
-                                    <input type="number" class="form-control" placeholder="e.g., 25000" required>
+                                    <input type="number" id="price" class="form-control" placeholder="e.g., 25000" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Max Students</label>
-                                    <input type="number" class="form-control" placeholder="e.g., 20">
+                                    <input type="number" id="maxStudents" class="form-control" placeholder="e.g., 20">
                                 </div>
                             </div>
                         </div>
@@ -237,7 +237,7 @@
                         </div>
                         <div class="form-group">
                             <label>Program Description</label>
-                            <textarea class="form-control" rows="4" placeholder="Detailed description of what students will learn..."></textarea>
+                            <textarea id="description" class="form-control" rows="4" placeholder="Detailed description of what students will learn..."></textarea>
                         </div>
                         <div class="form-group">
                             <label>Learning Objectives</label>
@@ -280,69 +280,90 @@
             const formData = new FormData(form);
             
             // Simple validation
-            const programName = form.querySelector('input[placeholder="e.g., Detergent Making"]').value;
+            const programName = document.getElementById('programName').value;
             const category = form.querySelector('select').value;
-            const duration = form.querySelector('input[placeholder="e.g., 3"]').value;
-            const price = form.querySelector('input[placeholder="e.g., 25000"]').value;
+            const duration = document.getElementById('durationHours').value;
+            const price = document.getElementById('price').value;
             
             if (!programName || !category || !duration || !price) {
                 alert('Please fill in all required fields');
                 return;
             }
             
-            // Add to table (in a real app, this would be sent to server)
-            const tableBody = document.querySelector('.table tbody');
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td>TRG-${Date.now().toString().slice(-3)}</td>
-                <td>${programName}</td>
-                <td>${category}</td>
-                <td>${duration} Days</td>
-                <td>${parseInt(price).toLocaleString()}</td>
-                <td>0</td>
-                <td><span class="badge badge-success">Active</span></td>
-                <td>
-                    <button class="btn btn-sm btn-outline-primary" onclick="editTrainingProgram(this)">Edit</button>
-                    <button class="btn btn-sm btn-outline-info" onclick="viewTrainingProgram(this)">View</button>
-                    <button class="btn btn-sm btn-outline-danger" onclick="deleteTrainingProgram(this)">Delete</button>
-                </td>
-            `;
-            tableBody.appendChild(newRow);
+            // Send to API
+            const trainingData = {
+                name: programName,
+                description: document.getElementById('description').value,
+                duration_hours: parseInt(duration) * 8, // Convert days to hours
+                price: parseFloat(price),
+                max_students: parseInt(document.getElementById('maxStudents').value) || 20
+            };
             
-            // Close modal and reset form
-            $('#addTrainingModal').modal('hide');
-            form.reset();
+            // Check if editing or adding
+            const editId = form.getAttribute('data-edit-id');
+            const url = editId ? `api/training/update.php?id=${editId}` : 'api/training/create.php';
+            const method = editId ? 'PUT' : 'POST';
             
-            alert('Training program added successfully!');
+            fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(trainingData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(editId ? 'Training program updated successfully!' : 'Training program added successfully!');
+                    $('#addTrainingModal').modal('hide');
+                    form.reset();
+                    form.removeAttribute('data-edit-id');
+                    document.querySelector('#addTrainingModal .modal-title').textContent = 'Add New Training Program';
+                    document.querySelector('#addTrainingModal .btn-primary').textContent = 'Add Program';
+                    loadTrainingPrograms(); // Reload the table
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error: ' + error.message);
+            });
         }
         
         // Edit training program function
-        function editTrainingProgram(button) {
-            const row = button.closest('tr');
-            const cells = row.querySelectorAll('td');
-            
-            const programId = cells[0].textContent;
-            const programName = cells[1].textContent;
-            const category = cells[2].textContent;
-            const duration = cells[3].textContent.replace(' Days', '');
-            const price = cells[4].textContent.replace(/,/g, '');
-            
-            // Fill the form with existing data
-            const form = document.getElementById('addTrainingForm');
-            form.querySelector('input[placeholder="e.g., Detergent Making"]').value = programName;
-            form.querySelector('select').value = category;
-            form.querySelector('input[placeholder="e.g., 3"]').value = duration;
-            form.querySelector('input[placeholder="e.g., 25000"]').value = price;
-            
-            // Change modal title and button
-            document.querySelector('#addTrainingModal .modal-title').textContent = 'Edit Training Program';
-            document.querySelector('#addTrainingModal .btn-primary').textContent = 'Update Program';
-            document.querySelector('#addTrainingModal .btn-primary').onclick = function() {
-                updateTrainingProgram(row, programId);
-            };
-            
-            // Show modal
-            $('#addTrainingModal').modal('show');
+        function editTrainingProgram(programId) {
+            // Fetch program data from API
+            fetch(`api/training/get.php?id=${programId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const program = data.data;
+                    
+                    // Fill the form with existing data
+                    document.getElementById('programName').value = program.name;
+                    document.getElementById('description').value = program.description || '';
+                    document.getElementById('durationHours').value = Math.ceil(program.duration_hours / 8);
+                    document.getElementById('price').value = program.price;
+                    document.getElementById('maxStudents').value = program.max_students || 20;
+                    
+                    // Change modal title and button
+                    document.querySelector('#addTrainingModal .modal-title').textContent = 'Edit Training Program';
+                    document.querySelector('#addTrainingModal .btn-primary').textContent = 'Update Program';
+                    
+                    // Set edit mode
+                    document.getElementById('addTrainingForm').setAttribute('data-edit-id', programId);
+                    
+                    // Show modal
+                    $('#addTrainingModal').modal('show');
+                } else {
+                    alert('Error loading program: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error loading program: ' + error.message);
+            });
         }
         
         // Update training program function
@@ -455,6 +476,48 @@
             printWindow.document.close();
             printWindow.print();
         }
+        
+        // Load training programs on page load
+        function loadTrainingPrograms() {
+            fetch('api/training/list.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const tbody = document.getElementById('trainingProgramsTableBody');
+                    if (tbody) {
+                        tbody.innerHTML = '';
+                        data.data.forEach(program => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>TRG-${program.id.toString().padStart(3, '0')}</td>
+                                <td>${program.name}</td>
+                                <td>Chemical Manufacturing</td>
+                                <td>${Math.ceil(program.duration_hours / 8)} Days</td>
+                                <td>RWF ${parseFloat(program.price).toLocaleString()}</td>
+                                <td>0</td>
+                                <td><span class="badge badge-${program.is_active ? 'success' : 'warning'}">${program.is_active ? 'Active' : 'Inactive'}</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="editTrainingProgram(${program.id})">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" onclick="viewTrainingProgram(${program.id})">View</button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="deleteTrainingProgram(${program.id})">Delete</button>
+                                </td>
+                            `;
+                            tbody.appendChild(row);
+                        });
+                    }
+                } else {
+                    console.error('Error loading training programs:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading training programs:', error);
+            });
+        }
+        
+        // Load data on page load
+        window.addEventListener('load', function() {
+            loadTrainingPrograms();
+        });
     </script>
 </body>
 </html>

@@ -344,67 +344,98 @@
                     alert('Please fill in all required fields');
                     return;
                 }
-                const tbody = document.querySelector('table.table-modern tbody');
-                if (tbody) {
-                    const id = 'CUST-' + Math.floor(Math.random()*900+100).toString().padStart(3, '0');
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${id}</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="images/layout_img/user_img.jpg" class="rounded-circle mr-2" width="30" height="30">
-                                ${data.firstName} ${data.lastName}
-                            </div>
-                        </td>
-                        <td>${data.email}</td>
-                        <td>${data.phone}</td>
-                        <td>${data.type}</td>
-                        <td>₦0</td>
-                        <td>₦0</td>
-                        <td><span class="badge badge-success">Active</span></td>
-                        <td>
-                            <button class="btn btn-sm btn-outline-primary" onclick="editCustomer(this)">Edit</button>
-                            <button class="btn btn-sm btn-outline-info" onclick="viewCustomer(this)">View</button>
-                        </td>`;
-                    tbody.prepend(row);
-                }
-                $('#addCustomerModal').modal('hide');
-                form.reset();
+                // Send to API
+                fetch('api/customers/create.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.success) {
+                        alert('Customer added successfully!');
+                        $('#addCustomerModal').modal('hide');
+                        form.reset();
+                        loadCustomers(); // Reload the table
+                    } else {
+                        alert('Error: ' + result.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error adding customer: ' + error.message);
+                });
             });
         });
         
+        // Load customers function
+        function loadCustomers() {
+            fetch('api/customers/list.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const tbody = document.querySelector('table.table-modern tbody');
+                    if (tbody) {
+                        tbody.innerHTML = '';
+                        data.data.forEach(customer => {
+                            const row = document.createElement('tr');
+                            row.setAttribute('data-customer-id', customer.id);
+                            row.innerHTML = `
+                                <td>CUST-${customer.id.toString().padStart(3, '0')}</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="images/layout_img/user_img.jpg" class="rounded-circle mr-2" width="30" height="30">
+                                        ${customer.first_name} ${customer.last_name}
+                                    </div>
+                                </td>
+                                <td>${customer.email}</td>
+                                <td>${customer.phone}</td>
+                                <td>${customer.customer_type}</td>
+                                <td>RWF 0</td>
+                                <td>RWF 0</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="editCustomer(${customer.id})">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" onclick="viewCustomer(${customer.id})">View</button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="deleteCustomer(${customer.id})">Delete</button>
+                                </td>`;
+                            tbody.appendChild(row);
+                        });
+                    }
+                } else {
+                    console.error('Error loading customers:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading customers:', error);
+            });
+        }
+        
+        // Load customers on page load
+        window.addEventListener('load', function() {
+            loadCustomers();
+        });
+        
         // Edit customer function
-        function editCustomer(button) {
-            const row = button.closest('tr');
-            const cells = row.querySelectorAll('td');
+        function editCustomer(customerId) {
+            // For now, show a simple edit form
+            const newName = prompt('Enter new customer name:', 'John Doe');
+            const newEmail = prompt('Enter new email:', 'john@example.com');
+            const newPhone = prompt('Enter new phone:', '+250-123-456-789');
             
-            const customerId = cells[0].textContent;
-            const name = cells[1].querySelector('div').textContent.trim();
-            const email = cells[2].textContent;
-            const phone = cells[3].textContent;
-            const type = cells[4].textContent;
-            const totalPurchases = cells[5].textContent;
-            const creditBalance = cells[6].textContent;
-            const status = cells[7].querySelector('span').textContent;
-            
-            // Fill the form with existing data
-            const form = document.getElementById('addCustomerForm');
-            const nameParts = name.split(' ');
-            form.querySelector('input[name="firstName"]').value = nameParts[0] || '';
-            form.querySelector('input[name="lastName"]').value = nameParts.slice(1).join(' ') || '';
-            form.querySelector('input[name="email"]').value = email;
-            form.querySelector('input[name="phone"]').value = phone;
-            form.querySelector('select[name="type"]').value = type;
-            
-            // Change modal title and button
-            document.querySelector('#addCustomerModal .modal-title').textContent = 'Edit Customer';
-            document.querySelector('#addCustomerModal .btn-primary').textContent = 'Update Customer';
-            document.querySelector('#addCustomerModal .btn-primary').onclick = function() {
-                updateCustomer(row, customerId);
-            };
-            
-            // Show modal
-            $('#addCustomerModal').modal('show');
+            if (newName && newEmail && newPhone) {
+                // Update the row in the table
+                const row = document.querySelector(`tr[data-customer-id="${customerId}"]`);
+                if (row) {
+                    const cells = row.querySelectorAll('td');
+                    cells[1].querySelector('div').textContent = newName;
+                    cells[2].textContent = newEmail;
+                    cells[3].textContent = newPhone;
+                }
+                alert('Customer updated successfully!');
+            }
         }
         
         // Update customer function
@@ -442,20 +473,30 @@
         }
         
         // View customer function
-        function viewCustomer(button) {
-            const row = button.closest('tr');
-            const cells = row.querySelectorAll('td');
-            
-            const customerId = cells[0].textContent;
-            const name = cells[1].querySelector('div').textContent.trim();
-            const email = cells[2].textContent;
-            const phone = cells[3].textContent;
-            const type = cells[4].textContent;
-            const totalPurchases = cells[5].textContent;
-            const creditBalance = cells[6].textContent;
-            const status = cells[7].querySelector('span').textContent;
-            
-            alert(`Customer Details:\n\nID: ${customerId}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nType: ${type}\nTotal Purchases: ${totalPurchases}\nCredit Balance: ${creditBalance}\nStatus: ${status}`);
+        function viewCustomer(customerId) {
+            const row = document.querySelector(`tr[data-customer-id="${customerId}"]`);
+            if (row) {
+                const cells = row.querySelectorAll('td');
+                const name = cells[1].querySelector('div').textContent.trim();
+                const email = cells[2].textContent;
+                const phone = cells[3].textContent;
+                const type = cells[4].textContent;
+                const totalPurchases = cells[5].textContent;
+                const creditBalance = cells[6].textContent;
+                const status = cells[7].querySelector('span').textContent;
+                
+                alert(`Customer Details:\n\nID: ${customerId}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nType: ${type}\nTotal Purchases: ${totalPurchases}\nCredit Balance: ${creditBalance}\nStatus: ${status}`);
+            }
+        }
+        
+        function deleteCustomer(customerId) {
+            if (confirm('Are you sure you want to delete this customer?')) {
+                const row = document.querySelector(`tr[data-customer-id="${customerId}"]`);
+                if (row) {
+                    row.remove();
+                    alert('Customer deleted successfully!');
+                }
+            }
         }
         
         // Notification functions

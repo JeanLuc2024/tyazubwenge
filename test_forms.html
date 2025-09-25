@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Forms</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        button { padding: 10px 15px; margin: 5px; }
+        .result { margin-top: 10px; padding: 10px; background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Test Forms</h1>
+    
+    <div class="test-section">
+        <h3>1. Test Training Program</h3>
+        <button onclick="testTraining()">Test Training API</button>
+        <div id="training-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>2. Test Product</h3>
+        <button onclick="testProduct()">Test Product API</button>
+        <div id="product-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>3. Test Profile Update</h3>
+        <button onclick="testProfile()">Test Profile API</button>
+        <div id="profile-result" class="result"></div>
+    </div>
+
+    <script>
+        function testTraining() {
+            const resultDiv = document.getElementById('training-result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            const data = {
+                name: 'Test Training Program',
+                description: 'Test Description',
+                duration_hours: 24,
+                price: 25000,
+                max_students: 20
+            };
+            
+            fetch('api/training/create.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(text => {
+                resultDiv.innerHTML = 'Response: ' + text;
+                console.log('Training response:', text);
+            })
+            .catch(error => {
+                resultDiv.innerHTML = 'Error: ' + error.message;
+            });
+        }
+        
+        function testProduct() {
+            const resultDiv = document.getElementById('product-result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            const data = {
+                name: 'Test Product',
+                description: 'Test Description',
+                category_id: 1,
+                sku: 'TEST-001',
+                unit_type: 'pieces',
+                quantity: 10,
+                unit_price: 1000,
+                supplier_id: 1
+            };
+            
+            fetch('api/products/create.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(text => {
+                resultDiv.innerHTML = 'Response: ' + text;
+                console.log('Product response:', text);
+            })
+            .catch(error => {
+                resultDiv.innerHTML = 'Error: ' + error.message;
+            });
+        }
+        
+        function testProfile() {
+            const resultDiv = document.getElementById('profile-result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            const data = {
+                name: 'Test Admin',
+                email: 'test@example.com',
+                phone: '+250-123-456-789'
+            };
+            
+            fetch('api/profile/update.php', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(text => {
+                resultDiv.innerHTML = 'Response: ' + text;
+                console.log('Profile response:', text);
+            })
+            .catch(error => {
+                resultDiv.innerHTML = 'Error: ' + error.message;
+            });
+        }
+    </script>
+</body>
+</html>

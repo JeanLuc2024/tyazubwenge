@@ -3,6 +3,8 @@
  * Products - Create Endpoint
  */
 
+require_once '../../config/api_config.php';
+
 Auth::checkAuth();
 
 $input = json_decode(file_get_contents('php://input'), true);

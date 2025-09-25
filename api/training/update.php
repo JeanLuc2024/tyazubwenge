@@ -3,20 +3,19 @@
  * Training Programs - Update Endpoint
  */
 
+require_once '../../config/api_config.php';
+
 Auth::checkAuth();
 
 $input = json_decode(file_get_contents('php://input'), true);
 
-if (!$input || !isset($input['id'])) {
-    APIResponse::error('Program ID is required');
+if (!$input) {
+    APIResponse::error('Invalid JSON input');
 }
 
-$programId = (int)$input['id'];
-
-// Check if program exists
-$existingProgram = fetchOne("SELECT * FROM training_programs WHERE id = ?", [$programId]);
-if (!$existingProgram) {
-    APIResponse::notFound('Training program not found');
+$id = $_GET['id'] ?? null;
+if (!$id) {
+    APIResponse::error('Training program ID is required', 400);
 }
 
 // Validate required fields
@@ -42,22 +41,26 @@ if (!empty($errors)) {
     APIResponse::validationError($errors);
 }
 
-// Check if program name already exists (excluding current program)
-$existingName = fetchOne("SELECT id FROM training_programs WHERE name = ? AND id != ? AND is_active = 1", [$input['name'], $programId]);
-if ($existingName) {
-    APIResponse::validationError(['name' => 'Training program with this name already exists']);
-}
-
-// Check if new max_students is not less than current enrollments
-$currentEnrollments = fetchOne("SELECT COUNT(*) as count FROM enrollments WHERE training_program_id = ? AND status = 'enrolled'", [$programId])['count'];
-if ($input['max_students'] < $currentEnrollments) {
-    APIResponse::validationError(['max_students' => "Cannot reduce max students below current enrollments ({$currentEnrollments})"]);
-}
-
 try {
+    // Check if program exists
+    $existingProgram = fetchOne("SELECT id FROM training_programs WHERE id = ? AND is_active = 1", [$id]);
+    if (!$existingProgram) {
+        APIResponse::error('Training program not found', 404);
+    }
+    
+    // Check if name already exists (excluding current program)
+    $duplicateCheck = fetchOne("SELECT id FROM training_programs WHERE name = ? AND id != ? AND is_active = 1", [$input['name'], $id]);
+    if ($duplicateCheck) {
+        APIResponse::validationError(['name' => 'Training program with this name already exists']);
+    }
+    
     // Update training program
     $sql = "UPDATE training_programs SET 
-            name = ?, description = ?, duration_hours = ?, price = ?, max_students = ?,
+            name = ?, 
+            description = ?, 
+            duration_hours = ?, 
+            price = ?, 
+            max_students = ?,
             updated_at = CURRENT_TIMESTAMP
             WHERE id = ?";
     
@@ -67,7 +70,7 @@ try {
         (int)$input['duration_hours'],
         (float)$input['price'],
         (int)$input['max_students'],
-        $programId
+        (int)$id
     ];
     
     $stmt = executeQuery($sql, $params);
@@ -77,17 +80,12 @@ try {
     }
     
     // Get updated program
-    $program = fetchOne("SELECT * FROM training_programs WHERE id = ?", [$programId]);
+    $updatedProgram = fetchOne("SELECT * FROM training_programs WHERE id = ?", [$id]);
     
-    APIResponse::success($program, 'Training program updated successfully');
+    APIResponse::success($updatedProgram, 'Training program updated successfully');
     
 } catch (Exception $e) {
-    logError('Training program update failed', ['error' => $e->getMessage(), 'program_id' => $programId]);
-    APIResponse::error('Failed to update training program: ' . $e->getMessage());
+    logError("Error updating training program", ['error' => $e->getMessage(), 'input' => $input]);
+    APIResponse::error('An error occurred while updating the training program');
 }
 ?>
-
-
-
-
-

@@ -78,7 +78,7 @@ class APIResponse {
 class Auth {
     public static function checkAuth() {
         // Check for admin session
-        if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+        if (!isset($_SESSION['admin_id']) || empty($_SESSION['admin_id'])) {
             APIResponse::unauthorized('Please login to access this resource');
         }
     }
